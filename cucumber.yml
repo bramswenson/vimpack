@@ -1,0 +1,13 @@
+<%
+opts = '--color --require features'
+rerun = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
+rerun_opts = rerun.to_s.strip.empty? ? 
+  "#{opts} --format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} features" : 
+  "#{opts} --format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} #{rerun}"
+std_opts = "#{opts} --format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags ~@wip"
+%>
+default: <%= std_opts %> features
+wip: <%= opts %> --tags @wip:3 --wip features
+rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip
+autotest: <%= std_opts %>
+autotest-all: <%= std_opts %>
