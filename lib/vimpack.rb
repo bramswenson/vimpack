@@ -1,3 +1,2 @@
-module Vimpack
-  # Your code goes here...
-end
+require 'thor'
+require 'vimpack/cli'
