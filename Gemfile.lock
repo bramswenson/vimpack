@@ -10,6 +10,7 @@ GEM
     aruba (0.2.7)
       background_process
       cucumber (~> 0.10.0)
+    autotest-standalone (4.5.4)
     background_process (1.2)
     builder (3.0.0)
     cucumber (0.10.0)
@@ -38,6 +39,7 @@ PLATFORMS
 
 DEPENDENCIES
   aruba
+  autotest-standalone
   cucumber
   rspec
   thor
