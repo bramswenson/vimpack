@@ -1,0 +1,12 @@
+begin
+  require "autotest/growl"
+rescue LoadError
+  puts 'Not going to growl'
+end
+Autotest.add_hook :initialize do |at|
+  at.add_exception %r%^\./\.autotest%
+  at.add_exception %r%^\./.git.%
+  at.add_exception %r%^\./tmp%
+  at.add_exception %r%^\./log%
+  at.add_exception %r%^\./rerun\.txt%
+end
