@@ -1,1 +1,1 @@
-# put helper methods here
+require 'vimpack'
