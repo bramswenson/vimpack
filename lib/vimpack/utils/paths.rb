@@ -1,28 +1,31 @@
 module Vimpack
   module Utils
     module Paths
-      def home_dir
-        @home_dir ||= ENV['HOME']
+      def home_path
+        @home_path ||= ENV['HOME']
       end
 
-      def home_dir=(path)
-        @home_dir = path
+      def home_path=(path)
+        @home_path = path
       end
 
-      def vimpack_dir
-        File.join(home_dir, '.vimpack')
+      def vimpack_path
+        File.join(home_path, '.vimpack')
       end
 
-      def bundle_dir
-        File.join(home_dir, '.vimpack')
+      def vim_path
+        File.join(vimpack_path, 'vim')
       end
 
-      def vim_dir
-        File.join(home_dir, '.vim')
+      def bundle_path
+        File.join(vim_path, 'bundle')
       end
 
-      def vimrc_file
-        File.join(home_dir, '.vimrc')
+      def autoload_path
+        File.join(vim_path, 'bundle')
+      end
+      def vimrc_path
+        File.join(vimpack_path, 'vimrc')
       end
 
       def vimpack_dir_exists?

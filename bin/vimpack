@@ -2,5 +2,10 @@
 
 require 'rubygems'
 require 'bundler/setup'
-require 'vimpack'
+begin
+  require 'vimpack'
+rescue LoadError => e
+  $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+  require 'vimpack'
+end
 Vimpack::CLI.start
