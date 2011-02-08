@@ -1,5 +1,8 @@
-require 'thor'
-
+require 'trollop'
+require 'rainbow'
+require 'childprocess'
+require 'fileutils'
+require 'erb'
 require 'vimpack/utils'
 require 'vimpack/commands'
 require 'vimpack/cli'

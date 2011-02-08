@@ -8,4 +8,39 @@ rescue LoadError => e
   $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
   require 'vimpack'
 end
-Vimpack::CLI.start
+
+USAGE = <<-EOU
+Manage bundles of vim scripts and vimrc
+
+Usage:
+       vimpack <subcommand>
+       vimpack init - Initalize vimpack repository
+EOU
+
+SUB_COMMANDS = %w{ init search }
+global_opts = Trollop::options do
+  version 'vimpack 0.0.1 (c) 2011 Bram Swenson'
+  banner USAGE
+  stop_on SUB_COMMANDS
+end
+
+cmd = ARGV.shift
+unless SUB_COMMANDS.include?(cmd)
+  Trollop::die USAGE
+end
+
+case cmd
+when 'init'
+  options = Trollop::options do
+    banner 'Initialize vimpack repository'
+    opt :home_directory, 'The home directory of the user', :short => '-d'
+  end
+  Vimpack::Commands::Init.run(options)
+when 'search'
+  Trollop::options do
+    banner 'Search for vim scripts'
+  end
+else
+  Trollop::die USAGE
+end
+

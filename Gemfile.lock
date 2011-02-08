@@ -2,7 +2,9 @@ PATH
   remote: .
   specs:
     vimpack (0.0.1)
-      thor
+      childprocess
+      rainbow
+      trollop
 
 GEM
   remote: http://rubygems.org/
@@ -14,6 +16,8 @@ GEM
     autotest-standalone (4.5.4)
     background_process (1.2)
     builder (3.0.0)
+    childprocess (0.1.6)
+      ffi (~> 0.6.3)
     cucumber (0.10.0)
       builder (>= 2.1.2)
       diff-lcs (~> 1.1.2)
@@ -21,9 +25,13 @@ GEM
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     diff-lcs (1.1.2)
+    ffi (0.6.3)
+      rake (>= 0.8.7)
     gherkin (2.3.3)
       json (~> 1.4.6)
     json (1.4.6)
+    rainbow (1.1.1)
+    rake (0.8.7)
     rspec (2.4.0)
       rspec-core (~> 2.4.0)
       rspec-expectations (~> 2.4.0)
@@ -36,7 +44,7 @@ GEM
       simplecov-html (>= 0.3.7)
     simplecov-html (0.3.9)
     term-ansicolor (1.0.5)
-    thor (0.14.6)
+    trollop (1.16.2)
 
 PLATFORMS
   ruby
@@ -45,8 +53,10 @@ DEPENDENCIES
   aruba
   autotest-growl
   autotest-standalone
+  childprocess
   cucumber
+  rainbow
   rspec
   simplecov
-  thor
+  trollop
   vimpack!

@@ -24,4 +24,5 @@ Feature: Initialize vimpack
     Then the output should contain " * initializing .vimrc"
       And a symlink named "test_vimpack/.vimrc" should exist and link to "test_vimpack/.vimpack/vimrc"
     Then the output should contain "vimpack initialized!"
+      And the exit status should be 0
 

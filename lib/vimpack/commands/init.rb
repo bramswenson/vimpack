@@ -1,63 +1,49 @@
-require 'fileutils'
 module Vimpack
   module Commands
-    class Init
-      def initialize(app, home_dir=nil)
-        @app = app
-        @app.destination_root = home_dir || ENV['HOME']
-      end
-
+    class Init < Command
       def run
-        return nil if File::directory?(File.join(@app.destination_root, '.vimpack'))
+        die!("vimpack appears to already be initialized") if directory_exists?('.vimpack')
         backup_existing_vim_environment
         initialize_vimpack_repo
-        @app.say('vimpack initialized!', :cyan)
-      end
-
-      def self.run(app)
-        Init.new(app).run
+        say('vimpack initialized!')
       end
 
       private
-      def initialize_vimpack_repo
-        @app.say(' * initializing vimpack repo', :cyan)
-        %w{ autoload bundle }.each do |directory|
-          FileUtils.mkdir_p(File.join(@app.destination_root, '.vimpack', 'vim', directory))
+      def backup_existing_vim_environment
+        say(' * backing up existing vim environment')
+        FileUtils.mv(pack_path('.vim'), pack_path('.vim.before_vimpack')) if directory_exists?('.vim')
+        @vimrc_contents = ''
+        if file_exists?('.vimrc')
+          @vimrc_contents = File.read(pack_path('.vimrc'))
+          FileUtils.mv(pack_path('.vimrc'), pack_path('.vimrc.before_vimpack'))
         end
-        @app.run("git init #{File.join(@app.destination_root, '.vimpack')}", :verbose => false)
-        @app.create_link('.vim', File.join('.vimpack', 'vim'), :verbose => false)
+      end
+
+      def initialize_vimpack_repo
+        say(' * initializing vimpack repo')
+        %w{ autoload bundle }.each do |directory|
+          FileUtils.mkdir_p(pack_path('.vimpack', 'vim', directory))
+        end
+        run_process_or_die!("git init #{pack_path('.vimpack')}")
+        create_link(pack_path('.vimpack', 'vim'), pack_path('.vim'))
         initialize_pathogen_submodule
         initialize_vimrc
       end
 
       def initialize_pathogen_submodule
-        @app.say(' * initializing pathogen', :cyan)
-        @app.run("cd #{File.join(@app.destination_root, '.vimpack')} && git submodule add git@github.com:vim-scripts/pathogen.vim pathogen && git submodule init && git submodule update; cd -", :verbose => false)
-        @app.create_link(File.join('.vimpack', 'vim', 'autoload', 'pathogen.vim'), 
-                         File.join(@app.destination_root, '.vimpack', 'pathogen', 'plugin', 'pathogen.vim'),
-                         :verbose => false)
+        say(' * initializing pathogen')
+        run_process_or_die!('git submodule add git@github.com:vim-scripts/pathogen.vim pathogen', 
+                            pack_path('.vimpack'))
+        create_link(pack_path('.vimpack', 'pathogen', 'plugin', 'pathogen.vim'),
+                    pack_path('.vimpack', 'vim', 'autoload', 'pathogen.vim'))
       end
 
       def initialize_vimrc
-        @app.say(' * initializing .vimrc', :cyan)
-        @app.template('tt/vimrc.tt', File.join(@app.destination_root, '.vimpack', 'vimrc'), :verbose => false)
-        @app.create_link('.vimrc', File.join(@app.destination_root, '.vimpack', 'vimrc'),
-                         :verbose => false)
+        say(' * initializing .vimrc')
+        template('vimrc', pack_path('.vimpack', 'vimrc'))
+        create_link(pack_path('.vimpack', 'vimrc'), pack_path('.vimrc'))
       end
 
-      def backup_existing_vim_environment
-        @app.say(' * backing up existing vim environment', :cyan)
-        # backup .vim and .vimrc_file
-        vim_path = File.join(@app.destination_root, '.vim')
-        vimrc_path = File.join(@app.destination_root, '.vimrc')
-        @vimpackrc_contents = File.read(vimrc_path)
-        if File::directory?(vim_path)
-          FileUtils.mv(vim_path, vim_path + '.before_vimpack')
-        end
-        if File.exists?(vimrc_path)
-          FileUtils.mv(vimrc_path, vimrc_path + '.before_vimpack')
-        end
-      end
     end
   end
 end
