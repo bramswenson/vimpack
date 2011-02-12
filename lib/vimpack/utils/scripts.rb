@@ -8,7 +8,10 @@ module Vimpack
         die!("script not found: #{script_name}") if script.nil?
         say(" * installing #{script.name}")
         add_submodule(script.repo_url, script.name)
-        create_link(self.script_path.join(script_name), self.bundle_path.join(script_name)) if link_to_bundle
+        if link_to_bundle
+          create_link(self.script_path.join(script_name), self.bundle_path.join(script_name))
+          say("#{script.name} (#{script.script_version}) installed!")
+        end
       end
 
     end

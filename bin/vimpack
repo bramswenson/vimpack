@@ -17,7 +17,7 @@ Usage:
        vimpack init - Initalize vimpack repository
 EOU
 
-SUB_COMMANDS = %w{ init search }
+SUB_COMMANDS = %w{ init search install }
 global_opts = Trollop::options do
   version 'vimpack 0.0.1 (c) 2011 Bram Swenson'
   banner USAGE
@@ -41,6 +41,11 @@ when 'search'
     banner 'Search for vim scripts'
   end
   Vimpack::Commands::Search.run(options, ARGV)
+when 'install'
+  options = Trollop::options do
+    banner 'Install for vim scripts'
+  end
+  Vimpack::Commands::Install.run(options, ARGV)
 else
   Trollop::die USAGE
 end

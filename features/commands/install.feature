@@ -4,14 +4,13 @@ Feature: Install a vim script
   I want to install a vim script
   So I can use it in vim
 
-  @wip
   Scenario: Install a script
     Given an initialized vimpack in "test_vimpack"
     When I run "vimpack install rails.vim"
     Then show me the output
     Then the output should contain:
       """
-        * installing rails.vim
+       * installing rails.vim
       rails.vim (4.3) installed!
       """
       And a directory named "test_vimpack/.vimpack/scripts/rails.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
