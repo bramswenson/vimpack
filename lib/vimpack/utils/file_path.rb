@@ -15,6 +15,10 @@ module Vimpack
         ::File.join(@base_path, *paths)
       end
 
+      def to_s
+        @base_path
+      end
+
     end
 
   end

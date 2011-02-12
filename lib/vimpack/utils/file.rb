@@ -2,30 +2,39 @@ module Vimpack
   module Utils
 
     module File
-      attr_accessor :home
+
+      attr_accessor :home_path, :pack_path, :script_path, :vim_path, :bundle_path
+
+      def setup_paths(home_path)
+        self.home_path   = FilePath.new(home_path)
+        self.pack_path   = FilePath.new(self.home_path.join('.vimpack'))
+        self.script_path = FilePath.new(self.pack_path.join('scripts'))
+        self.vim_path    = FilePath.new(self.pack_path.join('vim'))
+        self.bundle_path    = FilePath.new(self.vim_path.join('bundle'))
+      end
 
       def file_exists?(filename)
-        ::File.exists?(home.join(filename))
+        ::File.exists?(filename)
       end
 
       def directory_exists?(directory)
-        ::File::directory?(home.join(directory))
+        ::File::directory?(directory)
       end
 
       def symlink_exists?(linkname)
-        ::File.exists?(home.join(linkname)) && ::File.stat(home.join(linkname)).symlink?
+        ::File.exists?(linkname) && ::File.stat(linkname).symlink?
       end
 
       def create_link(target, linkname)
-        ::FileUtils.ln_s(home.join(target), home.join(linkname))
+        ::FileUtils.ln_s(target, linkname)
       end
 
       def move_path(source, target)
-        ::FileUtils.mv(home.join(source), home.join(target)) if file_exists?(source)
+        ::FileUtils.mv(source, target) if file_exists?(source)
       end
 
       def make_dir(*paths)
-        ::FileUtils.mkdir_p(home.join(*paths))
+        ::FileUtils.mkdir_p(*paths)
       end
 
       def template_path(*path)
@@ -35,7 +44,7 @@ module Vimpack
       def template(name, path)
         name = name + '.erb'
         contents = ::ERB.new(::File.read(template_path(name))).result(binding)
-        target = ::File.open(home.join(path), 'w')
+        target = ::File.open(path, 'w')
         target.write(contents)
         target.close
       end

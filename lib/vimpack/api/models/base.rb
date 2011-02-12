@@ -16,6 +16,10 @@ module Vimpack
           @json_parser ||= Yajl::Parser.new
         end
 
+        def self.from_json(json_data)
+          new(json_parser.parse(json_data))
+        end
+
       end
       
     end

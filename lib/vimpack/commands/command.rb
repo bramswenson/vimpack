@@ -5,7 +5,7 @@ module Vimpack
       def initialize(options, commands)
         @options = options
         @commands = commands
-        self.home = FilePath.new(@options[:home_directory] || ENV['HOME'])
+        setup_paths(@options[:home_directory] || ENV['HOME'])
         initialize_options
         initialize_commands
       end

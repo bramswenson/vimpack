@@ -14,8 +14,13 @@ module Vimpack
           end
         end
 
-      end
+        def self.get(script_name)
+          script = RestClient.get "http://api.vimpack.org/api/v1/scripts/#{script_name}"
+          script = Script.from_json(script)
+          script
+        end
 
+      end
     end
   end
 end

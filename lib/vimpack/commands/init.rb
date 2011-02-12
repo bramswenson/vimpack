@@ -11,36 +11,36 @@ module Vimpack
       private
       def backup_existing_vim_environment
         say(' * backing up existing vim environment')
-        move_path('.vim', '.vim.before_vimpack')
+        move_path(self.home_path.join('.vim'), self.home_path.join('.vim.before_vimpack'))
         @vimrc_contents = ''
-        if file_exists?('.vimrc')
-          @vimrc_contents = ::File.read(home.join('.vimrc'))
-          move_path('.vimrc', '.vimrc.before_vimpack')
+        if file_exists?(self.home_path.join('.vimrc'))
+          @vimrc_contents = ::File.read(self.home_path.join('.vimrc'))
+          move_path(self.home_path.join('.vimrc'), self.home_path.join('.vimrc.before_vimpack'))
         end
       end
 
       def initialize_vimpack_repo
         say(' * initializing vimpack repo')
         %w{ autoload bundle }.each do |directory|
-          make_dir('.vimpack', 'vim', directory)
+          make_dir(self.vim_path.join(directory))
         end
+        make_dir(self.script_path.to_s)
         create_vimpack_repo
-        create_link(::File.join('.vimpack', 'vim'), '.vim')
+        create_link(self.vim_path.to_s, self.home_path.join('.vim'))
         initialize_pathogen_submodule
         initialize_vimrc
       end
 
       def initialize_pathogen_submodule
-        say(' * initializing pathogen')
-        add_submodule('http://github.com/vim-scripts/pathogen.vim.git', 'pathogen.vim', '.vimpack')
-        create_link(::File.join('.vimpack', 'pathogen.vim', 'plugin', 'pathogen.vim'),
-                    ::File.join('.vimpack', 'vim', 'autoload', 'pathogen.vim'))
+        install_script('pathogen.vim', false)
+        create_link(self.script_path.join('pathogen.vim', 'plugin', 'pathogen.vim'),
+                    self.vim_path.join('autoload', 'pathogen.vim'))
       end
 
       def initialize_vimrc
         say(' * initializing .vimrc')
-        template('vimrc', ::File.join('.vimpack', 'vimrc'))
-        create_link(::File.join('.vimpack', 'vimrc'), '.vimrc')
+        template('vimrc', self.pack_path.join('vimrc'))
+        create_link(self.pack_path.join('vimrc'), self.home_path.join('.vimrc'))
       end
 
     end

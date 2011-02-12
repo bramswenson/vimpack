@@ -19,7 +19,7 @@ module Vimpack
 
       def within_dir(dir=nil, &block)
         orig_path = Dir.pwd
-        dir = dir.nil? ? orig_path : home.join(dir)
+        dir = dir.nil? ? orig_path : dir.to_s
         ::Dir.chdir(dir)
         block.call
         ::Dir.chdir(orig_path)
