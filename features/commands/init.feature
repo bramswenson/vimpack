@@ -9,7 +9,6 @@ Feature: Initialize vimpack
       And an empty file named "test_vimpack/.vimrc"
       And "test_vimpack" is my home directory
     When I run "vimpack init"
-    Then show me the output
     Then the output should contain " * backing up existing vim environment"
       And a directory named "test_vimpack/.vim.before_vimpack" should exist
       And a file named "test_vimpack/.vimrc.before_vimpack" should exist

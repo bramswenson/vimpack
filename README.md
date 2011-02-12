@@ -7,15 +7,13 @@ vim package manager
 ### setup vimpack
 
     $ vimpack init
-     * backing up existing vim configuration
-     * creating vimpack repo
-     * initializing pathogen
-     * creating .vimpack
-     * creating .vimrc
+     * backing up existing vim environment
+     * initializing vimpack repo
+     * installing pathogen.vim
+     * initializing .vimrc
     vimpack initialized!
 
     $ vimpack search rails
-    # /scripts/search/rails
     rails.vim                       utility    
     railscast                       colorscheme
     Railscast There (GUI&256color)  colorscheme
@@ -25,25 +23,19 @@ vim package manager
     grails-vim                      utility
     
     $ vimpack info rails.vim
-    # /scripts/rails.vim/info
     Name: rails.vim
     Author: Tim Pope
     Version: 4.3
     Description: Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more
 
     $ vimpack install rails.vim
-    # /scripts/rails.vim/url
-     * initializing rails.vim submodule
-     * cloning rails.vim into repo
-     * adding rails.vim to pack
+     * installing rails.vim
     rails.vim (4.3) installed!
 
     $ vimpack list
-    rails.vim (4.3)
+    rails.vim
 
     $ vimpack uninstall rails.vim
-     * deleting rails.vim submodule
-     * deleting rails.vim from repo
-     * removing rails.vim from pack
+     * uninstalling rails.vim
     rails.vim uninstalled!
 

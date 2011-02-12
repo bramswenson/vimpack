@@ -8,3 +8,7 @@ Given /^an initialized vimpack in "([^"]*)"$/ do |homedir|
   }
 end
 
+Given /^"([^"]*)" is already installed$/ do |script_name|
+  steps %Q{ Given I run "vimpack install #{script_name}" }
+end
+

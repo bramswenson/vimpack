@@ -24,6 +24,10 @@ Then /^a symlink named "([^"]*)" should exist and link to "([^"]*)"$/ do |link, 
   Pathname.new(File.join(@dirs, link)).realpath.to_s.should == File.join(@dirs, target)
 end
 
+Then /^a symlink named "([^"]*)" should not exist$/ do |link|
+  File.exists?(File.join(@dirs, link)).should be_false
+end
+
 Then /^a directory named "([^"]*)" should exist and be a git submodule of "([^"]*)"$/ do |submodule, repo|
   check_directory_presence([repo], true)
   check_directory_presence([submodule], true)

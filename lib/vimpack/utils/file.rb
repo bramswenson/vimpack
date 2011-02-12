@@ -29,6 +29,15 @@ module Vimpack
         ::FileUtils.ln_s(target, linkname)
       end
 
+      def remove_link(link)
+        ::FileUtils.rm(link)
+      end
+
+      def remove_directory(directory)
+        die!("no way!") if directory == '/'
+        ::FileUtils.rmtree(directory)
+      end
+
       def move_path(source, target)
         ::FileUtils.mv(source, target) if file_exists?(source)
       end

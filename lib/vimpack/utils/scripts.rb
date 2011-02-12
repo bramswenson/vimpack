@@ -14,6 +14,14 @@ module Vimpack
         end
       end
 
+      def uninstall_script(script_name)
+        die!("script not found: #{script_name}") unless file_exists?(self.script_path.join(script_name))
+        say(" * uninstalling #{script_name}")
+        remove_submodule(script_name)
+        remove_link(self.bundle_path.join(script_name)) if symlink_exists?(self.bundle_path.join(script_name))
+        say("#{script_name} uninstalled!")
+      end
+
     end
 
   end

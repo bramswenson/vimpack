@@ -7,7 +7,7 @@ module Vimpack
       end
 
       def scream(message)
-        puts message.red unless message.nil?
+        say(message, :red)
       end
 
       def die!(message=nil)
