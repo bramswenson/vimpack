@@ -1,17 +1,14 @@
 module Vimpack
   module Commands
-    class Search
-      def initialize(app, pattern, home_dir=nil)
-        @app = app
-        @app.destination_root = home_dir || ENV['HOME']
-        @pattern = pattern
+    class Search < Command
+
+      def initialize_commands
+        die!("search requires a single argument") unless @commands.size == 1
+        @pattern = @commands[0]
       end
 
       def run
-      end
-
-      def self.run(app, pattern)
-        Search.new(app, pattern).run
+        ::Vimpack::Api::Script.search(@pattern)
       end
 
     end

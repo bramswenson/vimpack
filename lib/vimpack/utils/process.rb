@@ -11,10 +11,9 @@ module Vimpack
       def run_process_or_die!(cmd, dir=nil)
         within_dir(dir) do 
           child = run_process!(cmd)
-          until child.exited?
-            sleep 0.1
-          end
-          die!(child.io.stderr) if child.crashed?
+          child.poll_for_exit(30)
+          child.stop unless child.exited?
+          die!(child.io.stderr) unless child.exit_code == 0
         end
       end
 

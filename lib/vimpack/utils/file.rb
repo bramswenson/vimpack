@@ -2,15 +2,7 @@ module Vimpack
   module Utils
 
     module File
-      def home
-        @_home ||= FilePath.new(ENV['HOME'])
-        @_home
-      end
-
-      def home=(home)
-        @_home = FilePath.new(home)
-        @_home
-      end
+      attr_accessor :home
 
       def file_exists?(filename)
         ::File.exists?(home.join(filename))

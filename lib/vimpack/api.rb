@@ -1,0 +1,1 @@
+require 'vimpack/api/script'

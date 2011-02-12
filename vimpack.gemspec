@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency('trollop')
   s.add_dependency('rainbow')
   s.add_dependency('childprocess')
+  s.add_dependency('activemodel')
   s.add_development_dependency('cucumber')
   s.add_development_dependency('rspec')
   s.add_development_dependency('aruba')

@@ -32,7 +32,7 @@ module Vimpack
 
       def initialize_pathogen_submodule
         say(' * initializing pathogen')
-        initialize_submodule('http://github.com/vim-scripts/pathogen.vim.git', 'pathogen.vim', '.vimpack')
+        add_submodule('http://github.com/vim-scripts/pathogen.vim.git', 'pathogen.vim', '.vimpack')
         create_link(::File.join('.vimpack', 'pathogen.vim', 'plugin', 'pathogen.vim'),
                     ::File.join('.vimpack', 'vim', 'autoload', 'pathogen.vim'))
       end

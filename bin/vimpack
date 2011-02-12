@@ -33,13 +33,14 @@ case cmd
 when 'init'
   options = Trollop::options do
     banner 'Initialize vimpack repository'
-    opt :home_directory, 'The home directory of the user', :short => '-d'
+    opt :home_directory, 'The home directory of the user', :short => '-d', :default => ENV['HOME']
   end
-  Vimpack::Commands::Init.run(options)
+  Vimpack::Commands::Init.run(options, ARGV)
 when 'search'
-  Trollop::options do
+  options = Trollop::options do
     banner 'Search for vim scripts'
   end
+  Vimpack::Commands::Search.run(options, ARGV)
 else
   Trollop::die USAGE
 end
