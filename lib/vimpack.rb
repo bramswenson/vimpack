@@ -5,7 +5,9 @@ require 'rainbow'
 require 'childprocess'
 require 'fileutils'
 require 'erb'
+require 'rest_client'
 require 'active_model'
+require 'yajl'
 
 require 'vimpack/utils'
 

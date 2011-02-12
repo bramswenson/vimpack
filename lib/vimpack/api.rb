@@ -1,1 +1,1 @@
-require 'vimpack/api/script'
+require 'vimpack/api/models'

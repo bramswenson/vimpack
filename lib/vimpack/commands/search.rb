@@ -8,7 +8,13 @@ module Vimpack
       end
 
       def run
-        ::Vimpack::Api::Script.search(@pattern)
+        scripts = ::Vimpack::Api::Models::Script.search(@pattern)
+        linesize = scripts.sort do |a,b|
+          a.name.size <=> b.name.size
+        end.reverse.first.name.size + 1
+        scripts.each do |script|
+          say("#{script.name.ljust(linesize)} #{script.script_type}")
+        end
       end
 
     end

@@ -7,15 +7,13 @@ Feature: Search for a vim script
   Scenario: Initialize vimpack in an existing vim environment
     Given an initialized vimpack in "test_vimpack"
     When I run "vimpack search rails"
-      And show me the output
     Then the output should contain:
       """
-        rails.vim                       utility    
-        railscast                       colorscheme
-        Railscast There (GUI&256color)  colorscheme
-        railstab.vim                    utility    
-        FastGrep                        utility
-        apidock.vim                     utility
-        grails-vim                      utility
+      rails.vim                        utility
+      railstab.vim                     utility
+      railscasts                       color scheme
+      Railscasts-Theme-GUIand256color  color scheme
+      FastGrep                         utility
+      apidock.vim                      utility
       """
       And the exit status should be 0
