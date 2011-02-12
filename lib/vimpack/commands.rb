@@ -4,7 +4,7 @@ module Vimpack
       include ::Vimpack::Utils
       def initialize(options)
         @options = options.merge(:home_directory => ENV['HOME'])
-        @home = @options[:home_directory]
+        home = @options[:home_directory]
       end
 
       def run

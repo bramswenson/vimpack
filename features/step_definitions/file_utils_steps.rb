@@ -15,9 +15,10 @@ end
 Then /^a directory named "([^"]*)" should exist and be a git submodule of "([^"]*)"$/ do |submodule, repo|
   check_directory_presence([repo], true)
   check_directory_presence([submodule], true)
+  name = submodule.split('/')[-1]
   steps %Q{
     And I run "cd #{repo} && git submodule ; cd -"
-    Then the output should contain "#{submodule}"
+    Then the output should contain "#{name}"
   }
 end
 
