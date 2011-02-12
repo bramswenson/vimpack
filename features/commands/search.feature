@@ -4,7 +4,7 @@ Feature: Search for a vim script
   I want to search for a vim script
   So I can find a script to install
 
-  Scenario: Initialize vimpack in an existing vim environment
+  Scenario: Search for a script
     Given an initialized vimpack in "test_vimpack"
     When I run "vimpack search rails"
     Then the output should contain:
