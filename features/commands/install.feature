@@ -7,7 +7,6 @@ Feature: Install a vim script
   Scenario: Install a script
     Given an initialized vimpack in "test_vimpack"
     When I run "vimpack install rails.vim"
-    Then show me the output
     Then the output should contain:
       """
        * installing rails.vim
