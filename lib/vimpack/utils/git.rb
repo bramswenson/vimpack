@@ -33,12 +33,47 @@ module Vimpack
         run_process_or_die!("git rm -r #{path}", self.pack_path)
       end
 
-      def init_submodule(path)
+      def init_submodule(path='')
         run_process_or_die!("git submodule init #{path}", self.pack_path)
       end
 
-      def update_submodule(path)
+      def update_submodule(path='')
         run_process_or_die!("git submodule update #{path}", self.pack_path)
+      end
+
+      def repo_add_remote(name, path)
+        cmd = "git remote add #{name} #{path}"
+        say(" * adding remote #{name}")
+        run_process_or_die!(cmd, self.pack_path.to_s)
+        say("remote #{name} added!")
+      end
+
+      def repo_commit(msg='')
+        msg = '[VIMPACK] vimpack updated' if msg == ''
+        cmd = "git add . && git commit -m '#{msg}'"
+        say(' * commiting vimpack repo')
+        run_process_or_die!(cmd, self.pack_path.to_s)
+        say("commited: #{msg}!")
+      end
+
+      def repo_push(force=false)
+        cmd = "git push origin master"
+        cmd << " -f" if force
+        say(' * pushing vimpack repo')
+        run_process_or_die!(cmd, self.pack_path.to_s)
+        say('vimpack repo pushed!')
+      end
+
+      def repo_clone(repo_url, path)
+        cmd = "git clone #{repo_url} #{path}"
+        run_process_or_die!(cmd)
+      end
+
+      def repo_exec(subcommand, commands)
+        cmd = "git #{subcommand} #{commands}"
+        say(" * running #{cmd}")
+        run_process_or_die!(cmd, self.pack_path.to_s)
+        say("command ran: #{cmd}")
       end
 
     end

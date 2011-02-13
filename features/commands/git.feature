@@ -55,6 +55,7 @@ Feature: Manage vimpack git repo
   Scenario: Publish vimpack git repo
     Given an initialized vimpack in "test_vimpack"
       And I run "vimpack git remote git@github.com:bramswenson/vimpack-repo-test.git"
+      And "rails.vim" is already installed
     When I run "vimpack git publish -f"
     Then the exit status should be 0
       And the output should contain:

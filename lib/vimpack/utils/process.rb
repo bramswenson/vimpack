@@ -10,7 +10,7 @@ module Vimpack
         child
       end
 
-      def wait_for_child(timeout=10)
+      def wait_for_child(timeout=30)
         @child.poll_for_exit(timeout.to_f)
         @child.stop unless @child.exited?
         @child.io.stdout.close

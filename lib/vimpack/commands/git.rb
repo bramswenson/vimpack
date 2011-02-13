@@ -14,27 +14,15 @@ module Vimpack
       end
 
       def git_remote
-        cmd = "git remote add origin #{@commands.join(' ')}"
-        say(' * adding remote origin')
-        run_process_or_die!(cmd, self.pack_path.to_s)
-        say('remote origin added!')
+        repo_add_remote('origin', @commands.join(' '))
       end
       
       def git_commit
-        msg = @commands.join(' ')
-        msg = '[VIMPACK] vimpack updated' if msg == ''
-        cmd = "git add . && git commit -m '#{msg}'"
-        say(' * commiting vimpack repo')
-        run_process_or_die!(cmd, self.pack_path.to_s)
-        say("commited: #{msg}!")
+        repo_commit(@commands.join(' '))
       end
 
       def git_push
-        cmd = "git push origin master"
-        cmd << " -f" if @options[:force]
-        say(' * pushing vimpack repo')
-        run_process_or_die!(cmd, self.pack_path.to_s)
-        say('vimpack repo pushed!')
+        repo_push(@options[:force])
       end
 
       def git_publish
@@ -43,9 +31,7 @@ module Vimpack
       end
 
       def git_exec
-        cmd = "git #{@subcommand} #{@commands.join(' ')}"
-        say(" * running #{cmd}")
-        run_process_or_die!(cmd, self.pack_path.to_s)
+        repo_exec(@subcommand, @commands.join(' '))
       end
 
     end

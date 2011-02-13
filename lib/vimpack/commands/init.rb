@@ -1,10 +1,17 @@
 module Vimpack
   module Commands
     class Init < Command
+      def initialize_commands
+        die!("init takes a single optional argument") if @commands.size > 1
+        @repo_url = @commands.size == 1 ? @commands[0] : nil
+      end
+
       def run
         die!("vimpack appears to already be initialized") if directory_exists?('.vimpack')
         backup_existing_vim_environment
-        initialize_vimpack_repo
+        @repo_url.nil? ? initialize_vimpack_repo : initialize_vimpack_remote_repo
+        create_link(self.vim_path.to_s, self.home_path.join('.vim'))
+        initialize_vimrc
         say('vimpack initialized!')
       end
 
@@ -26,9 +33,14 @@ module Vimpack
         end
         make_dir(self.script_path.to_s)
         create_vimpack_repo
-        create_link(self.vim_path.to_s, self.home_path.join('.vim'))
         initialize_pathogen_submodule
-        initialize_vimrc
+      end
+
+      def initialize_vimpack_remote_repo
+        say(' * initializing vimpack repo from git url')
+        repo_clone(@repo_url, self.pack_path.to_s)
+        init_submodule
+        update_submodule
       end
 
       def initialize_pathogen_submodule
