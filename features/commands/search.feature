@@ -17,3 +17,17 @@ Feature: Search for a vim script
       apidock.vim                      utility
       """
       And the exit status should be 0
+
+  @wip
+  Scenario: Search for a utility script
+    Given an initialized vimpack in "test_vimpack"
+    When I run "vimpack search --utility rails"
+    Then the output should contain:
+      """
+      rails.vim                        utility
+      railstab.vim                     utility
+      FastGrep                         utility
+      apidock.vim                      utility
+      """
+      And the exit status should be 0
+
