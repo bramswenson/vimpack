@@ -3,17 +3,21 @@ module Vimpack
     module Process
 
       def run_process!(cmd)
-        child = ::ChildProcess.build(*cmd.split(' '))
+        child = ::ChildProcess.build(cmd)
         child.start
         child
       end
 
       def run_process_or_die!(cmd, dir=nil)
-        within_dir(dir) do 
-          child = run_process!(cmd)
-          child.poll_for_exit(30)
-          child.stop unless child.exited?
-          die!(child.io.stderr) unless child.exit_code == 0
+        begin
+          within_dir(dir) do 
+            child = run_process!(cmd)
+            child.poll_for_exit(30)
+            child.stop unless child.exited?
+            die!([child.io.stdout, child.io.stderr].join(' ')) unless child.exit_code == 0
+          end
+        rescue => e
+          die!("#{e.message}\n#{e.backtrace}")
         end
       end
 
