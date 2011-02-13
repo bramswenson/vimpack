@@ -4,7 +4,6 @@ Feature: List installed vim script
   I want to list installed vim script
   So I know what I am working with
 
-  @wip
   Scenario: List installed vim scripts
     Given an initialized vimpack in "test_vimpack"
      And "rails.vim" is already installed
