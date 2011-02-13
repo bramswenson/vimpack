@@ -39,3 +39,17 @@ Feature: Manage vimpack git repo
         """
       And the vimpack git commit logs last message should be "[VIMPACK] vimpack updated"
 
+  @wip
+  Scenario: Push vimpack git repo
+    Given an initialized vimpack in "test_vimpack"
+      And I run "vimpack git remote git@github.com:bramswenson/vimpack-repo.git"
+      And I run "vimpack git commit"
+    When I run "vimpack git push"
+    Then the exit status should be 0
+      And the output should contain:
+        """
+         * pushing vimpack repo
+        vimpack repo pushed!
+        """
+      And the vimpack git status should be empty
+
