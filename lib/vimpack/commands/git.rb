@@ -1,7 +1,7 @@
 module Vimpack
   module Commands
     class Git < Command
-      SUB_COMMANDS = %w{ remote commit push }
+      SUB_COMMANDS = %w{ remote commit push publish }
 
       def initialize_commands
         die!("git requires at least one argument") if @commands.size < 1
@@ -35,6 +35,11 @@ module Vimpack
         say(' * pushing vimpack repo')
         run_process_or_die!(cmd, self.pack_path.to_s)
         say('vimpack repo pushed!')
+      end
+
+      def git_publish
+        git_commit
+        git_push
       end
 
       def git_exec

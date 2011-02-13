@@ -52,12 +52,10 @@ Feature: Manage vimpack git repo
         """
       And the vimpack git status should be empty
 
-  @wip
   Scenario: Publish vimpack git repo
     Given an initialized vimpack in "test_vimpack"
       And I run "vimpack git remote git@github.com:bramswenson/vimpack-repo-test.git"
-    When I run "vimpack git publish"
-    Then show me the output
+    When I run "vimpack git publish -f"
     Then the exit status should be 0
       And the output should contain:
         """
