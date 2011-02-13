@@ -1,7 +1,7 @@
 module Vimpack
   module Commands
     class Git < Command
-      SUB_COMMANDS = %w{ remote commit }
+      SUB_COMMANDS = %w{ remote commit push }
 
       def initialize_commands
         die!("git requires at least one argument") if @commands.size < 1
@@ -23,12 +23,20 @@ module Vimpack
       def git_commit
         msg = @commands.join(' ')
         msg = '[VIMPACK] vimpack updated' if msg == ''
-        cmd = "git commit -a -m '#{msg}'"
+        cmd = "git add . && git commit -m '#{msg}'"
         say(' * commiting vimpack repo')
         run_process_or_die!(cmd, self.pack_path.to_s)
         say("commited: #{msg}!")
       end
-      
+
+      def git_push
+        cmd = "git push origin master"
+        cmd << " -f" if @options[:force]
+        say(' * pushing vimpack repo')
+        run_process_or_die!(cmd, self.pack_path.to_s)
+        say('vimpack repo pushed!')
+      end
+
       def git_exec
         cmd = "git #{@subcommand} #{@commands.join(' ')}"
         say(" * running #{cmd}")

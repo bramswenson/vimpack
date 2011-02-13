@@ -12,6 +12,14 @@ def check_vimpack_last_commit_log(message)
   end
 end
 
+def check_vimpack_status
+  prep_for_fs_check do
+    res = %x{ cd test_vimpack/.vimpack ; git status ; cd - }
+    res.should match(/#{Regexp.escape('nothing to commit')}/)
+  end
+end
+
+
 Then /^the vimpack git remote "([^"]*)" should be "([^"]*)"$/ do |remote_name, url|
   check_vimpack_remote(remote_name, url)
 end
@@ -20,3 +28,6 @@ Then /^the vimpack git commit logs last message should be "([^"]*)"$/ do |messag
   check_vimpack_last_commit_log(message)
 end
 
+Then /^the vimpack git status should be empty$/ do
+  check_vimpack_status
+end

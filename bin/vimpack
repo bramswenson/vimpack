@@ -64,6 +64,7 @@ when 'info'
 when 'git'
   options = Trollop::options do
     banner 'Manage vimpack repo with git'
+    opt :force, 'force the git command', :short => '-f', :default => false
   end
   Vimpack::Commands::Git.run(options, ARGV)
 else

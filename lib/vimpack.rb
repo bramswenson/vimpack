@@ -8,6 +8,7 @@ require 'erb'
 require 'rest_client'
 require 'active_model'
 require 'yajl'
+require 'tempfile'
 
 require 'vimpack/utils'
 

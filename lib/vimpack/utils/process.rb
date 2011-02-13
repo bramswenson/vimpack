@@ -4,21 +4,31 @@ module Vimpack
 
       def run_process!(cmd)
         child = ::ChildProcess.build(cmd)
+        child.io.stdout = ::Tempfile.new('child-out')
+        child.io.stderr = ::Tempfile.new('child-err')
         child.start
         child
       end
 
+      def wait_for_child(timeout=10)
+        @child.poll_for_exit(timeout.to_f)
+        @child.stop unless @child.exited?
+        @child.io.stdout.close
+        @child.io.stderr.close
+        @child.io.stdout.open
+        @child.io.stderr.open
+        msg = @child.io.stdout.read
+        msg << " "
+        msg << @child.io.stderr.read
+      end
+
       def run_process_or_die!(cmd, dir=nil)
-        begin
-          within_dir(dir) do 
-            child = run_process!(cmd)
-            child.poll_for_exit(30)
-            child.stop unless child.exited?
-            die!([child.io.stdout, child.io.stderr].join(' ')) unless child.exit_code == 0
-          end
-        rescue => e
-          die!("#{e.message}\n#{e.backtrace}")
+        @child = nil
+        within_dir(dir) do 
+          @child = run_process!(cmd)
         end
+        msg = wait_for_child
+        die!("child process died: #{msg}") unless @child.exit_code == 0
       end
 
       def within_dir(dir=nil, &block)
