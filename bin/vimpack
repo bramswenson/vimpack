@@ -17,7 +17,7 @@ Usage:
        vimpack init - Initalize vimpack repository
 EOU
 
-SUB_COMMANDS = %w{ init search install uninstall list info }
+SUB_COMMANDS = %w{ init search install uninstall list info git }
 global_opts = Trollop::options do
   version 'vimpack 0.0.1 (c) 2011 Bram Swenson'
   banner USAGE
@@ -61,6 +61,11 @@ when 'info'
     banner 'Get detailed information on a vim script'
   end
   Vimpack::Commands::Info.run(options, ARGV)
+when 'git'
+  options = Trollop::options do
+    banner 'Manage vimpack repo with git'
+  end
+  Vimpack::Commands::Git.run(options, ARGV)
 else
   puts "command not found: #{cmd}"
   Trollop::die USAGE
