@@ -22,8 +22,8 @@ module Vimpack
       
       def git_commit
         msg = @commands.join(' ')
-        msg ||= '[VIMPACK] automated commit'
-        cmd = "git commit -a -m \"#{msg}\""
+        msg = '[VIMPACK] vimpack updated' if msg == ''
+        cmd = "git commit -a -m '#{msg}'"
         say(' * commiting vimpack repo')
         run_process_or_die!(cmd, self.pack_path.to_s)
         say("commited: #{msg}!")

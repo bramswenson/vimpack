@@ -15,7 +15,7 @@ Feature: Manage vimpack git repo
         """
       And the vimpack git remote "origin" should be "git@github.com:bramswenson/vimpack-repo.git"
 
-  Scenario: Commit vimpack git repo
+  Scenario: Commit vimpack git repo with commit message
     Given an initialized vimpack in "test_vimpack"
       And I run "vimpack git remote git@github.com:bramswenson/vimpack-repo.git"
     When I run "vimpack git commit '[TEST] test commit'"
@@ -26,4 +26,16 @@ Feature: Manage vimpack git repo
         commited: [TEST] test commit!
         """
       And the vimpack git commit logs last message should be "[TEST] test commit"
+
+  Scenario: Commit vimpack git repo
+    Given an initialized vimpack in "test_vimpack"
+      And I run "vimpack git remote git@github.com:bramswenson/vimpack-repo.git"
+    When I run "vimpack git commit"
+    Then the exit status should be 0
+      And the output should contain:
+        """
+         * commiting vimpack repo
+        commited: [VIMPACK] vimpack updated!
+        """
+      And the vimpack git commit logs last message should be "[VIMPACK] vimpack updated"
 
