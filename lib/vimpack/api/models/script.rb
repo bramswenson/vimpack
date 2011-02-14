@@ -3,11 +3,15 @@ module Vimpack
     module Models
 
       class Script < Base
+        base_url 'http://localhost:3000/api/v1/scripts'
+        attr_accessor :name, :script_type, :summary, :repo_url, :script_version,
+                      :description, :author
 
-        attr_accessor :name, :script_type, :summary, :repo_url, :script_version, :description, :author
-          
-        def self.search(pattern)
-          scripts = RestClient.get "http://api.vimpack.org/api/v1/scripts/search/#{pattern}"
+        SCRIPT_TYPES = [ 'utility', 'color scheme', 'syntax', 'ftplugin', 
+                         'indent', 'game', 'plugin', 'patch' ]
+
+        def self.search(pattern, conditions=Array.new)
+          scripts = self.rest_client(:get, "search/#{pattern}", { :params => { :script_type => conditions.join(',') } })
           scripts = Script.json_parser.parse(scripts)
           scripts = scripts.map do |script|
             Script.new(script)
@@ -15,18 +19,17 @@ module Vimpack
         end
 
         def self.get(script_name)
-          script = RestClient.get "http://api.vimpack.org/api/v1/scripts/#{script_name}"
+          script = self.rest_client(:get, script_name)
           script = Script.from_json(script)
           script
         end
 
         def self.info(script_name)
-          script = RestClient.get "http://api.vimpack.org/api/v1/scripts/#{script_name}/info"
+          script = self.rest_client(:get, "#{script_name}/info")
           script = Script.from_json(script)
           script
         end
-
-
+        
       end
     end
   end

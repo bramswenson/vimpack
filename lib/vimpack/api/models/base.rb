@@ -6,6 +6,10 @@ module Vimpack
         include ActiveModel::Serializers::JSON
         include ActiveModel::Validations
 
+        class << self
+          attr_accessor :base_url
+        end
+
         def initialize(attributes = Hash.new)
           attributes.each do |name, value|  
             send("#{name}=", value)  
@@ -18,6 +22,25 @@ module Vimpack
 
         def self.from_json(json_data)
           new(json_parser.parse(json_data))
+        end
+
+        def self.base_url(url=nil)
+          @base_url ||= 'http://api.vimpack.org/api/v1'
+          @base_url = url.nil? ? @base_url : url
+        end
+
+        def self.setup_request_url(path)
+          [ self.base_url, path ].join('/')
+        end
+
+        protected
+        def self.rest_client(method, path, options=Hash.new)
+          options.merge!(:content_type => :json, :accept => :json)
+          begin
+            RestClient.send(method.to_sym, setup_request_url(path), options)
+          rescue => e
+            raise e
+          end
         end
 
       end

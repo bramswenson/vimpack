@@ -49,6 +49,13 @@ when 'init'
 when 'search'
   options = Trollop::options do
     banner 'vimpack search <string> - Search for vim scripts'
+    opt :utility, 'Search for utility scripts', :short => '-u'
+    opt :color_scheme, 'Search for color scheme scripts', :short => '-c'
+    opt :syntax, 'Search for syntax scripts', :short => '-s'
+    opt :indent, 'Search for indent scripts', :short => '-i'
+    opt :game, 'Search for game scripts', :short => '-g'
+    opt :plugin, 'Search for plugin scripts', :short => '-p'
+    opt :patch, 'Search for patch scripts', :short => '-a'
   end
   Vimpack::Commands::Search.run(options, ARGV)
 when 'install'
