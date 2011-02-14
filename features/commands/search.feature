@@ -13,8 +13,8 @@ Feature: Search for a vim script
       railstab.vim                     utility
       railscasts                       color scheme
       Railscasts-Theme-GUIand256color  color scheme
-      apidock.vim                      utility
       FastGrep                         utility
+      apidock.vim                      utility
       """
       And the exit status should be 0
 
@@ -27,8 +27,8 @@ Feature: Search for a vim script
       railstab.vim                     utility
       railscasts                       color scheme
       Railscasts-Theme-GUIand256color  color scheme
-      apidock.vim                      utility
       FastGrep                         utility
+      apidock.vim                      utility
       """
       And the exit status should be 0
 
@@ -39,8 +39,8 @@ Feature: Search for a vim script
       """
       rails.vim     utility
       railstab.vim  utility
-      apidock.vim   utility
       FastGrep      utility
+      apidock.vim   utility
       """
       And the exit status should be 0
 
