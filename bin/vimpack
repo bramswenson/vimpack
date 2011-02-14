@@ -15,6 +15,7 @@ Manage bundles of vim scripts and vimrc
 Usage:
 
   vimpack <subcommand>
+  vimpack <subcommand> --help     - Get more detailed help on subcommands
   vimpack init [repo_url]         - Initialize vimpack repository
   vimpack search <string>         - Search for scripts
   vimpack install <script_name>   - Install scripts

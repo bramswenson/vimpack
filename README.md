@@ -2,9 +2,13 @@
 
 vim package manager
 
-## Initial Goals
-
 ### setup vimpack
+
+    # for now we install from the repo
+    $ git clone git@github.com:bramswenson/vimpack.git
+    $ cd vimpack
+    $ rake build
+    $ gem install pkg/vimpack-0.0.1.gem
 
     $ vimpack init
      * backing up existing vim environment
