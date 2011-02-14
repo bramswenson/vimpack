@@ -3,7 +3,7 @@ module Vimpack
     module Models
 
       class Script < Base
-        base_url 'http://localhost:3000/api/v1/scripts'
+        base_url 'http://api.vimpack.org/api/v1/scripts'
         attr_accessor :name, :script_type, :summary, :repo_url, :script_version,
                       :description, :author
 
