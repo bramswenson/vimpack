@@ -11,7 +11,12 @@ module Vimpack
                          'indent', 'game', 'plugin', 'patch' ]
 
         def self.search(pattern, conditions=Array.new)
-          scripts = self.rest_client(:get, "search/#{pattern}", { :params => { :script_type => conditions.join(',') } })
+          unless conditions.empty?
+            scripts = self.rest_client(:get, "search/#{pattern}", 
+                                       { :params => { :script_type => conditions.join(',') } })
+          else
+            scripts = self.rest_client(:get, "search/#{pattern}")
+          end
           scripts = Script.json_parser.parse(scripts)
           scripts = scripts.map do |script|
             Script.new(script)
