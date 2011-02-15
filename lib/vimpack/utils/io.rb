@@ -15,6 +15,11 @@ module Vimpack
         return Trollop::die USAGE
       end
 
+      def exit_with_error!(message=nil, exit_code=1)
+        scream(message) unless message.nil?
+        exit(1)
+      end
+
     end
   end
 end

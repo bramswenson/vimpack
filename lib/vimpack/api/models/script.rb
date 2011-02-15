@@ -24,13 +24,23 @@ module Vimpack
         end
 
         def self.get(script_name)
-          script = self.rest_client(:get, script_name)
+          begin
+            script = self.rest_client(:get, script_name)
+          rescue RestClient::InternalServerError
+            # script not found
+            return nil
+          end
           script = Script.from_json(script)
           script
         end
 
         def self.info(script_name)
-          script = self.rest_client(:get, "#{script_name}/info")
+          begin
+            script = self.rest_client(:get, "#{script_name}/info")
+          rescue RestClient::InternalServerError
+            # script not found
+            return nil
+          end
           script = Script.from_json(script)
           script
         end
