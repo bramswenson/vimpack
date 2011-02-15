@@ -34,7 +34,7 @@ module Vimpack
       end
 
       def remove_directory(directory)
-        die!("no way!") if directory == '/'
+        exit_with_error!("no way!") if directory == '/'
         ::FileUtils.rmtree(directory)
       end
 

@@ -7,7 +7,7 @@ module Vimpack
       end
 
       def run
-        die!("vimpack appears to already be initialized") if directory_exists?('.vimpack')
+        exit_with_error!("vimpack appears to already be initialized") if directory_exists?('.vimpack')
         backup_existing_vim_environment
         @repo_url.nil? ? initialize_vimpack_repo : initialize_vimpack_remote_repo
         create_link(self.vim_path.to_s, self.home_path.join('.vim'))
