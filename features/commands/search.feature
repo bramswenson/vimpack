@@ -9,12 +9,12 @@ Feature: Search for a vim script
     When I run "vimpack search rails"
     Then the output should contain:
       """
-      rails.vim                        utility
-      railstab.vim                     utility
-      railscasts                       color scheme
-      Railscasts-Theme-GUIand256color  color scheme
       FastGrep                         utility
+      Railscasts-Theme-GUIand256color  color scheme
       apidock.vim                      utility
+      rails.vim                        utility
+      railscasts                       color scheme
+      railstab.vim                     utility
       """
       And the exit status should be 0
 
@@ -23,12 +23,12 @@ Feature: Search for a vim script
     When I run "vimpack search --utility --color-scheme rails"
     Then the output should contain:
       """
-      rails.vim                        utility
-      railstab.vim                     utility
-      railscasts                       color scheme
-      Railscasts-Theme-GUIand256color  color scheme
       FastGrep                         utility
+      Railscasts-Theme-GUIand256color  color scheme
       apidock.vim                      utility
+      rails.vim                        utility
+      railscasts                       color scheme
+      railstab.vim                     utility
       """
       And the exit status should be 0
 
@@ -37,10 +37,32 @@ Feature: Search for a vim script
     When I run "vimpack search --utility rails"
     Then the output should contain:
       """
-      rails.vim     utility
-      railstab.vim  utility
       FastGrep      utility
       apidock.vim   utility
+      rails.vim     utility
+      railstab.vim  utility
+      """
+      And the exit status should be 0
+
+  Scenario: Search for all utility scripts
+    Given an initialized vimpack in "test_vimpack"
+    When I run "vimpack search --utility -l 10"
+    Then the output should contain:
+      """
+      0scan            utility
+      ACScope          utility
+      AGTD             utility
+      Abc-Menu         utility
+      Acpp             utility
+      AddCppClass      utility
+      AddIfndefGuard   utility
+      AfterColors.vim  utility
+      Align            utility
+      Align.vim        utility
+      """
+      And the output should not contain:
+      """
+      AllBuffersToOneWindow.vim  utility
       """
       And the exit status should be 0
 
@@ -49,8 +71,8 @@ Feature: Search for a vim script
     When I run "vimpack search --color-scheme rails"
     Then the output should contain:
       """
-      railscasts                       color scheme
       Railscasts-Theme-GUIand256color  color scheme
+      railscasts                       color scheme
       """
       And the exit status should be 0
 
@@ -69,8 +91,8 @@ Feature: Search for a vim script
     When I run "vimpack search --indent ruby"
     Then the output should contain:
       """
-      ruby.vim--IGREQUE  indent
       indentruby.vim     indent
+      ruby.vim--IGREQUE  indent
       """
       And the exit status should be 0
 
@@ -79,8 +101,8 @@ Feature: Search for a vim script
     When I run "vimpack search --game sudoku"
     Then the output should contain:
       """
-      sudoku         game
       Sudoku-Solver  game
+      sudoku         game
       """
       And the exit status should be 0
 

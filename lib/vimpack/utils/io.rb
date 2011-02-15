@@ -17,7 +17,7 @@ module Vimpack
 
       def exit_with_error!(message=nil, exit_code=1)
         scream(message) unless message.nil?
-        exit(1)
+        exit(exit_code)
       end
 
     end

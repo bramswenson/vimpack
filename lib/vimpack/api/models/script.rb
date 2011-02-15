@@ -4,18 +4,21 @@ module Vimpack
 
       class Script < Base
         base_url 'http://api.vimpack.org/api/v1/scripts'
+        #base_url 'http://localhost:3000/api/v1/scripts'
         attr_accessor :name, :script_type, :summary, :repo_url, :script_version,
                       :description, :author
 
         SCRIPT_TYPES = [ 'utility', 'color scheme', 'syntax', 'ftplugin', 
                          'indent', 'game', 'plugin', 'patch' ]
 
-        def self.search(pattern, conditions=Array.new)
-          unless conditions.empty?
-            scripts = self.rest_client(:get, "search/#{pattern}", 
-                                       { :params => { :script_type => conditions.join(',') } })
-          else
-            scripts = self.rest_client(:get, "search/#{pattern}")
+        def self.search(pattern=nil, conditions=Array.new, limit=100, page=1)
+          params = { :limit => limit, :page => page }
+          params[:script_type] = conditions.join(',') unless conditions.empty?
+          path   = pattern.nil? ? 'search' : "search/#{pattern}"
+          begin
+            scripts = self.rest_client(:get, path, :params => params)
+          rescue RestClient::InternalServerError
+            return []
           end
           scripts = Script.json_parser.parse(scripts)
           scripts = scripts.map do |script|
