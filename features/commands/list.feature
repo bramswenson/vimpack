@@ -15,3 +15,4 @@ Feature: List installed vim script
       railscasts
       """
       And the exit status should be 0
+

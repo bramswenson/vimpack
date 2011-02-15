@@ -16,3 +16,13 @@ Feature: Uninstall a vim script
       And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should not exist
       And a directory named "test_vimpack/.vimpack/scripts/rails.vim" should not exist
       And the exit status should be 0
+
+  Scenario: Try Uninstall a script that is not installed
+    Given an initialized vimpack in "test_vimpack"
+    When I run "vimpack uninstall rails.vim"
+    Then the output should contain:
+      """
+      script not found!
+      """
+      And the exit status should be 1
+
