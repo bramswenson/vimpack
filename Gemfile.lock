@@ -77,17 +77,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activemodel
   aruba
   autotest-growl
   autotest-standalone
-  childprocess
   cucumber
-  rainbow
-  rest-client
   rspec
   ruby-debug19
   simplecov
-  trollop
   vimpack!
-  yajl-ruby
