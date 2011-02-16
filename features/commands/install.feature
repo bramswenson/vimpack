@@ -21,7 +21,7 @@ Feature: Install a vim script
     When I run "vimpack install there_is_no_such_widget"
     Then the output should contain:
       """
-      script not found!
+      Script not found! Did you mean gtkvim.tgz?
       """
       And the exit status should be 1
 
