@@ -24,12 +24,9 @@ module Vimpack
 
       private
       def script_not_found(name)
-        scripts = ::Vimpack::Api::Models::Script.search(name, ::Vimpack::Api::Models::Script::SCRIPT_TYPES, 1, 1)
-        if scripts.any?
-          exit_with_error!("Script not found! Did you mean #{scripts.first.name}?")
-        else
-          exit_with_error!('Script not found!')
-        end
+        scripts = ::Vimpack::Api::Models::Script.search(name, Array.new, 1)
+        return exit_with_error!("Script not found! Did you mean #{scripts.first.name}?") if scripts.any?
+        exit_with_error!('Script not found!')
       end
 
     end

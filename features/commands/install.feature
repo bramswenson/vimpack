@@ -16,12 +16,21 @@ Feature: Install a vim script
       And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should exist and link to "test_vimpack/.vimpack/scripts/rails.vim"
       And the exit status should be 0
 
-  Scenario: Install a script
+  Scenario: Attempt to install a script that is not found but a fuzzy match is found
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack install there_is_no_such_widget"
+    When I run "vimpack install cucumber"
     Then the output should contain:
       """
-      Script not found! Did you mean gtkvim.tgz?
+      Script not found! Did you mean cucumber.zip?
+      """
+      And the exit status should be 1
+
+  Scenario: Attempt to install a script that is not found
+    Given an initialized vimpack in "test_vimpack"
+    When I run "vimpack install railz"
+    Then the output should contain:
+      """
+      Script not found!
       """
       And the exit status should be 1
 
