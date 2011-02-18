@@ -7,8 +7,10 @@ vim package manager
     # for now we install from the repo
     $ git clone git@github.com:bramswenson/vimpack.git
     $ cd vimpack
+    $ bundle install
     $ rake build
     $ gem install pkg/vimpack-0.0.1.gem
+    $ rake cucumber (if you want to run the tests)
 
     $ vimpack init
      * backing up existing vim environment
