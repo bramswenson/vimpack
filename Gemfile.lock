@@ -2,12 +2,12 @@ PATH
   remote: .
   specs:
     vimpack (0.0.1)
-      activemodel
-      childprocess
-      rainbow
-      rest-client
-      trollop
-      yajl-ruby
+      activemodel (~> 3.0.4)
+      childprocess (~> 0.1.7)
+      rainbow (~> 1.1.1)
+      rest-client (~> 1.6.1)
+      trollop (~> 1.16.2)
+      yajl-ruby (~> 0.8.1)
 
 GEM
   remote: http://rubygems.org/

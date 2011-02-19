@@ -19,12 +19,12 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency('trollop')
-  s.add_dependency('rainbow')
-  s.add_dependency('childprocess')
-  s.add_dependency('rest-client')
-  s.add_dependency('activemodel')
-  s.add_dependency('yajl-ruby')
+  s.add_dependency('trollop', '~> 1.16.2')
+  s.add_dependency('rainbow', '~> 1.1.1')
+  s.add_dependency('childprocess', '~> 0.1.7')
+  s.add_dependency('rest-client', '~> 1.6.1')
+  s.add_dependency('activemodel', '~> 3.0.4')
+  s.add_dependency('yajl-ruby', '~> 0.8.1')
   s.add_development_dependency('cucumber')
   s.add_development_dependency('rspec')
   s.add_development_dependency('aruba')
