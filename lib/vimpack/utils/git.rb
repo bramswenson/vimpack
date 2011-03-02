@@ -56,11 +56,21 @@ module Vimpack
         say("commited: #{msg}!")
       end
 
-      def repo_push(force=false)
+      def repo_pull(remote_path='origin master')
+        say(" * pulling #{remote_path}")
+        run_process_or_die!("git pull #{remote_path}", self.pack_path.to_s)
+        say("synced with #{remote_path}!")
+      end
+
+      def repo_push
         cmd = "git push origin master"
-        cmd << " -f" if force
         say(' * pushing vimpack repo')
-        run_process_or_die!(cmd, self.pack_path.to_s)
+        error_message = <<-EOE
+error: local repo out of sync with remote
+  use git to sync with something like this:
+   vimpack git fetch && vimpack git merge origin/master
+        EOE
+        run_process_or_die!(cmd, self.pack_path.to_s, error_message)
         say('vimpack repo pushed!')
       end
 
@@ -69,11 +79,24 @@ module Vimpack
         run_process_or_die!(cmd)
       end
 
+      def repo_add_dot
+        cmd = "git add ."
+        run_process_or_die!(cmd, self.pack_path.to_s)
+      end
+
       def repo_exec(subcommand, commands)
+        commands = sanitize_commands(commands)
         cmd = "git #{subcommand} #{commands}"
         say(" * running #{cmd}")
         run_process_or_die!(cmd, self.pack_path.to_s)
         say("command ran: #{cmd}")
+      end
+
+      def sanitize_commands(commands)
+        commands.each.inject('') do |full_command, command|
+          full_command << ' ' unless full_command.blank?
+          full_command << (command.include?(' ') ? "'#{command}'" : command)
+        end
       end
 
     end

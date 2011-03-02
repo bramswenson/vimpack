@@ -12,11 +12,11 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    activemodel (3.0.4)
-      activesupport (= 3.0.4)
+    activemodel (3.0.5)
+      activesupport (= 3.0.5)
       builder (~> 2.1.2)
       i18n (~> 0.4)
-    activesupport (3.0.4)
+    activesupport (3.0.5)
     archive-tar-minitar (0.5.2)
     aruba (0.3.2)
       childprocess (~> 0.1.6)

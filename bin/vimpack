@@ -14,17 +14,15 @@ Manage bundles of vim scripts and vimrc
 Usage:
 
   vimpack <subcommand>
-  vimpack <subcommand> --help     - Get more detailed help on subcommands
-  vimpack init [repo_url]         - Initialize vimpack repository
-  vimpack search <string>         - Search for scripts
-  vimpack install <script_name>   - Install scripts
-  vimpack uninstall <script_name> - Uninstall scripts
-  vimpack list                    - List installed scripts
-  vimpack info <script_name>      - Get detailed info on a script
-  vimpack git remote <repo_url>   - set vimpack repo origin
-  vimpack git commit [message]    - Commit vimpack repo
-  vimpack git push                - Push vimpack repo to origin/master
-  vimpack git publish             - Publish vimpack repo (commit and push)
+  vimpack <subcommand> --help      - Get more detailed help on subcommands
+  vimpack init [repo_url]          - Initialize vimpack repository
+  vimpack search <string>          - Search for scripts
+  vimpack install <script_name>    - Install scripts
+  vimpack uninstall <script_name>  - Uninstall scripts
+  vimpack list                     - List installed scripts
+  vimpack info <script_name>       - Get detailed info on a script
+  vimpack git publish -m <message> - Publish vimpack repo (shorthand for commit and push)
+  vimpack git <git command>        - Run any git command within the vimpack repo
 EOU
 
 SUB_COMMANDS = %w{ init search install uninstall list info git }
@@ -56,9 +54,9 @@ when 'search'
     opt :game, 'Search for game scripts', :short => '-g'
     opt :plugin, 'Search for plugin scripts', :short => '-p'
     opt :patch, 'Search for patch scripts', :short => '-a'
-    opt :limit, 'Limit the number of scripts returned', :short => '-l', 
+    opt :limit, 'Limit the number of scripts returned', :short => '-l',
       :default => 100
-    opt :page, 'Page number to get (used with --limit for large result sets)', 
+    opt :page, 'Page number to get (used with --limit for large result sets)',
       :short => '-n', :default => 1
   end
   Vimpack::Commands::Search.run(options, ARGV)
@@ -83,15 +81,23 @@ when 'info'
   end
   Vimpack::Commands::Info.run(options, ARGV)
 when 'git'
-  options = Trollop::options do
-    banner <<-EOB
-vimpack git remote <repo_url> - Set vimpack repo remote origin
-vimpack git commit [message]  - Commit vimpack repo
-vimpack git push              - Push vimpack repo to origin/master
-vimpack git publish           - Publish vimpack repo (commit and push)
+  the_banner = <<-EOB
+vimpack git publish -m <message> - Publish vimpack repo (shorthand for commit and push)
+vimpack git <git command>        - Run any git command within the vimpack repo
 EOB
-    opt :force, 'force the git command', :short => '-f', :default => false
+  git_command = ARGV.shift
+  parser = Trollop::Parser.new do
+    opt :message, 'publish message', :short => '-m',
+      :default => '[VIMPACK] vimpack publish' if git_command == 'publish'
+    banner the_banner
   end
+  begin
+    options = parser.parse ARGV
+  rescue Trollop::CommandlineError => e
+    raise e if git_command == 'publish'
+    options = {}
+  end
+  ARGV.unshift git_command
   Vimpack::Commands::Git.run(options, ARGV)
 else
   puts "command not found: #{cmd}"

@@ -1,7 +1,7 @@
 module Vimpack
   module Commands
     class Git < Command
-      SUB_COMMANDS = %w{ remote commit push publish }
+      SUB_COMMANDS = %w{ publish }
 
       def initialize_commands
         die!("git requires at least one argument") if @commands.size < 1
@@ -13,25 +13,14 @@ module Vimpack
         send("git_#{@subcommand}".to_sym)
       end
 
-      def git_remote
-        repo_add_remote('origin', @commands.join(' '))
-      end
-      
-      def git_commit
-        repo_commit(@commands.join(' '))
-      end
-
-      def git_push
-        repo_push(@options[:force])
-      end
-
       def git_publish
-        git_commit
-        git_push
+        repo_add_dot
+        repo_commit(@options[:message])
+        repo_push
       end
 
       def git_exec
-        repo_exec(@subcommand, @commands.join(' '))
+        repo_exec(@subcommand, @commands)
       end
 
     end
