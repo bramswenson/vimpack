@@ -4,6 +4,7 @@ require "bundler/setup"
 require 'fileutils'
 require 'tempfile'
 require 'erb'
+require 'pathname'
 
 # FIXME: this line doesn't seem to be working right
 # hence the requires of 3rd parties below it

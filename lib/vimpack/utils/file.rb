@@ -10,7 +10,7 @@ module Vimpack
         self.pack_path   = FilePath.new(self.home_path.join('.vimpack'))
         self.script_path = FilePath.new(self.pack_path.join('scripts'))
         self.vim_path    = FilePath.new(self.pack_path.join('vim'))
-        self.bundle_path    = FilePath.new(self.vim_path.join('bundle'))
+        self.bundle_path = FilePath.new(self.vim_path.join('bundle'))
       end
 
       def file_exists?(filename)
@@ -25,7 +25,10 @@ module Vimpack
         ::File.exists?(linkname) && ::File.stat(linkname).symlink?
       end
 
-      def create_link(target, linkname)
+      def create_link(target, linkname, relative=true)
+        target = Pathname.new(target).relative_path_from(
+          Pathname.new(::File.dirname(linkname))
+        ) if relative
         ::FileUtils.ln_s(target, linkname)
       end
 
