@@ -1,7 +1,12 @@
 module Vimpack
   module Commands
     class Command
-      include ::Vimpack::Utils
+      include ::Vimpack::Utils::File
+      include ::Vimpack::Utils::Io
+      include ::Vimpack::Utils::Git
+      include ::Vimpack::Utils::Process
+      include ::Vimpack::Utils::Scripts
+
       def initialize(options, global_options)
         @options = options
         @global_options = global_options
