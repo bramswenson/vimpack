@@ -1,6 +1,6 @@
 module Vimpack
   module Models
-    autoload :Base,   'vimpack/api/models/base'
-    autoload :Script, 'vimpack/api/models/script'
+    autoload :Base,   'vimpack/models/base'
+    autoload :Script, 'vimpack/models/script'
   end
 end

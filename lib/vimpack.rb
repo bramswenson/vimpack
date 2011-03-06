@@ -29,8 +29,8 @@ module Vimpack
   def self.root
     @root ||= Utils::FilePath.new(File.join(File.dirname(__FILE__), '..'))
   end
-end
 
-require 'vimpack/api'
-require 'vimpack/commands'
+  autoload :Models,   'vimpack/models'
+  autoload :Commands, 'vimpack/commands'
+end
 
