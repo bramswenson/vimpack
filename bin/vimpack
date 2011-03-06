@@ -26,9 +26,10 @@ Usage:
 EOU
 
 SUB_COMMANDS = %w{ init search install uninstall list info git }
-global_opts = Trollop::options do
+global_options = Trollop::options do
   version 'vimpack 0.0.1 (c) 2011 Bram Swenson'
   banner USAGE
+  opt :environment, 'The environment to run vimpack within', :short => '-e', :default => 'production'
   stop_on SUB_COMMANDS
 end
 
@@ -43,7 +44,7 @@ when 'init'
     banner 'vimpack init [repo_url] - Initialize vimpack repository'
     opt :home_directory, 'The home directory of the user', :short => '-d', :default => ENV['HOME']
   end
-  Vimpack::Commands::Init.run(options, ARGV)
+  Vimpack::Commands::Init.run(options, global_options)
 when 'search'
   options = Trollop::options do
     banner 'vimpack search <string> - Search for vim scripts'
@@ -59,27 +60,27 @@ when 'search'
     opt :page, 'Page number to get (used with --limit for large result sets)',
       :short => '-n', :default => 1
   end
-  Vimpack::Commands::Search.run(options, ARGV)
+  Vimpack::Commands::Search.run(options, global_options)
 when 'install'
   options = Trollop::options do
     banner 'vimpack install <script_name> [script_name] - Install vim scripts'
   end
-  Vimpack::Commands::Install.run(options, ARGV)
+  Vimpack::Commands::Install.run(options, global_options)
 when 'uninstall'
   options = Trollop::options do
     banner 'vimpack uninstall <script_name> [script_name] - Uninstall vim scripts'
   end
-  Vimpack::Commands::Uninstall.run(options, ARGV)
+  Vimpack::Commands::Uninstall.run(options, global_options)
 when 'list'
   options = Trollop::options do
     banner 'vimpack list - List installed vim scripts'
   end
-  Vimpack::Commands::List.run(options, ARGV)
+  Vimpack::Commands::List.run(options, global_options)
 when 'info'
   options = Trollop::options do
     banner 'vimpack info <script_name> - Get detailed information on a vim script'
   end
-  Vimpack::Commands::Info.run(options, ARGV)
+  Vimpack::Commands::Info.run(options, global_options)
 when 'git'
   the_banner = <<-EOB
 vimpack git publish -m <message> - Publish vimpack repo (shorthand for commit and push)
@@ -98,7 +99,7 @@ EOB
     options = {}
   end
   ARGV.unshift git_command
-  Vimpack::Commands::Git.run(options, ARGV)
+  Vimpack::Commands::Git.run(options, global_options)
 else
   puts "command not found: #{cmd}"
   Trollop::die USAGE

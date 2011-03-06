@@ -24,11 +24,11 @@ require 'yajl'
 require 'vimpack/utils'
 
 module Vimpack
-  
+  include Enviro::Environate
+
   def self.root
     @root ||= Utils::FilePath.new(File.join(File.dirname(__FILE__), '..'))
   end
-
 end
 
 require 'vimpack/api'

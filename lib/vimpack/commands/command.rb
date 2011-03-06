@@ -2,12 +2,23 @@ module Vimpack
   module Commands
     class Command
       include ::Vimpack::Utils
-      def initialize(options, commands)
+      def initialize(options, global_options)
         @options = options
-        @commands = commands
+        @global_options = global_options
+        @commands = ARGV
         setup_paths(@options[:home_directory] || ENV['HOME'])
+        initialize_environment
+        initialize_global_options
         initialize_options
         initialize_commands
+      end
+
+      def initialize_environment
+        Vimpack.environment = @global_options[:environment].to_sym
+        say(" * using environment #{Vimpack.environment.inspect}") unless Vimpack.environment == :production
+      end
+
+      def initialize_global_options
       end
 
       def initialize_options

@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency('rest-client', '~> 1.6.1')
   s.add_dependency('activemodel', '~> 3.0.4')
   s.add_dependency('yajl-ruby', '~> 0.8.1')
+  s.add_dependency('enviro')
   s.add_development_dependency('cucumber')
   s.add_development_dependency('rspec')
   s.add_development_dependency('aruba')
