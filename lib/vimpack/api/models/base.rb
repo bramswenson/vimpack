@@ -11,10 +11,10 @@ module Vimpack
         end
 
         def initialize(attributes = Hash.new)
-          attributes.each do |name, value|  
-            send("#{name}=", value)  
-          end  
-        end  
+          attributes.each do |name, value|
+            send("#{name}=".to_sym, value)
+          end
+        end
 
         def self.json_parser
           @json_parser ||= Yajl::Parser.new
@@ -29,11 +29,11 @@ module Vimpack
           @base_url = url.nil? ? @base_url : url
         end
 
+        protected
         def self.setup_request_url(path)
           [ self.base_url, path ].join('/')
         end
 
-        protected
         def self.rest_client(method, path, options=Hash.new)
           options.merge!(:content_type => :json, :accept => :json)
           begin
@@ -44,7 +44,6 @@ module Vimpack
         end
 
       end
-      
     end
   end
 end
