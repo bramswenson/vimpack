@@ -14,7 +14,7 @@ describe Vimpack::Api::Models::Script do
   context "the instance" do
     let(:script) { Vimpack::Api::Models::Script.new }
     %w( name script_type summary repo_url script_version description
-        author ).each do |meth|
+        author install! uninstall! installed? ).each do |meth|
       it "should respond to #{meth}" do
         script.should respond_to(meth.to_sym)
       end

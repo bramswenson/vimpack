@@ -47,7 +47,16 @@ module Vimpack
           script = Script.from_json(script)
           script
         end
-        
+
+        def install!
+        end
+
+        def uninstall!
+        end
+
+        def installed?
+        end
+
       end
     end
   end
