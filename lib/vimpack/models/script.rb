@@ -1,7 +1,7 @@
 module Vimpack
   module Models
 
-    class Script < Base
+    class Script < ApiBase
       base_url 'http://api.vimpack.org/api/v1/scripts'
       attr_accessor :name, :script_type, :summary, :repo_url, :script_version,
                     :description, :author

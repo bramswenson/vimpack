@@ -1,2 +1,2 @@
 
-task :default => :spec
+task :default => [ :spec, :cucumber ]

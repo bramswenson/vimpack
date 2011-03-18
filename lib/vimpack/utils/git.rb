@@ -2,8 +2,10 @@ module Vimpack
   module Utils
     module Git
 
-      def create_vimpack_repo
-        run_process_or_die!("git init --quiet", self.pack_path)
+      include Process
+
+      def init_repo(path)
+        run_process_or_die!("git init --quiet", path)
       end
 
       def add_submodule(repo_uri, name)
