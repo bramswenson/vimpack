@@ -12,6 +12,10 @@ def check_git_submodule(submodule, repo)
   res.should match(/#{name}/)
 end
 
+def check_vimpack_remote(remote_name, url)
+  res = %x{ cd /tmp/vimpack_home/.vimpack ; git config -l ; cd - }
+  res.should match(/remote.#{Regexp.escape(remote_name)}.url=#{Regexp.escape(url)}/)
+end
 
 HOME = '/tmp/vimpack_home'
 ENV['HOME'] = HOME

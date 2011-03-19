@@ -1,6 +1,7 @@
 module Vimpack
   module Utils
     module Process
+      include Io
 
       class Results
         attr_accessor :process, :message

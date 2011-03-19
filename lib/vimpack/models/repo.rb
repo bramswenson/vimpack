@@ -9,10 +9,24 @@ module Vimpack
         include ::Vimpack::Utils::Git
         include ::Vimpack::Utils::Scripts
 
-        def initialize_repo!
-          raise AlreadyInitialized if directory_exists?(home_path.join('.vimpack'))
+        def initialize_repo!(repo_url=nil)
+          raise AlreadyInitialized if initialized?
+          @repo_url = repo_url
           backup_existing_vim_environment
-          initialize_vimpack_repo
+          @repo_url.nil? ? initialize_vimpack_repo : initialize_vimpack_remote_repo
+        end
+
+        def initialized?
+          directory_exists?(home_path.join('.vimpack'))
+        end
+
+        private
+        def initialize_vimpack_remote_repo
+          repo_clone(@repo_url, self.pack_path.to_s)
+          init_submodule
+          update_submodule
+          link_dot_vim
+          initialize_vimrc
         end
 
         def backup_existing_vim_environment
@@ -27,6 +41,12 @@ module Vimpack
           make_dir(script_path.to_s)
           create_vimpack_repo
           initialize_pathogen_submodule
+          link_dot_vim
+          initialize_vimrc
+        end
+
+        def link_dot_vim
+          create_link(self.vim_path.to_s, self.home_path.join('.vim'))
         end
 
         def initialize_pathogen_submodule
@@ -38,6 +58,12 @@ module Vimpack
         def create_vimpack_repo
           init_repo(pack_path)
         end
+
+        def initialize_vimrc
+          template('vimrc', self.pack_path.join('vimrc'))
+          create_link(self.pack_path.join('vimrc'), self.home_path.join('.vimrc'))
+        end
+
 
       end
       setup_paths(ENV['HOME'])
