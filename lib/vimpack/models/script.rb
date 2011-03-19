@@ -1,5 +1,6 @@
 module Vimpack
   module Models
+    class ScriptNotFound < StandardError; end
 
     class Script < ApiBase
       base_url 'http://api.vimpack.org/api/v1/scripts'
@@ -28,8 +29,7 @@ module Vimpack
         begin
           script = self.rest_client(:get, script_name)
         rescue RestClient::InternalServerError
-          # script not found
-          return nil
+          raise ScriptNotFound.new(script_name)
         end
         script = Script.from_json(script)
         script
@@ -39,8 +39,7 @@ module Vimpack
         begin
           script = self.rest_client(:get, "#{script_name}/info")
         rescue RestClient::InternalServerError
-          # script not found
-          return nil
+          raise ScriptNotFound.new(script_name)
         end
         script = Script.from_json(script)
         script

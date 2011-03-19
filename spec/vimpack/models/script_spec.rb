@@ -1,19 +1,79 @@
 require 'spec_helper'
 
 describe Vimpack::Models::Script do
+  let(:script_model) { Vimpack::Models::Script }
 
   context "the class" do
     %w( search get info ).each do |meth|
       it "should respond to #{meth}" do
-        Vimpack::Models::Script.should respond_to(meth.to_sym)
+        script_model.should respond_to(meth.to_sym)
       end
+    end
+
+    context "search" do
+      
+      context "by exact name" do
+
+        it "should return a 1 item collection" do
+          script_model.search('cucumber.zip').count.should == 1
+        end
+
+        it "should return a Script as the first result in the collection" do
+          script_model.search('cucumber.zip').first.should be_a(script_model)
+        end
+
+      end
+
+      context "by name that returns more than one result" do
+
+        it "should return a more than 1 item collection" do
+          script_model.search('rails').count.should > 1
+        end
+
+        it "should return a collection of Script instances" do
+          script_model.search('rails').each do |script|
+            script.should be_a(script_model)
+          end
+        end
+
+      end
+      context "by name that does not exist" do
+
+        it "should return an empty collection" do
+          script_model.search('boogity_boogity_boo').count.should == 0
+        end
+
+      end
+    end
+
+    context "info" do
+
+      it "should raise an error when the script does not exist" do
+        expect { script_model.info('boogity_boo_hoo') }.to raise_error
+      end
+
+      it "should return script when found" do
+        script_model.info('rails.vim').should be_a(script_model)
+      end
+
+    end
+    context "get" do
+
+      it "should raise an error when the script does not exist" do
+        expect { script_model.get('boogity_boo_hoo') }.to raise_error
+      end
+
+      it "should return script when found" do
+        script_model.get('rails.vim').should be_a(script_model)
+      end
+
     end
   end
 
   context "an instance" do
     
     context "should respond to" do
-      let(:script) { Vimpack::Models::Script.new }
+      let(:script) { script_model.new }
       %w( name script_type summary repo_url script_version description
           author install! uninstall! installed? installable? ).each do |meth|
         it meth do
@@ -24,7 +84,7 @@ describe Vimpack::Models::Script do
 
     context "that exists in vimpack.org" do
 
-      let(:script) { Vimpack::Models::Script.get('rails.vim') }
+      let(:script) { script_model.get('rails.vim') }
       let(:repo)   { Vimpack::Models::Repo }
       script_data = {
         :name => "rails.vim",
