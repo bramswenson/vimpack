@@ -46,13 +46,30 @@ module Vimpack
         script
       end
 
-      def install!
+      def install!(link_to_bundle = true)
+        raise StandardError.new("vimpack is not initialized!") unless Repo.initialized?
+        raise StandardError.new("#{name}: already installed!") if installed?
+        Base.add_submodule(repo_url, name)
+        if link_to_bundle
+          Base.create_link(Base.script_path.join(name), Base.bundle_path.join(name))
+        end
+        true
       end
 
       def uninstall!
+        raise StandardError.new("vimpack is not initialized!") unless Repo.initialized?
+        raise StandardError.new("#{name}: is not installed!") unless installed?
+        Base.remove_submodule(name)
+        Base.remove_link(Base.bundle_path.join(name)) if Base.symlink_exists?(Base.bundle_path.join(name))
+        true
       end
 
       def installed?
+        Repo.initialized? && Base.directory_exists?(Base.script_path.join(name))
+      end
+
+      def installable?
+        Repo.initialized? && !installed?
       end
 
     end

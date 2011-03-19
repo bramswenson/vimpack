@@ -4,7 +4,6 @@ module Vimpack
     class Repo < Base
       class AlreadyInitialized < StandardError ; end
       class << self
-
         include ::Vimpack::Utils::File
         include ::Vimpack::Utils::Git
         include ::Vimpack::Utils::Scripts
@@ -64,12 +63,8 @@ module Vimpack
           create_link(self.pack_path.join('vimrc'), self.home_path.join('.vimrc'))
         end
 
-
       end
       setup_paths(ENV['HOME'])
-
-
     end
-
   end
 end
