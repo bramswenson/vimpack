@@ -71,6 +71,12 @@ module Vimpack
         Repo.initialized? && !installed?
       end
 
+      private
+      def self.script_not_found(name)
+        scripts = search(name, Array.new, 1)
+        return exit_with_error!("Script not found! Did you mean #{scripts.first.name}?") if scripts.any?
+        exit_with_error!('Script not found!')
+      end
     end
   end
 end

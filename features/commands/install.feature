@@ -16,14 +16,19 @@ Feature: Install a vim script
       And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should exist and link to "test_vimpack/.vimpack/scripts/rails.vim"
       And the exit status should be 0
 
-  Scenario: Attempt to install a script that is not found but a fuzzy match is found
+  Scenario: Install multiple scripts
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack install cucumber"
+    When I run "vimpack install rails.vim cucumber.zip"
     Then the output should contain:
       """
-      Script not found! Did you mean cucumber.zip?
+       * installing rails.vim
+      rails.vim (4.3) installed!
+       * installing cucumber.zip
+      cucumber.zip (1.0) installed!
       """
-      And the exit status should be 1
+      And a directory named "test_vimpack/.vimpack/scripts/rails.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
+      And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should exist and link to "test_vimpack/.vimpack/scripts/rails.vim"
+      And the exit status should be 0
 
   Scenario: Attempt to install a script that is not found
     Given an initialized vimpack in "test_vimpack"
@@ -31,6 +36,15 @@ Feature: Install a vim script
     Then the output should contain:
       """
       Script not found!
+      """
+      And the exit status should be 1
+
+  Scenario: Attempt to install a script that is not found but a fuzzy match is found
+    Given an initialized vimpack in "test_vimpack"
+    When I run "vimpack install cucumber"
+    Then the output should contain:
+      """
+      Script not found! Did you mean cucumber.zip?
       """
       And the exit status should be 1
 
