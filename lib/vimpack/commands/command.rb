@@ -5,7 +5,6 @@ module Vimpack
       include ::Vimpack::Utils::Io
       include ::Vimpack::Utils::Git
       include ::Vimpack::Utils::Process
-      include ::Vimpack::Utils::Scripts
 
       def initialize(options, global_options)
         @options = options

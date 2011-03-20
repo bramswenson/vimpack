@@ -8,7 +8,7 @@ module Vimpack
 
       def run
         say(start_message)
-        ::Vimpack::Models::Repo.initialize_repo!(@repo_url)
+        Vimpack::Models::Repo.initialize!(@repo_url)
         say('vimpack initialized!')
       end
 

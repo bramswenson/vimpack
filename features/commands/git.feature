@@ -12,10 +12,8 @@ Feature: Manage vimpack git repo
     Then the exit status should be 0
       And the output should contain:
         """
-         * commiting vimpack repo
-        commited: [TEST] testing vimpack!
-         * pushing vimpack repo
-        vimpack repo pushed!
+         * publishing vimpack repo
+        vimpack repo published!
         """
       And the vimpack git remote "origin" should be "/tmp/aruba/vimpack-repo"
 
@@ -46,7 +44,7 @@ Feature: Manage vimpack git repo
       And the output should contain:
         """
          * running git remote add origin /tmp/aruba/vimpack-repo
-        command ran: git remote add origin /tmp/aruba/vimpack-repo
+        command complete!
         """
       And the vimpack git remote "origin" should be "/tmp/aruba/vimpack-repo"
 
@@ -59,8 +57,8 @@ Feature: Manage vimpack git repo
     Then the exit status should be 0
       And the output should contain:
         """
-         * running git commit -m '[TEST] test commit'
-        command ran: git commit -m '[TEST] test commit'
+         * running git commit -m [TEST] test commit
+        command complete!
         """
       And the vimpack git commit logs last message should be "[TEST] test commit"
 
@@ -73,7 +71,7 @@ Feature: Manage vimpack git repo
     Then the exit status should be 0
       And the output should contain:
         """
-         * pushing vimpack repo
-        vimpack repo pushed!
+         * publishing vimpack repo
+        vimpack repo published!
         """
       And the vimpack git status should be empty

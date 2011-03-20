@@ -3,12 +3,12 @@ module Vimpack
 
     class Repo < Base
       class AlreadyInitialized < StandardError ; end
+      class OriginRemoteUnset < StandardError ; end
       class << self
         include ::Vimpack::Utils::File
         include ::Vimpack::Utils::Git
-        include ::Vimpack::Utils::Scripts
 
-        def initialize_repo!(repo_url=nil)
+        def initialize!(repo_url=nil)
           raise AlreadyInitialized if initialized?
           @repo_url = repo_url
           backup_existing_vim_environment
@@ -19,7 +19,37 @@ module Vimpack
           directory_exists?(home_path.join('.vimpack'))
         end
 
+        def publish!(message)
+          raise OriginRemoteUnset unless origin_set?
+          repo_add_dot
+          repo_commit(message)
+          repo_push
+          true
+        end
+
+        def git_exec(subcommand, commands)
+          repo_exec(subcommand, commands)
+        end
+
+        def installed_script_names
+          Dir.glob(self.script_path.join('*')).each.inject([]) do |scripts, script_dir|
+            script_name = ::File.split(script_dir)[-1]
+            scripts << script_name unless script_name == 'pathogen.vim'
+            scripts
+          end
+        end
+
+        def installed_scripts
+          installed_script_names.each.inject([]) do |scripts, script_name|
+            scripts << Script.info(script_name)
+          end
+        end
+
         private
+        def origin_set?
+          repo_remote?('origin')
+        end
+
         def initialize_vimpack_remote_repo
           repo_clone(@repo_url, self.pack_path.to_s)
           init_submodule
@@ -49,7 +79,7 @@ module Vimpack
         end
 
         def initialize_pathogen_submodule
-          install_script('pathogen.vim', false)
+          Script.get('pathogen.vim').install!(false)
           create_link(script_path.join('pathogen.vim', 'plugin', 'pathogen.vim'),
                       vim_path.join('autoload', 'pathogen.vim'))
         end

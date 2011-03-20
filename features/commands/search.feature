@@ -129,7 +129,7 @@ Feature: Search for a vim script
     When I run "vimpack search this_does_not_exist_anywhere_right"
     Then the output should contain:
       """
-      no scripts found!
+      No scripts found!
       """
       And the exit status should be 0
 

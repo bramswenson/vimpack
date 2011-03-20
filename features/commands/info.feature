@@ -22,7 +22,7 @@ Feature: Get information about a script
     When I run "vimpack info this_does_not_exists_i_swear"
     Then the output should contain:
       """
-      script not found!
+      Script not found!
       """
       And the exit status should be 1
 

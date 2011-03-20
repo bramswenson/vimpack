@@ -8,8 +8,11 @@ module Vimpack
       end
 
       def run
-        script = ::Vimpack::Api::Models::Script.info(@script_name)
-        return exit_with_error!('script not found!') if script.nil?
+        begin
+          script = Vimpack::Models::Script.info(@script_name)
+        rescue Vimpack::Models::ScriptNotFound
+          return exit_with_error!('Script not found!')
+        end
         say("Name: #{script.name}")
         say("Author: #{script.author}")
         say("Version: #{script.script_version}")

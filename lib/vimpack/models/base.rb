@@ -7,7 +7,6 @@ module Vimpack
 
         include ::Vimpack::Utils::File
         include ::Vimpack::Utils::Git
-        include ::Vimpack::Utils::Scripts
 
         def json_parser
           @json_parser = Yajl::Parser.new

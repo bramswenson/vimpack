@@ -29,7 +29,6 @@ Feature: Initialize vimpack
       And an empty file named "test_vimpack/.vimrc"
       And "test_vimpack" is my home directory
     When I run "vimpack init git@github.com:bramswenson/vimpack-repo-test.git"
-    Then show me the output
     Then a directory named "test_vimpack/.vim.before_vimpack" should exist
       And a file named "test_vimpack/.vimrc.before_vimpack" should exist
       And the output should contain " * initializing vimpack repo from git@github.com:bramswenson/vimpack-repo-test.git"

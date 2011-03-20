@@ -14,13 +14,15 @@ module Vimpack
       end
 
       def git_publish
-        repo_add_dot
-        repo_commit(@options[:message])
-        repo_push
+        say(" * publishing vimpack repo")
+        Vimpack::Models::Repo.publish!(@options[:message])
+        say("vimpack repo published!")
       end
 
       def git_exec
-        repo_exec(@subcommand, @commands)
+        say(" * running git #{@subcommand} #{@commands.join(' ')}")
+        command = Vimpack::Models::Repo.git_exec(@subcommand, @commands)
+        say("command complete!")
       end
 
     end

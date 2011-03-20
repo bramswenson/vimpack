@@ -5,7 +5,8 @@ describe Vimpack::Models::Repo do
 
   let :vimpack, do Vimpack::Models::Repo end
 
-  %w( home_path initialize_repo! initialized? ).each do |meth|
+  %w( initialize! initialized? publish! git_exec installed_script_names
+      installed_scripts ).each do |meth|
     it "should respond to #{meth}" do
       vimpack.should respond_to(meth.to_sym)
     end
@@ -13,6 +14,55 @@ describe Vimpack::Models::Repo do
 
   it "should have home path set to #{HOME}" do
     vimpack.home_path.to_s.should == HOME
+  end
+
+  context "installed_script_names" do
+    
+    it "should return a collection of script names" do
+      vimpack.initialize!
+      Vimpack::Models::Script.get('rails.vim').install!
+      vimpack.installed_script_names.should == ['rails.vim']
+    end
+
+  end
+
+  context "installed_scripts" do
+    
+    it "should return a collection of scripts" do
+      vimpack.initialize!
+      rails_vim_script = Vimpack::Models::Script.info('rails.vim')
+      rails_vim_script.install!
+      vimpack.installed_scripts.each do |script|
+        script.should be_a(Vimpack::Models::Script)
+      end
+    end
+
+  end
+
+  context "publish!" do
+
+    it "should raise error with no origin remote set" do
+      vimpack.initialize!
+      expect { vimpack.publish!("[TEST] test from rspec") }.to raise_error(Vimpack::Models::Repo::OriginRemoteUnset)
+    end
+
+    it "should return true" do
+      vimpack.initialize!('git@github.com:bramswenson/vimpack-repo-test.git')
+      script_names = %w( rails.vim )
+      script_names.each do |script_name|
+        script = Vimpack::Models::Script.get(script_name)
+        if script.installed?
+          script.uninstall!
+          vimpack.publish!("[uninstall] uninstalled #{script.name}")
+        end
+        script.install!
+      end
+      vimpack.publish!("[TEST] test from rspec").should be_true
+      script_names.each do |script_name|
+        Vimpack::Models::Script.get(script_name).uninstall!
+      end
+      vimpack.publish!("[TEST] cleanup testing").should be_true
+    end
   end
 
   context "initialized?" do
@@ -28,14 +78,14 @@ describe Vimpack::Models::Repo do
     end
   end
 
-  context "initialize_repo!" do
+  context "initialize!" do
 
     context "when already initialized" do
 
       it "should raise error" do
         ::FileUtils.mkdir_p(vimpack.pack_path.to_s)
         ::File.should be_a_directory(::File.join(HOME, '.vimpack'))
-        expect { vimpack.initialize_repo! }.to raise_error(Vimpack::Models::Repo::AlreadyInitialized)
+        expect { vimpack.initialize! }.to raise_error(Vimpack::Models::Repo::AlreadyInitialized)
       end
 
     end
@@ -49,7 +99,7 @@ describe Vimpack::Models::Repo do
           before(:each) do
             FileUtils.mkdir_p(vimpack.home_path.join('.vim'))
             File.new(vimpack.home_path.join('.vimrc'), 'w').close
-            vimpack.initialize_repo!(repo_url_arg)
+            vimpack.initialize!(repo_url_arg)
           end
 
           it "should backup existing vim files" do

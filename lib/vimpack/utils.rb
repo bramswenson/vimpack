@@ -5,9 +5,7 @@ module Vimpack
     autoload :Io,       'vimpack/utils/io'
     autoload :Process,  'vimpack/utils/process'
     autoload :Git,      'vimpack/utils/git'
-    autoload :Scripts,  'vimpack/utils/scripts'
     autoload :Api,      'vimpack/utils/api'
-
   end
 end
 

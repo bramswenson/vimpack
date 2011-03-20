@@ -56,10 +56,8 @@ Given /^an existing git repo in "([^"]*)"$/ do |path|
     Then the exit status should be 0
       And the output should contain:
         """
-         * commiting vimpack repo
-        commited: [TEST] testing vimpack!
-         * pushing vimpack repo
-        vimpack repo pushed!
+         * publishing vimpack repo
+        vimpack repo published!
         """
       And the vimpack git remote "origin" should be "/tmp/aruba/#{path}"
   }

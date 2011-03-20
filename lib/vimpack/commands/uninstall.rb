@@ -4,12 +4,20 @@ module Vimpack
 
       def initialize_commands
         die!("uninstall requires at least one script name argument") unless @commands.size >= 0
-        @scripts = @commands
+        @script_names = @commands
       end
 
       def run
-        @scripts.each do |script|
-          uninstall_script(script)
+        @script_names.each do |script_name|
+          begin
+            script = ::Vimpack::Models::Script.get(script_name)
+            return exit_with_error!('Script not found!') unless file_exists?(script_path.join(script_name))
+          rescue ::Vimpack::Models::ScriptNotFound
+            return exit_with_error!('Script not found!')
+          end
+          say(" * uninstalling #{script.name}")
+          script.uninstall!
+          say("#{script.name} uninstalled!")
         end
       end
 

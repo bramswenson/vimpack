@@ -108,7 +108,7 @@ describe Vimpack::Models::Script do
         end
 
         it "should be true if vimpack is initialized" do
-          repo.initialize_repo!
+          repo.initialize!
           script.should be_installable
         end
 
@@ -116,7 +116,7 @@ describe Vimpack::Models::Script do
 
       context "installed?" do
 
-        before(:each) { repo.initialize_repo! }
+        before(:each) { repo.initialize! }
 
         it "should be false if script is not installed" do
           script.should_not be_installed
@@ -138,7 +138,7 @@ describe Vimpack::Models::Script do
         end
 
         context "when vimpack is initialized" do
-          before(:each) { repo.initialize_repo! }
+          before(:each) { repo.initialize! }
 
           it "should return true when script installed without errors" do
             script.install!.should be_true
@@ -161,7 +161,7 @@ describe Vimpack::Models::Script do
         end
 
         context "when vimpack is initialized" do
-          before(:each) { repo.initialize_repo! }
+          before(:each) { repo.initialize! }
 
           it "should return true when script uninstalled without errors" do
             script.install!

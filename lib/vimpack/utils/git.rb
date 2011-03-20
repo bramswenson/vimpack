@@ -4,8 +4,8 @@ module Vimpack
 
       include Process
 
-      def init_repo(path)
-        run_process_or_die!("git init --quiet", path)
+      def init_repo(path, bare=false)
+        run_process_or_die!("git init --quiet#{bare == true ? ' --bare' : ''}", path)
       end
 
       def add_submodule(repo_uri, name)
@@ -45,35 +45,33 @@ module Vimpack
 
       def repo_add_remote(name, path)
         cmd = "git remote add #{name} #{path}"
-        say(" * adding remote #{name}")
         run_process_or_die!(cmd, self.pack_path.to_s)
-        say("remote #{name} added!")
       end
+
+      def repo_remote?(name)
+        remotes = run_process_and_wait!("git remote show #{name}", pack_path.to_s)
+        !remotes.message.include?('does not appear to be a git') && remotes.message.include?(name)
+      end
+
 
       def repo_commit(msg='')
         msg = '[VIMPACK] vimpack updated' if msg == ''
         cmd = "git add . && git commit -m '#{msg}'"
-        say(' * commiting vimpack repo')
         run_process_or_die!(cmd, self.pack_path.to_s)
-        say("commited: #{msg}!")
       end
 
       def repo_pull(remote_path='origin master')
-        say(" * pulling #{remote_path}")
         run_process_or_die!("git pull #{remote_path}", self.pack_path.to_s)
-        say("synced with #{remote_path}!")
       end
 
       def repo_push
         cmd = "git push origin master"
-        say(' * pushing vimpack repo')
         error_message = <<-EOE
 error: local repo out of sync with remote
   use git to sync with something like this:
    vimpack git fetch && vimpack git merge origin/master
         EOE
         run_process_or_die!(cmd, self.pack_path.to_s, error_message)
-        say('vimpack repo pushed!')
       end
 
       def repo_clone(repo_url, path)
@@ -89,14 +87,12 @@ error: local repo out of sync with remote
       def repo_exec(subcommand, commands)
         commands = sanitize_commands(commands)
         cmd = "git #{subcommand} #{commands}"
-        say(" * running #{cmd}")
         run_process_or_die!(cmd, self.pack_path.to_s)
-        say("command ran: #{cmd}")
       end
 
       def sanitize_commands(commands)
         commands.each.inject('') do |full_command, command|
-          full_command << ' ' unless full_command.blank?
+          full_command << ' ' unless full_command == ''
           full_command << (command.include?(' ') ? "'#{command}'" : command)
         end
       end
