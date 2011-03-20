@@ -14,7 +14,7 @@ Feature: Uninstall a vim script
       rails.vim uninstalled!
       """
       And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should not exist
-      And a directory named "test_vimpack/.vimpack/scripts/rails.vim" should not exist
+      And a directory named "test_vimpack/.vimpack/scripts/utility/rails.vim" should not exist
       And the exit status should be 0
 
   Scenario: Uninstall multiple scripts
@@ -30,9 +30,9 @@ Feature: Uninstall a vim script
       cucumber.zip uninstalled!
       """
       And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should not exist
-      And a directory named "test_vimpack/.vimpack/scripts/rails.vim" should not exist
+      And a directory named "test_vimpack/.vimpack/scripts/utility/rails.vim" should not exist
       And a symlink named "test_vimpack/.vimpack/vim/bundle/cucumber.zip" should not exist
-      And a directory named "test_vimpack/.vimpack/scripts/cucumber.zip" should not exist
+      And a directory named "test_vimpack/.vimpack/scripts/utility/cucumber.zip" should not exist
       And the exit status should be 0
 
   Scenario: Try Uninstall a script that is not installed

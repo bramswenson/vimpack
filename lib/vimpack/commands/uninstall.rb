@@ -11,8 +11,8 @@ module Vimpack
         @script_names.each do |script_name|
           begin
             script = ::Vimpack::Models::Script.get(script_name)
-            return exit_with_error!('Script not found!') unless file_exists?(script_path.join(script_name))
-          rescue ::Vimpack::Models::ScriptNotFound
+            return exit_with_error!('Script not found!') unless file_exists?(script.install_path)
+          rescue ::Vimpack::Models::Script::ScriptNotFound
             return exit_with_error!('Script not found!')
           end
           say(" * uninstalling #{script.name}")

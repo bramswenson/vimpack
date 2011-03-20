@@ -18,8 +18,8 @@ Feature: Initialize vimpack
       And a directory named "test_vimpack/.vimpack/vim/bundle" should exist
       And a directory named "test_vimpack/.vimpack/scripts" should exist
       And a symlink named "test_vimpack/.vim" should exist and link to "test_vimpack/.vimpack/vim"
-      And a directory named "test_vimpack/.vimpack/scripts/pathogen.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
-      And a symlink named "test_vimpack/.vimpack/vim/autoload/pathogen.vim" should exist and link to "test_vimpack/.vimpack/scripts/pathogen.vim/plugin/pathogen.vim"
+      And a directory named "test_vimpack/.vimpack/scripts/utility/pathogen.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
+      And a symlink named "test_vimpack/.vimpack/vim/autoload/pathogen.vim" should exist and link to "test_vimpack/.vimpack/scripts/utility/pathogen.vim/plugin/pathogen.vim"
       And a symlink named "test_vimpack/.vimrc" should exist and link to "test_vimpack/.vimpack/vimrc"
       And the output should contain "vimpack initialized!"
       And the exit status should be 0
@@ -38,8 +38,8 @@ Feature: Initialize vimpack
       And a directory named "test_vimpack/.vimpack/vim/bundle" should exist
       And a directory named "test_vimpack/.vimpack/scripts" should exist
       And a symlink named "test_vimpack/.vim" should exist and link to "test_vimpack/.vimpack/vim"
-      And a directory named "test_vimpack/.vimpack/scripts/pathogen.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
-      And a symlink named "test_vimpack/.vimpack/vim/autoload/pathogen.vim" should exist and link to "test_vimpack/.vimpack/scripts/pathogen.vim/plugin/pathogen.vim"
+      And a directory named "test_vimpack/.vimpack/scripts/utility/pathogen.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
+      And a symlink named "test_vimpack/.vimpack/vim/autoload/pathogen.vim" should exist and link to "test_vimpack/.vimpack/scripts/utility/pathogen.vim/plugin/pathogen.vim"
       And a symlink named "test_vimpack/.vimrc" should exist and link to "test_vimpack/.vimpack/vimrc"
       And the output should contain "vimpack initialized!"
       And the vimpack git remote "origin" should be "git@github.com:bramswenson/vimpack-repo-test.git"

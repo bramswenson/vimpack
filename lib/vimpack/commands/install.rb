@@ -11,7 +11,7 @@ module Vimpack
         @script_names.each do |script_name|
           begin
             script = Vimpack::Models::Script.get(script_name)
-          rescue Vimpack::Models::ScriptNotFound
+          rescue Vimpack::Models::Script::ScriptNotFound
             exit_with_did_you_mean!(script_name)
           end
           say(" * installing #{script.name}")

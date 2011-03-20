@@ -8,8 +8,9 @@ module Vimpack
         run_process_or_die!("git init --quiet#{bare == true ? ' --bare' : ''}", path)
       end
 
-      def add_submodule(repo_uri, name)
-        path = ::File.join('scripts', name)
+      def add_submodule(repo_uri, *paths)
+        parent, name = paths[0..-2], paths[-1]
+        path = ::File.join('scripts', *paths)
         run_process_or_die!("git submodule add #{repo_uri} #{path}",
                             self.pack_path)
         init_submodule(path)
@@ -24,13 +25,13 @@ module Vimpack
         end
       end
 
-      def remove_submodule(name)
-        path = ::File.join('scripts', name)
+      def remove_submodule(*paths)
+        path = ::File.join('scripts', *paths)
         submod_match = ::Regexp.escape("[submodule \"#{path}\"]") + '\n.*\n.*'
         config_match = ::Regexp.escape("[submodule \"#{path}\"]") + '\n.*'
         replace_contents(self.pack_path.join('.gitmodules'), submod_match)
         replace_contents(self.pack_path.join('.git', 'config'), config_match)
-        remove_link(self.bundle_path.join(name))
+        remove_link(self.bundle_path.join(paths[-1]))
         remove_directory(self.pack_path.join(path))
         run_process_or_die!("git rm -r #{path}", self.pack_path)
       end

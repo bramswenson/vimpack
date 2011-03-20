@@ -12,8 +12,8 @@ Feature: Install a vim script
        * installing rails.vim
       rails.vim (4.3) installed!
       """
-      And a directory named "test_vimpack/.vimpack/scripts/rails.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
-      And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should exist and link to "test_vimpack/.vimpack/scripts/rails.vim"
+      And a directory named "test_vimpack/.vimpack/scripts/utility/rails.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
+      And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should exist and link to "test_vimpack/.vimpack/scripts/utility/rails.vim"
       And the exit status should be 0
 
   Scenario: Install multiple scripts
@@ -26,8 +26,8 @@ Feature: Install a vim script
        * installing cucumber.zip
       cucumber.zip (1.0) installed!
       """
-      And a directory named "test_vimpack/.vimpack/scripts/rails.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
-      And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should exist and link to "test_vimpack/.vimpack/scripts/rails.vim"
+      And a directory named "test_vimpack/.vimpack/scripts/utility/rails.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
+      And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should exist and link to "test_vimpack/.vimpack/scripts/utility/rails.vim"
       And the exit status should be 0
 
   Scenario: Attempt to install a script that is not found

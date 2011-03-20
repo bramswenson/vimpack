@@ -75,7 +75,8 @@ describe Vimpack::Models::Script do
     context "should respond to" do
       let(:script) { script_model.new }
       %w( name script_type summary repo_url script_version description
-          author install! uninstall! installed? installable? ).each do |meth|
+          author install! uninstall! installed? installable? install_path
+        ).each do |meth|
         it meth do
           script.should respond_to(meth.to_sym)
         end
@@ -110,6 +111,48 @@ describe Vimpack::Models::Script do
         it "should be true if vimpack is initialized" do
           repo.initialize!
           script.should be_installable
+        end
+
+      end
+
+      context "bundle_path" do
+
+        before(:each) { repo.initialize! }
+
+        it "should have an bundle path when not installed" do
+          script.bundle_path.should_not be_nil
+        end
+
+        it "should have an bundle path when installed" do
+          script.install!
+          script.bundle_path.should_not be_nil
+        end
+
+        it "should be a path in the bundle dir" do
+          script.bundle_path.should include(Vimpack::Models::Repo.bundle_path.to_s)
+        end
+  
+      end
+
+      context "install_path" do
+
+        before(:each) { repo.initialize! }
+
+        it "should have an install path when not installed" do
+          script.install_path.should_not be_nil
+        end
+
+        it "should have an install path when installed" do
+          script.install!
+          script.install_path.should_not be_nil
+        end
+
+        it "should be a path in the scripts dir" do
+          script.install_path.should include(Vimpack::Models::Repo.script_path.to_s)
+        end
+  
+        it "should be a path named after the script_type" do
+          script.install_path.should match(/#{script.script_type}/)
         end
 
       end

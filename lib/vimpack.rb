@@ -6,9 +6,6 @@ require 'tempfile'
 require 'erb'
 require 'pathname'
 
-# FIXME: this line doesn't seem to be working right
-# hence the requires of 3rd parties below it
-Bundler.require(:default)
 # TODO: do i really need active model?
 require 'active_model'
 require 'trollop'
@@ -19,15 +16,15 @@ require 'childprocess'
 require 'rest_client'
 # TODO: let active support figure out what json to use
 require 'yajl'
+require 'enviro'
 
 # vimpack
 require 'vimpack/utils'
-
 module Vimpack
   include Enviro::Environate
 
   def self.root
-    @root ||= Utils::FilePath.new(File.join(File.dirname(__FILE__), '..'))
+    @root ||= Vimpack::Utils::FilePath.new(File.join(File.dirname(__FILE__), '..'))
   end
 
   autoload :Models,   'vimpack/models'

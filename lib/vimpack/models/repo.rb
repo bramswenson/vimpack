@@ -3,20 +3,30 @@ module Vimpack
 
     class Repo < Base
       class AlreadyInitialized < StandardError ; end
+      class NotInitialized < StandardError ; end
       class OriginRemoteUnset < StandardError ; end
+
       class << self
         include ::Vimpack::Utils::File
         include ::Vimpack::Utils::Git
 
         def initialize!(repo_url=nil)
-          raise AlreadyInitialized if initialized?
+          raise_if_initialized!
           @repo_url = repo_url
           backup_existing_vim_environment
           @repo_url.nil? ? initialize_vimpack_repo : initialize_vimpack_remote_repo
         end
 
         def initialized?
-          directory_exists?(home_path.join('.vimpack'))
+          directory_exists?(pack_path.to_s)
+        end
+
+        def raise_if_initialized!
+          raise AlreadyInitialized if initialized?
+        end
+
+        def raise_unless_initialized!
+          raise NotInitialized unless initialized?
         end
 
         def publish!(message)
@@ -32,7 +42,7 @@ module Vimpack
         end
 
         def installed_script_names
-          Dir.glob(self.script_path.join('*')).each.inject([]) do |scripts, script_dir|
+          Dir.glob(script_directories).each.inject([]) do |scripts, script_dir|
             script_name = ::File.split(script_dir)[-1]
             scripts << script_name unless script_name == 'pathogen.vim'
             scripts
@@ -46,6 +56,12 @@ module Vimpack
         end
 
         private
+        def script_directories
+          Script::SCRIPT_TYPES.map do |script_type| 
+            script_path.join(script_type.gsub(' ', '_'), '*')
+          end
+        end
+
         def origin_set?
           repo_remote?('origin')
         end
@@ -66,6 +82,7 @@ module Vimpack
         def initialize_vimpack_repo
           %w{ autoload bundle }.each do |directory|
             make_dir(vim_path.join(directory))
+            ::FileUtils.touch(vim_path.join(directory, '.gitkeep'))
           end
           make_dir(script_path.to_s)
           create_vimpack_repo
@@ -80,7 +97,7 @@ module Vimpack
 
         def initialize_pathogen_submodule
           Script.get('pathogen.vim').install!(false)
-          create_link(script_path.join('pathogen.vim', 'plugin', 'pathogen.vim'),
+          create_link(script_path.join('utility', 'pathogen.vim', 'plugin', 'pathogen.vim'),
                       vim_path.join('autoload', 'pathogen.vim'))
         end
 

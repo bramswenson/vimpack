@@ -32,6 +32,7 @@ describe Vimpack::Models::Repo do
       vimpack.initialize!
       rails_vim_script = Vimpack::Models::Script.info('rails.vim')
       rails_vim_script.install!
+      vimpack.installed_scripts.count.should == 1
       vimpack.installed_scripts.each do |script|
         script.should be_a(Vimpack::Models::Script)
       end

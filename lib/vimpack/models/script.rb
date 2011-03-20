@@ -1,8 +1,11 @@
 module Vimpack
   module Models
-    class ScriptNotFound < StandardError; end
 
     class Script < ApiBase
+      class ScriptNotFound < StandardError; end
+      class AlreadyInstalled < StandardError; end
+      class NotInstalled < StandardError; end
+
       base_url 'http://api.vimpack.org/api/v1/scripts'
       attr_accessor :name, :script_type, :summary, :repo_url, :script_version,
                     :description, :author
@@ -45,38 +48,48 @@ module Vimpack
         script
       end
 
-      def install!(link_to_bundle = true)
-        raise StandardError.new("vimpack is not initialized!") unless Repo.initialized?
-        raise StandardError.new("#{name}: already installed!") if installed?
-        Base.add_submodule(repo_url, name)
+      def install!(link_to_bundle=true)
+        Repo.raise_unless_initialized!
+        raise AlreadyInstalled.new(name) if installed?
+        Repo.add_submodule(repo_url, script_type.gsub(' ', '_'), name)
         if link_to_bundle
-          Base.create_link(Base.script_path.join(name), Base.bundle_path.join(name))
+          Repo.create_link(install_path, bundle_path)
         end
         true
       end
 
       def uninstall!
-        raise StandardError.new("vimpack is not initialized!") unless Repo.initialized?
-        raise StandardError.new("#{name}: is not installed!") unless installed?
-        Base.remove_submodule(name)
-        Base.remove_link(Base.bundle_path.join(name)) if Base.symlink_exists?(Base.bundle_path.join(name))
+        Repo.raise_unless_initialized!
+        raise NotInstalled.new(name) unless installed?
+        Repo.remove_submodule(script_type.gsub(' ', '_'), name)
+        Repo.remove_link(bundle_path) if Repo.symlink_exists?(bundle_path)
         true
       end
 
       def installed?
-        Repo.initialized? && Base.directory_exists?(Base.script_path.join(name))
+        Repo.initialized? && Repo.directory_exists?(install_path)
       end
 
       def installable?
         Repo.initialized? && !installed?
       end
 
-      private
-      def self.script_not_found(name)
-        scripts = search(name, Array.new, 1)
-        return exit_with_error!("Script not found! Did you mean #{scripts.first.name}?") if scripts.any?
-        exit_with_error!('Script not found!')
+      def install_path
+        Repo.script_path.join(script_type.gsub(' ', '_'), name)
       end
+
+      def bundle_path
+        Repo.bundle_path.join(name)
+      end
+
+      private
+
+        def self.script_not_found(name)
+          scripts = search(name, Array.new, 1)
+          return exit_with_error!("Script not found! Did you mean #{scripts.first.name}?") if scripts.any?
+          exit_with_error!('Script not found!')
+        end
+
     end
   end
 end

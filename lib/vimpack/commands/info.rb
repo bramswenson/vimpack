@@ -10,7 +10,7 @@ module Vimpack
       def run
         begin
           script = Vimpack::Models::Script.info(@script_name)
-        rescue Vimpack::Models::ScriptNotFound
+        rescue Vimpack::Models::Script::ScriptNotFound
           return exit_with_error!('Script not found!')
         end
         say("Name: #{script.name}")
