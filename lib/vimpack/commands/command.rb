@@ -35,7 +35,7 @@ module Vimpack
         raise NotImplemented
       end
 
-      def self.run(options = Hash.new, commands)
+      def self.run(options = Hash.new, commands = Hash.new)
         new(options, commands).run
       end
 
