@@ -23,6 +23,7 @@ module Vimpack
         say(" * running git #{@subcommand} #{@commands.join(' ')}")
         command = Vimpack::Models::Repo.git_exec(@subcommand, @commands)
         say("command complete!")
+        say(command.message, :default)
       end
 
     end
