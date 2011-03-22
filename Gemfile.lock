@@ -1,15 +1,10 @@
 PATH
-  remote: ../enviro
-  specs:
-    enviro (0.0.4)
-
-PATH
   remote: .
   specs:
     vimpack (0.0.1)
       activemodel (~> 3.0.4)
       childprocess (~> 0.1.7)
-      enviro
+      enviro (>= 0.0.4)
       rainbow (~> 1.1.1)
       rest-client (~> 1.6.1)
       trollop (~> 1.16.2)
@@ -41,6 +36,7 @@ GEM
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     diff-lcs (1.1.2)
+    enviro (0.0.4)
     ffi (0.6.3)
       rake (>= 0.8.7)
     gherkin (2.3.3)
@@ -87,7 +83,6 @@ DEPENDENCIES
   autotest-growl
   autotest-standalone
   cucumber
-  enviro!
   rspec
   ruby-debug19
   simplecov
