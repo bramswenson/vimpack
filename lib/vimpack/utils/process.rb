@@ -45,6 +45,7 @@ module Vimpack
         child = run_process_and_wait!(cmd, dir)
         child.message << err_msg if err_msg
         exit_with_error!("child process died:\n#{child.message}") unless child.process.exit_code == 0
+        child
       end
 
       def within_dir(dir=nil, &block)
