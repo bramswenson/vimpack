@@ -6,12 +6,13 @@ Feature: Search for a vim script
 
   Scenario: Search for a script
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search rails"
+    When I run "vimpack -e development search rails"
     Then the output should contain:
       """
       FastGrep                         utility
       Railscasts-Theme-GUIand256color  color scheme
       apidock.vim                      utility
+      paper                            color scheme
       rails.vim                        utility
       railscasts                       color scheme
       railstab.vim                     utility
@@ -20,12 +21,13 @@ Feature: Search for a vim script
 
   Scenario: Search for a script within multiple script_types
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search --utility --color-scheme rails"
+    When I run "vimpack -e development search --utility --color-scheme rails"
     Then the output should contain:
       """
       FastGrep                         utility
       Railscasts-Theme-GUIand256color  color scheme
       apidock.vim                      utility
+      paper                            color scheme
       rails.vim                        utility
       railscasts                       color scheme
       railstab.vim                     utility
@@ -34,7 +36,7 @@ Feature: Search for a vim script
 
   Scenario: Search for a utility script
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search --utility rails"
+    When I run "vimpack -e development search --utility rails"
     Then the output should contain:
       """
       FastGrep      utility
@@ -46,7 +48,7 @@ Feature: Search for a vim script
 
   Scenario: Search for all utility scripts
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search --utility -l 10"
+    When I run "vimpack -e development search --utility -l 10"
     Then the output should contain:
       """
       0scan            utility
@@ -61,24 +63,25 @@ Feature: Search for a vim script
       Align.vim        utility
       """
       And the output should not contain:
-      """
-      AllBuffersToOneWindow.vim  utility
-      """
+        """
+        AllBuffersToOneWindow.vim  utility
+        """
       And the exit status should be 0
 
   Scenario: Search for a color scheme script
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search --color-scheme rails"
+    When I run "vimpack -e development search --color-scheme rails"
     Then the output should contain:
       """
       Railscasts-Theme-GUIand256color  color scheme
+      paper                            color scheme
       railscasts                       color scheme
       """
       And the exit status should be 0
 
   Scenario: Search for a syntax script
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search --syntax haml"
+    When I run "vimpack -e development search --syntax haml"
     Then the output should contain:
       """
       Haml      syntax
@@ -88,7 +91,7 @@ Feature: Search for a vim script
 
   Scenario: Search for an indent script
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search --indent ruby"
+    When I run "vimpack -e development search --indent ruby"
     Then the output should contain:
       """
       indentruby.vim     indent
@@ -98,7 +101,7 @@ Feature: Search for a vim script
 
   Scenario: Search for a game script
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search --game sudoku"
+    When I run "vimpack -e development search --game sudoku"
     Then the output should contain:
       """
       Sudoku-Solver  game
@@ -108,7 +111,7 @@ Feature: Search for a vim script
 
   Scenario: Search for a plugin script
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search --plugin apt"
+    When I run "vimpack -e development search --plugin apt"
     Then the output should contain:
       """
       apt-complete.vim  plugin
@@ -117,7 +120,7 @@ Feature: Search for a vim script
 
   Scenario: Search for a patch script
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search --patch start"
+    When I run "vimpack -e development search --patch start"
     Then the output should contain:
       """
       startup_profile  patch
@@ -126,7 +129,7 @@ Feature: Search for a vim script
 
   Scenario: Search for an unknown script
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack search this_does_not_exist_anywhere_right"
+    When I run "vimpack -e development search this_does_not_exist_anywhere_right"
     Then the output should contain:
       """
       No scripts found!

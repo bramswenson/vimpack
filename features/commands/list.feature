@@ -8,7 +8,7 @@ Feature: List installed vim script
     Given an initialized vimpack in "test_vimpack"
      And "rails.vim" is already installed
      And "railscasts" is already installed
-    When I run "vimpack list"
+    When I run "vimpack -e development list"
     Then the stdout should contain:
       """
       rails.vim

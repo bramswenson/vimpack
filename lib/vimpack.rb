@@ -9,7 +9,7 @@ require 'pathname'
 # TODO: do i really need active model?
 require 'active_model'
 require 'trollop'
-# TODO: term-ascicolor is required by rails/rspec/cuke 
+# TODO: term-ascicolor is required by rails/rspec/cuke
 # or something in rails stack me thinks...maybe us it instead
 require 'rainbow'
 require 'childprocess'

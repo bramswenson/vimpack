@@ -1,0 +1,2629 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/pathogen.vim
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:54:33 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"6aeabcd367aa2abcebb0faa299a13af5"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.362910'
+    body: ! '{"name":"pathogen.vim","script_type":"utility","summary":"Easy manipulation
+      of ''runtimepath'', ''path'', ''tags'', etc","repo_url":"http://github.com/vim-scripts/pathogen.vim.git","script_version":"1.3"}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/rails.vim
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:54:34 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"32298cd2e7bf067904687ef1b119855c"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.290658'
+    body: ! '{"name":"rails.vim","script_type":"utility","summary":"Ruby on Rails:
+      easy file navigation, enhanced syntax highlighting, and more","repo_url":"http://github.com/vim-scripts/rails.vim.git","script_version":"4.3"}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/rails.vim/info
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:54:37 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"ef2afc18a992eecbe81ccd7629737405"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.510129'
+    body: ! '{"description":"TextMate may be the latest craze for developing Ruby
+      on Rails applications, but Vim is forever.  This plugin offers the following
+      features for Ruby on Rails application development.\n\n1. Automatically detects
+      buffers containing files from Rails applications, and applies settings to those
+      buffers (and only those buffers).  You can use an autocommand to apply your
+      own custom settings as well.\n\n2. Unintrusive.  Only files in a Rails application
+      should be affected; regular Ruby scripts are left untouched.  Even when enabled,
+      the plugin should keep out of your way if you''re not using its features.\n\n3.
+      Easy navigation of the Rails directory structure.  gf considers context and
+      knows about partials, fixtures, and much more.  There are two commands, :A (alternate)
+      and :R (related) for easy jumping between files, including favorites like model
+      to migration, template to helper, and controller to functional test.  For more
+      advanced usage, :Rmodel, :Rview, :Rcontroller, and several other commands are
+      provided.\n\n4. Enhanced syntax highlighting.  From has_and_belongs_to_many
+      to distance_of_time_in_words, it''s here.  For easy completion of these long
+      method names, ''completefunc'' is set to enable syntax based completion on CTRL-X
+      CTRL-U.\n\n5. Interface to rake.  Use :Rake to run the current test, spec, or
+      feature.  Use :.Rake to do a focused run of just the method, example, or scenario
+      on the current line.  :Rake can also run arbitrary migrations, load individual
+      fixtures, and more.\n\n6. Interface to script/*.  Generally, use \":Rscript
+      about\" to call \"script/about\" or \"script/rails about\".  Many commands have
+      wrappers with additional features: \":Rgenerate controller Blog\" generates
+      a blog controller and edits app/controllers/blog_controller.rb.\n\n7. Partial
+      extraction and migration inversion.  :Rextract {file} replaces the desired range
+      (ideally selected in visual line mode) with \"render :partial => ''{file}''\",
+      which is automatically created with your content.  The @{file} instance variable
+      is replaced with the {file} local variable.  :Rinvert takes a self.up migration
+      and writes a self.down.\n\n8. Integration with other plugins.  :Rtree spawns
+      NERDTree.vim.  If dbext.vim is installed, it will be transparently configured
+      to reflect database.yml.  Cream users get some additional mappings, and all
+      GUI users get a menu.\n\nIf you like rails.vim and use Git, please Watch the
+      repository on Github at http://github.com/tpope/vim-rails, and try my Git wrapper
+      fugitive.vim: vimscript #2975 http://github.com/tpope/vim-fugitive","name":"rails.vim","script_type":"utility","repo_url":"http://github.com/vim-scripts/rails.vim.git","author":"tpope","script_version":"4.3"}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/cucumber.zip?limit=100&page=1
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:55:47 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"38cd528ff045aa8f5d603ff70b506ced"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.392841'
+    body: ! '[{"name":"cucumber.zip","script_type":"utility","summary":"Cucumber runtime
+      files","repo_url":"http://github.com/vim-scripts/cucumber.zip.git","script_version":"1.0"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/rails?limit=100&page=1
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:55:47 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"a051f701aa380309e6f760fb7ad2c769"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.328886'
+    body: ! '[{"name":"FastGrep","script_type":"utility","summary":"FastGrep for a
+      string using native linux commands in Ruby on Rails projects.","repo_url":"http://github.com/vim-scripts/FastGrep.git","script_version":"0.1"},{"name":"Railscasts-Theme-GUIand256color","script_type":"color
+      scheme","summary":"A railscasts color theme that works in 256color terminals
+      as well as gui","repo_url":"http://github.com/vim-scripts/Railscasts-Theme-GUIand256color.git","script_version":"2.1"},{"name":"apidock.vim","script_type":"utility","summary":"Plugin
+      that searches http://apidock.com Rails/Ruby/RSpec docs","repo_url":"http://github.com/vim-scripts/apidock.vim.git","script_version":"0.1"},{"name":"paper","script_type":"color
+      scheme","summary":"A slightly toned-down mod of the Railscasts color scheme.","repo_url":"http://github.com/vim-scripts/paper.git","script_version":"1.0.1"},{"name":"rails.vim","script_type":"utility","summary":"Ruby
+      on Rails: easy file navigation, enhanced syntax highlighting, and more","repo_url":"http://github.com/vim-scripts/rails.vim.git","script_version":"4.3"},{"name":"railscasts","script_type":"color
+      scheme","summary":"Railscasts TextMate theme for Vim (GUI Only)","repo_url":"http://github.com/vim-scripts/railscasts.git","script_version":"1.3"},{"name":"railstab.vim","script_type":"utility","summary":"Retabbing
+      hacks extracted from rails.vim","repo_url":"http://github.com/vim-scripts/railstab.vim.git","script_version":"1.0"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/boogity_boogity_boo?limit=100&page=1
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:55:48 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"d751713988987e9331980363e24189ce"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.129436'
+    body: ! '[]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/boogity_boo_hoo/info
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 500
+      message: Internal Server Error
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:55:48 GMT
+      content-type:
+      - text/html
+      connection:
+      - keep-alive
+      status:
+      - 500 Internal Server Error
+      content-length:
+      - '29792'
+      x-runtime:
+      - '0.267152'
+    body: ! "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <title>Action
+      Controller: Exception caught</title>\n  <style>\n    body { background-color:
+      #fff; color: #333; }\n\n    body, p, ol, ul, td {\n      font-family: verdana,
+      arial, helvetica, sans-serif;\n      font-size:   13px;\n      line-height:
+      18px;\n    }\n\n    pre {\n      background-color: #eee;\n      padding: 10px;\n
+      \     font-size: 11px;\n    }\n\n    a { color: #000; }\n    a:visited { color:
+      #666; }\n    a:hover { color: #fff; background-color:#000; }\n  </style>\n</head>\n<body>\n\n<h1>\n
+      \ NoMethodError\n    in ScriptsController#show\n</h1>\n<pre>undefined method
+      `info' for nil:NilClass</pre>\n\n\n<p><code>Rails.root: /home/vimpackapi/development/releases/691926bd41ab832ee3518fdc5d1ce318468c89f6</code></p>\n\n<div
+      id=\"traces\">\n    <a href=\"#\" onclick=\"document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';;
+      return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';;
+      return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';;
+      return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
+      block;\">\n      <pre><code>app/controllers/scripts_controller.rb:7:in `block
+      in &lt;class:ScriptsController&gt;'\napp/controllers/scripts_controller.rb:23:in
+      `show'</code></pre>\n    </div>\n    <div id=\"Framework-Trace\" style=\"display:
+      none;\">\n      <pre><code>activesupport (3.0.3) lib/active_support/whiny_nil.rb:48:in
+      `method_missing'\ndecent_exposure (1.0.0) lib/decent_exposure.rb:24:in `instance_eval'\ndecent_exposure
+      (1.0.0) lib/decent_exposure.rb:24:in `block in expose'\nactionpack (3.0.3) lib/action_controller/metal/implicit_render.rb:4:in
+      `send_action'\nactionpack (3.0.3) lib/abstract_controller/base.rb:151:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rendering.rb:11:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:435:in `_run__829948311__process_action__300353505__callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:93:in `run_callbacks'\nactionpack (3.0.3)
+      lib/abstract_controller/callbacks.rb:17:in `process_action'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `block in instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `instrument'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:29:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rescue.rb:17:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/base.rb:120:in `process'\nactionpack (3.0.3)
+      lib/abstract_controller/rendering.rb:40:in `process'\nactionpack (3.0.3) lib/action_controller/metal.rb:138:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal/rack_delegation.rb:14:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal.rb:178:in `block
+      in action'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:27:in `call'\nactionpack (3.0.3)
+      lib/action_dispatch/routing/mapper.rb:35:in `call'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in
+      `block in call'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in
+      `block in recognize'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:89:in
+      `optimized_each'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in
+      `recognize'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:492:in `call'\nhaml (3.0.25)
+      lib/sass/plugin/rack.rb:41:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/head.rb:14:in `call'\nrack
+      (1.2.1) lib/rack/methodoverride.rb:24:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/params_parser.rb:21:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/flash.rb:182:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/cookies.rb:295:in `call'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:32:in `block in call'\nactiverecord
+      (3.0.3) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in
+      `cache'\nactiverecord (3.0.3) lib/active_record/query_cache.rb:12:in `cache'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:31:in `call'\nactiverecord (3.0.3)
+      lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:44:in `call'\nrack (1.2.1)
+      lib/rack/sendfile.rb:107:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/remote_ip.rb:48:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/show_exceptions.rb:46:in
+      `call'\nrailties (3.0.3) lib/rails/rack/logger.rb:13:in `call'\nrack (1.2.1)
+      lib/rack/runtime.rb:17:in `call'\nrack (1.2.1) lib/rack/lock.rb:11:in `block
+      in call'\n&lt;internal:prelude&gt;:10:in `synchronize'\nrack (1.2.1) lib/rack/lock.rb:11:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/static.rb:30:in `call'\nrailties
+      (3.0.3) lib/rails/application.rb:168:in `call'\nrailties (3.0.3) lib/rails/application.rb:77:in
+      `method_missing'\nrack (1.2.1) lib/rack/lint.rb:48:in `_call'\nrack (1.2.1)
+      lib/rack/lint.rb:36:in `call'\nrack (1.2.1) lib/rack/showexceptions.rb:24:in
+      `call'\nrack (1.2.1) lib/rack/commonlogger.rb:18:in `call'\nunicorn (3.4.0)
+      lib/unicorn/http_server.rb:531:in `process_client'\nunicorn (3.4.0) lib/unicorn/http_server.rb:606:in
+      `block in worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:604:in `each'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:604:in `worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:495:in
+      `block (2 levels) in spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in
+      `fork'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in `block in spawn_missing_workers'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:488:in `each'\nunicorn (3.4.0) lib/unicorn/http_server.rb:488:in
+      `spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:502:in `maintain_worker_count'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:161:in `start'\nunicorn (3.4.0) lib/unicorn.rb:13:in
+      `run'\nunicorn (3.4.0) bin/unicorn:120:in `&lt;top (required)&gt;'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `load'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `&lt;main&gt;'</code></pre>\n    </div>\n    <div id=\"Full-Trace\" style=\"display:
+      none;\">\n      <pre><code>activesupport (3.0.3) lib/active_support/whiny_nil.rb:48:in
+      `method_missing'\napp/controllers/scripts_controller.rb:7:in `block in &lt;class:ScriptsController&gt;'\ndecent_exposure
+      (1.0.0) lib/decent_exposure.rb:24:in `instance_eval'\ndecent_exposure (1.0.0)
+      lib/decent_exposure.rb:24:in `block in expose'\napp/controllers/scripts_controller.rb:23:in
+      `show'\nactionpack (3.0.3) lib/action_controller/metal/implicit_render.rb:4:in
+      `send_action'\nactionpack (3.0.3) lib/abstract_controller/base.rb:151:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rendering.rb:11:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:435:in `_run__829948311__process_action__300353505__callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:93:in `run_callbacks'\nactionpack (3.0.3)
+      lib/abstract_controller/callbacks.rb:17:in `process_action'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `block in instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `instrument'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:29:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rescue.rb:17:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/base.rb:120:in `process'\nactionpack (3.0.3)
+      lib/abstract_controller/rendering.rb:40:in `process'\nactionpack (3.0.3) lib/action_controller/metal.rb:138:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal/rack_delegation.rb:14:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal.rb:178:in `block
+      in action'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:27:in `call'\nactionpack (3.0.3)
+      lib/action_dispatch/routing/mapper.rb:35:in `call'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in
+      `block in call'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in
+      `block in recognize'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:89:in
+      `optimized_each'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in
+      `recognize'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:492:in `call'\nhaml (3.0.25)
+      lib/sass/plugin/rack.rb:41:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/head.rb:14:in `call'\nrack
+      (1.2.1) lib/rack/methodoverride.rb:24:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/params_parser.rb:21:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/flash.rb:182:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/cookies.rb:295:in `call'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:32:in `block in call'\nactiverecord
+      (3.0.3) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in
+      `cache'\nactiverecord (3.0.3) lib/active_record/query_cache.rb:12:in `cache'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:31:in `call'\nactiverecord (3.0.3)
+      lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:44:in `call'\nrack (1.2.1)
+      lib/rack/sendfile.rb:107:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/remote_ip.rb:48:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/show_exceptions.rb:46:in
+      `call'\nrailties (3.0.3) lib/rails/rack/logger.rb:13:in `call'\nrack (1.2.1)
+      lib/rack/runtime.rb:17:in `call'\nrack (1.2.1) lib/rack/lock.rb:11:in `block
+      in call'\n&lt;internal:prelude&gt;:10:in `synchronize'\nrack (1.2.1) lib/rack/lock.rb:11:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/static.rb:30:in `call'\nrailties
+      (3.0.3) lib/rails/application.rb:168:in `call'\nrailties (3.0.3) lib/rails/application.rb:77:in
+      `method_missing'\nrack (1.2.1) lib/rack/lint.rb:48:in `_call'\nrack (1.2.1)
+      lib/rack/lint.rb:36:in `call'\nrack (1.2.1) lib/rack/showexceptions.rb:24:in
+      `call'\nrack (1.2.1) lib/rack/commonlogger.rb:18:in `call'\nunicorn (3.4.0)
+      lib/unicorn/http_server.rb:531:in `process_client'\nunicorn (3.4.0) lib/unicorn/http_server.rb:606:in
+      `block in worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:604:in `each'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:604:in `worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:495:in
+      `block (2 levels) in spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in
+      `fork'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in `block in spawn_missing_workers'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:488:in `each'\nunicorn (3.4.0) lib/unicorn/http_server.rb:488:in
+      `spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:502:in `maintain_worker_count'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:161:in `start'\nunicorn (3.4.0) lib/unicorn.rb:13:in
+      `run'\nunicorn (3.4.0) bin/unicorn:120:in `&lt;top (required)&gt;'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `load'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `&lt;main&gt;'</code></pre>\n    </div>\n</div>\n\n\n\n<h2 style=\"margin-top:
+      30px\">Request</h2>\n<p><b>Parameters</b>: <pre>{&quot;jsonable&quot;=&gt;&quot;info&quot;,\n
+      &quot;format&quot;=&gt;:json,\n &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}</pre></p>\n\n<p><a
+      href=\"#\" onclick=\"document.getElementById('session_dump').style.display='block';
+      return false;\">Show session dump</a></p>\n<div id=\"session_dump\" style=\"display:none\"><pre></pre></div>\n\n<p><a
+      href=\"#\" onclick=\"document.getElementById('env_dump').style.display='block';
+      return false;\">Show env dump</a></p>\n<div id=\"env_dump\" style=\"display:none\"><pre>CONTENT_TYPE:
+      &quot;application/json&quot;\nHTTP_ACCEPT: &quot;application/json&quot;\nHTTP_ACCEPT_ENCODING:
+      &quot;gzip, deflate&quot;\nHTTP_CONNECTION: &quot;close&quot;\nHTTP_HOST: &quot;api.vimpack.org&quot;\nHTTP_USER_AGENT:
+      &quot;Ruby&quot;\nHTTP_VERSION: &quot;HTTP/1.0&quot;\nHTTP_X_FORWARDED_FOR:
+      &quot;68.117.153.248&quot;\nPATH_INFO: &quot;/api/v1/scripts/boogity_boo_hoo/info&quot;\nQUERY_STRING:
+      &quot;&quot;\nREMOTE_ADDR: &quot;127.0.0.1&quot;\nREQUEST_METHOD: &quot;GET&quot;\nREQUEST_PATH:
+      &quot;/api/v1/scripts/boogity_boo_hoo/info&quot;\nREQUEST_URI: &quot;/api/v1/scripts/boogity_boo_hoo/info&quot;\nSCRIPT_NAME:
+      &quot;&quot;\nSERVER_NAME: &quot;api.vimpack.org&quot;\nSERVER_PORT: &quot;80&quot;\nSERVER_PROTOCOL:
+      &quot;HTTP/1.0&quot;\nSERVER_SOFTWARE: &quot;Unicorn 3.4.0&quot;\naction_controller.instance:
+      #&lt;ScriptsController:0xbccef24 @action_has_layout=true, @view_context_class=nil,
+      @_headers={&quot;Content-Type&quot;=&gt;&quot;text/html&quot;}, @_status=200,
+      @_response=#&lt;ActionDispatch::Response:0xbcceab0 @writer=#&lt;Proc:0xbcce8f8@/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/gems/actionpack-3.0.3/lib/action_dispatch/http/response.rb:43
+      (lambda)&gt;, @block=nil, @length=0, @header={}, @status=200, @body=[], @cookie=[],
+      @sending_file=false, @blank=false, @cache_control={}, @etag=nil, @request=#&lt;ActionDispatch::Request:0xbcceac4
+      @env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;,
+      &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;,
+      &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;,
+      &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;, &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;, &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip, deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;, &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;,
+      &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;,
+      &quot;QUERY_STRING&quot;=&gt;&quot;&quot;, &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xc6a63e4
+      @input=#&lt;StringIO:0x96cad78&gt;&gt;, &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xc6a6394
+      @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:jsonable=&gt;&quot;info&quot;,
+      :format=&gt;:json, :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;,
+      :name=&gt;&quot;boogity_boo_hoo&quot;}, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;jsonable&quot;=&gt;&quot;info&quot;,
+      &quot;format&quot;=&gt;:json, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xbccef24
+      ...&gt;, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @fullpath=&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;, @request_method=&quot;GET&quot;,
+      @filtered_parameters={&quot;jsonable&quot;=&gt;&quot;info&quot;, &quot;format&quot;=&gt;:json,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}, @method=&quot;GET&quot;&gt;&gt;,
+      @_request=#&lt;ActionDispatch::Request:0xbcceac4 @env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;,
+      &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;, &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;,
+      &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;,
+      &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;, &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;, &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip, deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;, &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;,
+      &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;,
+      &quot;QUERY_STRING&quot;=&gt;&quot;&quot;, &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xc6a63e4
+      @input=#&lt;StringIO:0x96cad78&gt;&gt;, &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xc6a6394
+      @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:jsonable=&gt;&quot;info&quot;,
+      :format=&gt;:json, :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;,
+      :name=&gt;&quot;boogity_boo_hoo&quot;}, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;jsonable&quot;=&gt;&quot;info&quot;,
+      &quot;format&quot;=&gt;:json, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xbccef24
+      ...&gt;, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @fullpath=&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;, @request_method=&quot;GET&quot;,
+      @filtered_parameters={&quot;jsonable&quot;=&gt;&quot;info&quot;, &quot;format&quot;=&gt;:json,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}, @method=&quot;GET&quot;&gt;,
+      @_env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;,
+      &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;,
+      &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo/info&quot;,
+      &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;, &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;, &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip, deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;, &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;,
+      &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;,
+      &quot;QUERY_STRING&quot;=&gt;&quot;&quot;, &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xc6a63e4
+      @input=#&lt;StringIO:0x96cad78&gt;&gt;, &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xc6a6394
+      @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:jsonable=&gt;&quot;info&quot;,
+      :format=&gt;:json, :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;,
+      :name=&gt;&quot;boogity_boo_hoo&quot;}, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;jsonable&quot;=&gt;&quot;info&quot;,
+      &quot;format&quot;=&gt;:json, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xbccef24
+      ...&gt;, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @lookup_context=#&lt;ActionView::LookupContext:0xbccbdc4 @details_key=nil, @details={:handlers=&gt;[:erb,
+      :rjs, :builder, :rhtml, :rxml, :haml], :formats=&gt;[:json], :locale=&gt;[:en,
+      :en]}, @skip_default_locale=false, @frozen_formats=false, @view_paths=[/home/vimpackapi/development/releases/691926bd41ab832ee3518fdc5d1ce318468c89f6/app/views]&gt;,
+      @_action_name=&quot;show&quot;, @_response_body=nil, @_config={}, @_resources={:jsonable=&gt;:info},
+      @_params={&quot;jsonable&quot;=&gt;&quot;info&quot;, &quot;format&quot;=&gt;:json,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}&gt;\naction_dispatch.cookies:
+      {}\naction_dispatch.parameter_filter: [:password]\naction_dispatch.remote_ip:
+      68.117.153.248\naction_dispatch.request.content_type: application/json\naction_dispatch.request.formats:
+      [application/json]\naction_dispatch.request.parameters: {&quot;jsonable&quot;=&gt;&quot;info&quot;,
+      &quot;format&quot;=&gt;:json, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}\naction_dispatch.request.path_parameters:
+      {:jsonable=&gt;&quot;info&quot;, :format=&gt;:json, :controller=&gt;&quot;scripts&quot;,
+      :action=&gt;&quot;show&quot;, :name=&gt;&quot;boogity_boo_hoo&quot;}\naction_dispatch.request.query_parameters:
+      {}\naction_dispatch.request.request_parameters: {}\naction_dispatch.request.unsigned_session_cookie:
+      {}\naction_dispatch.secret_token: &quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;\nrack.errors:
+      #&lt;Rack::Lint::ErrorWrapper:0xc6a6394 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;\nrack.input:
+      #&lt;Rack::Lint::InputWrapper:0xc6a63e4 @input=#&lt;StringIO:0x96cad78&gt;&gt;\nrack.logger:
+      #&lt;Logger:0x95e1524 @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;\nrack.multiprocess: true\nrack.multithread:
+      false\nrack.request.query_hash: {}\nrack.request.query_string: &quot;&quot;\nrack.run_once:
+      false\nrack.session: {}\nrack.session.options: {:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil}\nrack.url_scheme:
+      &quot;http&quot;\nrack.version: [1, 1]</pre></div>\n\n\n<h2 style=\"margin-top:
+      30px\">Response</h2>\n<p><b>Headers</b>: <pre>None</pre></p>\n\n\n\n</body>\n</html>\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/boogity_boo_hoo
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 500
+      message: Internal Server Error
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:55:49 GMT
+      content-type:
+      - text/html
+      connection:
+      - keep-alive
+      status:
+      - 500 Internal Server Error
+      content-length:
+      - '29245'
+      x-runtime:
+      - '0.265592'
+    body: ! "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <title>Action
+      Controller: Exception caught</title>\n  <style>\n    body { background-color:
+      #fff; color: #333; }\n\n    body, p, ol, ul, td {\n      font-family: verdana,
+      arial, helvetica, sans-serif;\n      font-size:   13px;\n      line-height:
+      18px;\n    }\n\n    pre {\n      background-color: #eee;\n      padding: 10px;\n
+      \     font-size: 11px;\n    }\n\n    a { color: #000; }\n    a:visited { color:
+      #666; }\n    a:hover { color: #fff; background-color:#000; }\n  </style>\n</head>\n<body>\n\n<h1>\n
+      \ NoMethodError\n    in ScriptsController#show\n</h1>\n<pre>undefined method
+      `simple' for nil:NilClass</pre>\n\n\n<p><code>Rails.root: /home/vimpackapi/development/releases/691926bd41ab832ee3518fdc5d1ce318468c89f6</code></p>\n\n<div
+      id=\"traces\">\n    <a href=\"#\" onclick=\"document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';;
+      return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';;
+      return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';;
+      return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
+      block;\">\n      <pre><code>app/controllers/scripts_controller.rb:7:in `block
+      in &lt;class:ScriptsController&gt;'\napp/controllers/scripts_controller.rb:23:in
+      `show'</code></pre>\n    </div>\n    <div id=\"Framework-Trace\" style=\"display:
+      none;\">\n      <pre><code>activesupport (3.0.3) lib/active_support/whiny_nil.rb:48:in
+      `method_missing'\ndecent_exposure (1.0.0) lib/decent_exposure.rb:24:in `instance_eval'\ndecent_exposure
+      (1.0.0) lib/decent_exposure.rb:24:in `block in expose'\nactionpack (3.0.3) lib/action_controller/metal/implicit_render.rb:4:in
+      `send_action'\nactionpack (3.0.3) lib/abstract_controller/base.rb:151:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rendering.rb:11:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:435:in `_run__829948311__process_action__300353505__callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:93:in `run_callbacks'\nactionpack (3.0.3)
+      lib/abstract_controller/callbacks.rb:17:in `process_action'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `block in instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `instrument'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:29:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rescue.rb:17:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/base.rb:120:in `process'\nactionpack (3.0.3)
+      lib/abstract_controller/rendering.rb:40:in `process'\nactionpack (3.0.3) lib/action_controller/metal.rb:138:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal/rack_delegation.rb:14:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal.rb:178:in `block
+      in action'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:27:in `call'\nrack-mount (0.6.13)
+      lib/rack/mount/route_set.rb:148:in `block in call'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in
+      `block in recognize'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:82:in
+      `optimized_each'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in
+      `recognize'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:492:in `call'\nhaml (3.0.25)
+      lib/sass/plugin/rack.rb:41:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/head.rb:14:in `call'\nrack
+      (1.2.1) lib/rack/methodoverride.rb:24:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/params_parser.rb:21:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/flash.rb:182:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/cookies.rb:295:in `call'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:32:in `block in call'\nactiverecord
+      (3.0.3) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in
+      `cache'\nactiverecord (3.0.3) lib/active_record/query_cache.rb:12:in `cache'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:31:in `call'\nactiverecord (3.0.3)
+      lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:44:in `call'\nrack (1.2.1)
+      lib/rack/sendfile.rb:107:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/remote_ip.rb:48:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/show_exceptions.rb:46:in
+      `call'\nrailties (3.0.3) lib/rails/rack/logger.rb:13:in `call'\nrack (1.2.1)
+      lib/rack/runtime.rb:17:in `call'\nrack (1.2.1) lib/rack/lock.rb:11:in `block
+      in call'\n&lt;internal:prelude&gt;:10:in `synchronize'\nrack (1.2.1) lib/rack/lock.rb:11:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/static.rb:30:in `call'\nrailties
+      (3.0.3) lib/rails/application.rb:168:in `call'\nrailties (3.0.3) lib/rails/application.rb:77:in
+      `method_missing'\nrack (1.2.1) lib/rack/lint.rb:48:in `_call'\nrack (1.2.1)
+      lib/rack/lint.rb:36:in `call'\nrack (1.2.1) lib/rack/showexceptions.rb:24:in
+      `call'\nrack (1.2.1) lib/rack/commonlogger.rb:18:in `call'\nunicorn (3.4.0)
+      lib/unicorn/http_server.rb:531:in `process_client'\nunicorn (3.4.0) lib/unicorn/http_server.rb:606:in
+      `block in worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:604:in `each'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:604:in `worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:495:in
+      `block (2 levels) in spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in
+      `fork'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in `block in spawn_missing_workers'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:488:in `each'\nunicorn (3.4.0) lib/unicorn/http_server.rb:488:in
+      `spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:502:in `maintain_worker_count'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:161:in `start'\nunicorn (3.4.0) lib/unicorn.rb:13:in
+      `run'\nunicorn (3.4.0) bin/unicorn:120:in `&lt;top (required)&gt;'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `load'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `&lt;main&gt;'</code></pre>\n    </div>\n    <div id=\"Full-Trace\" style=\"display:
+      none;\">\n      <pre><code>activesupport (3.0.3) lib/active_support/whiny_nil.rb:48:in
+      `method_missing'\napp/controllers/scripts_controller.rb:7:in `block in &lt;class:ScriptsController&gt;'\ndecent_exposure
+      (1.0.0) lib/decent_exposure.rb:24:in `instance_eval'\ndecent_exposure (1.0.0)
+      lib/decent_exposure.rb:24:in `block in expose'\napp/controllers/scripts_controller.rb:23:in
+      `show'\nactionpack (3.0.3) lib/action_controller/metal/implicit_render.rb:4:in
+      `send_action'\nactionpack (3.0.3) lib/abstract_controller/base.rb:151:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rendering.rb:11:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:435:in `_run__829948311__process_action__300353505__callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:93:in `run_callbacks'\nactionpack (3.0.3)
+      lib/abstract_controller/callbacks.rb:17:in `process_action'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `block in instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `instrument'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:29:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rescue.rb:17:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/base.rb:120:in `process'\nactionpack (3.0.3)
+      lib/abstract_controller/rendering.rb:40:in `process'\nactionpack (3.0.3) lib/action_controller/metal.rb:138:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal/rack_delegation.rb:14:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal.rb:178:in `block
+      in action'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:27:in `call'\nrack-mount (0.6.13)
+      lib/rack/mount/route_set.rb:148:in `block in call'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in
+      `block in recognize'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:82:in
+      `optimized_each'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in
+      `recognize'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:492:in `call'\nhaml (3.0.25)
+      lib/sass/plugin/rack.rb:41:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/head.rb:14:in `call'\nrack
+      (1.2.1) lib/rack/methodoverride.rb:24:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/params_parser.rb:21:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/flash.rb:182:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/cookies.rb:295:in `call'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:32:in `block in call'\nactiverecord
+      (3.0.3) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in
+      `cache'\nactiverecord (3.0.3) lib/active_record/query_cache.rb:12:in `cache'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:31:in `call'\nactiverecord (3.0.3)
+      lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:44:in `call'\nrack (1.2.1)
+      lib/rack/sendfile.rb:107:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/remote_ip.rb:48:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/show_exceptions.rb:46:in
+      `call'\nrailties (3.0.3) lib/rails/rack/logger.rb:13:in `call'\nrack (1.2.1)
+      lib/rack/runtime.rb:17:in `call'\nrack (1.2.1) lib/rack/lock.rb:11:in `block
+      in call'\n&lt;internal:prelude&gt;:10:in `synchronize'\nrack (1.2.1) lib/rack/lock.rb:11:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/static.rb:30:in `call'\nrailties
+      (3.0.3) lib/rails/application.rb:168:in `call'\nrailties (3.0.3) lib/rails/application.rb:77:in
+      `method_missing'\nrack (1.2.1) lib/rack/lint.rb:48:in `_call'\nrack (1.2.1)
+      lib/rack/lint.rb:36:in `call'\nrack (1.2.1) lib/rack/showexceptions.rb:24:in
+      `call'\nrack (1.2.1) lib/rack/commonlogger.rb:18:in `call'\nunicorn (3.4.0)
+      lib/unicorn/http_server.rb:531:in `process_client'\nunicorn (3.4.0) lib/unicorn/http_server.rb:606:in
+      `block in worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:604:in `each'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:604:in `worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:495:in
+      `block (2 levels) in spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in
+      `fork'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in `block in spawn_missing_workers'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:488:in `each'\nunicorn (3.4.0) lib/unicorn/http_server.rb:488:in
+      `spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:502:in `maintain_worker_count'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:161:in `start'\nunicorn (3.4.0) lib/unicorn.rb:13:in
+      `run'\nunicorn (3.4.0) bin/unicorn:120:in `&lt;top (required)&gt;'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `load'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `&lt;main&gt;'</code></pre>\n    </div>\n</div>\n\n\n\n<h2 style=\"margin-top:
+      30px\">Request</h2>\n<p><b>Parameters</b>: <pre>{&quot;format&quot;=&gt;&quot;json&quot;,\n
+      &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}</pre></p>\n\n<p><a href=\"#\"
+      onclick=\"document.getElementById('session_dump').style.display='block'; return
+      false;\">Show session dump</a></p>\n<div id=\"session_dump\" style=\"display:none\"><pre></pre></div>\n\n<p><a
+      href=\"#\" onclick=\"document.getElementById('env_dump').style.display='block';
+      return false;\">Show env dump</a></p>\n<div id=\"env_dump\" style=\"display:none\"><pre>CONTENT_TYPE:
+      &quot;application/json&quot;\nHTTP_ACCEPT: &quot;application/json&quot;\nHTTP_ACCEPT_ENCODING:
+      &quot;gzip, deflate&quot;\nHTTP_CONNECTION: &quot;close&quot;\nHTTP_HOST: &quot;api.vimpack.org&quot;\nHTTP_USER_AGENT:
+      &quot;Ruby&quot;\nHTTP_VERSION: &quot;HTTP/1.0&quot;\nHTTP_X_FORWARDED_FOR:
+      &quot;68.117.153.248&quot;\nPATH_INFO: &quot;/api/v1/scripts/boogity_boo_hoo&quot;\nQUERY_STRING:
+      &quot;&quot;\nREMOTE_ADDR: &quot;127.0.0.1&quot;\nREQUEST_METHOD: &quot;GET&quot;\nREQUEST_PATH:
+      &quot;/api/v1/scripts/boogity_boo_hoo&quot;\nREQUEST_URI: &quot;/api/v1/scripts/boogity_boo_hoo&quot;\nSCRIPT_NAME:
+      &quot;&quot;\nSERVER_NAME: &quot;api.vimpack.org&quot;\nSERVER_PORT: &quot;80&quot;\nSERVER_PROTOCOL:
+      &quot;HTTP/1.0&quot;\nSERVER_SOFTWARE: &quot;Unicorn 3.4.0&quot;\naction_controller.instance:
+      #&lt;ScriptsController:0xc734acc @action_has_layout=true, @view_context_class=nil,
+      @_headers={&quot;Content-Type&quot;=&gt;&quot;text/html&quot;}, @_status=200,
+      @_response=#&lt;ActionDispatch::Response:0xc7348b0 @writer=#&lt;Proc:0xc7347d4@/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/gems/actionpack-3.0.3/lib/action_dispatch/http/response.rb:43
+      (lambda)&gt;, @block=nil, @length=0, @header={}, @status=200, @body=[], @cookie=[],
+      @sending_file=false, @blank=false, @cache_control={}, @etag=nil, @request=#&lt;ActionDispatch::Request:0xc734900
+      @env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;,
+      &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo&quot;, &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo&quot;, &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;,
+      &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;,
+      &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip,
+      deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;,
+      &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;, &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;, &quot;QUERY_STRING&quot;=&gt;&quot;&quot;,
+      &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xc8b0cac @input=#&lt;StringIO:0x96cad78&gt;&gt;,
+      &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xc8b0c48 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641c8
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:format=&gt;&quot;json&quot;,
+      :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;, :name=&gt;&quot;boogity_boo_hoo&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xc734acc
+      ...&gt;, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @fullpath=&quot;/api/v1/scripts/boogity_boo_hoo&quot;, @request_method=&quot;GET&quot;,
+      @filtered_parameters={&quot;format&quot;=&gt;&quot;json&quot;, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;},
+      @method=&quot;GET&quot;&gt;&gt;, @_request=#&lt;ActionDispatch::Request:0xc734900
+      @env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;,
+      &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo&quot;, &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo&quot;, &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;,
+      &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;,
+      &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip,
+      deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;,
+      &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;, &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;, &quot;QUERY_STRING&quot;=&gt;&quot;&quot;,
+      &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xc8b0cac @input=#&lt;StringIO:0x96cad78&gt;&gt;,
+      &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xc8b0c48 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641c8
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:format=&gt;&quot;json&quot;,
+      :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;, :name=&gt;&quot;boogity_boo_hoo&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xc734acc
+      ...&gt;, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @fullpath=&quot;/api/v1/scripts/boogity_boo_hoo&quot;, @request_method=&quot;GET&quot;,
+      @filtered_parameters={&quot;format&quot;=&gt;&quot;json&quot;, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;},
+      @method=&quot;GET&quot;&gt;, @_env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;,
+      &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;, &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo&quot;,
+      &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo&quot;, &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/boogity_boo_hoo&quot;,
+      &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;, &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;, &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip, deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;, &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;,
+      &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;,
+      &quot;QUERY_STRING&quot;=&gt;&quot;&quot;, &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xc8b0cac
+      @input=#&lt;StringIO:0x96cad78&gt;&gt;, &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xc8b0c48
+      @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641c8
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:format=&gt;&quot;json&quot;,
+      :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;, :name=&gt;&quot;boogity_boo_hoo&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xc734acc
+      ...&gt;, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @lookup_context=#&lt;ActionView::LookupContext:0xc733870 @details_key=nil, @details={:handlers=&gt;[:erb,
+      :rjs, :builder, :rhtml, :rxml, :haml], :formats=&gt;[:json], :locale=&gt;[:en,
+      :en]}, @skip_default_locale=false, @frozen_formats=false, @view_paths=[/home/vimpackapi/development/releases/691926bd41ab832ee3518fdc5d1ce318468c89f6/app/views]&gt;,
+      @_action_name=&quot;show&quot;, @_response_body=nil, @_config={}, @_resources={:jsonable=&gt;:simple},
+      @_params={&quot;format&quot;=&gt;&quot;json&quot;, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}&gt;\naction_dispatch.cookies:
+      {}\naction_dispatch.parameter_filter: [:password]\naction_dispatch.remote_ip:
+      68.117.153.248\naction_dispatch.request.content_type: application/json\naction_dispatch.request.formats:
+      [application/json]\naction_dispatch.request.parameters: {&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;boogity_boo_hoo&quot;}\naction_dispatch.request.path_parameters:
+      {:format=&gt;&quot;json&quot;, :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;,
+      :name=&gt;&quot;boogity_boo_hoo&quot;}\naction_dispatch.request.query_parameters:
+      {}\naction_dispatch.request.request_parameters: {}\naction_dispatch.request.unsigned_session_cookie:
+      {}\naction_dispatch.secret_token: &quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;\nrack.errors:
+      #&lt;Rack::Lint::ErrorWrapper:0xc8b0c48 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;\nrack.input:
+      #&lt;Rack::Lint::InputWrapper:0xc8b0cac @input=#&lt;StringIO:0x96cad78&gt;&gt;\nrack.logger:
+      #&lt;Logger:0x95e1524 @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641c8
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;\nrack.multiprocess: true\nrack.multithread:
+      false\nrack.request.query_hash: {}\nrack.request.query_string: &quot;&quot;\nrack.run_once:
+      false\nrack.session: {}\nrack.session.options: {:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil}\nrack.url_scheme:
+      &quot;http&quot;\nrack.version: [1, 1]</pre></div>\n\n\n<h2 style=\"margin-top:
+      30px\">Response</h2>\n<p><b>Headers</b>: <pre>None</pre></p>\n\n\n\n</body>\n</html>\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/cucumber.zip
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:58:17 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"87b3e8b74cd2a2d933f3f8a679103e4a"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.368402'
+    body: ! '{"name":"cucumber.zip","script_type":"utility","summary":"Cucumber runtime
+      files","repo_url":"http://github.com/vim-scripts/cucumber.zip.git","script_version":"1.0"}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/haml.zip
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:58:22 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"bc4dee680eca4f89d882f7d34ef1ce17"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.320716'
+    body: ! '{"name":"haml.zip","script_type":"syntax","summary":"Haml and Sass syntax,
+      indenting, and ftplugin","repo_url":"http://github.com/vim-scripts/haml.zip.git","script_version":"1.0"}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/this_does_not_exists_i_swear/info
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 500
+      message: Internal Server Error
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:58:53 GMT
+      content-type:
+      - text/html
+      connection:
+      - keep-alive
+      status:
+      - 500 Internal Server Error
+      content-length:
+      - '30130'
+      x-runtime:
+      - '0.264181'
+    body: ! "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <title>Action
+      Controller: Exception caught</title>\n  <style>\n    body { background-color:
+      #fff; color: #333; }\n\n    body, p, ol, ul, td {\n      font-family: verdana,
+      arial, helvetica, sans-serif;\n      font-size:   13px;\n      line-height:
+      18px;\n    }\n\n    pre {\n      background-color: #eee;\n      padding: 10px;\n
+      \     font-size: 11px;\n    }\n\n    a { color: #000; }\n    a:visited { color:
+      #666; }\n    a:hover { color: #fff; background-color:#000; }\n  </style>\n</head>\n<body>\n\n<h1>\n
+      \ NoMethodError\n    in ScriptsController#show\n</h1>\n<pre>undefined method
+      `info' for nil:NilClass</pre>\n\n\n<p><code>Rails.root: /home/vimpackapi/development/releases/691926bd41ab832ee3518fdc5d1ce318468c89f6</code></p>\n\n<div
+      id=\"traces\">\n    <a href=\"#\" onclick=\"document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';;
+      return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';;
+      return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';;
+      return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
+      block;\">\n      <pre><code>app/controllers/scripts_controller.rb:7:in `block
+      in &lt;class:ScriptsController&gt;'\napp/controllers/scripts_controller.rb:23:in
+      `show'</code></pre>\n    </div>\n    <div id=\"Framework-Trace\" style=\"display:
+      none;\">\n      <pre><code>activesupport (3.0.3) lib/active_support/whiny_nil.rb:48:in
+      `method_missing'\ndecent_exposure (1.0.0) lib/decent_exposure.rb:24:in `instance_eval'\ndecent_exposure
+      (1.0.0) lib/decent_exposure.rb:24:in `block in expose'\nactionpack (3.0.3) lib/action_controller/metal/implicit_render.rb:4:in
+      `send_action'\nactionpack (3.0.3) lib/abstract_controller/base.rb:151:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rendering.rb:11:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:435:in `_run__829948311__process_action__300353505__callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:93:in `run_callbacks'\nactionpack (3.0.3)
+      lib/abstract_controller/callbacks.rb:17:in `process_action'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `block in instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `instrument'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:29:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rescue.rb:17:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/base.rb:120:in `process'\nactionpack (3.0.3)
+      lib/abstract_controller/rendering.rb:40:in `process'\nactionpack (3.0.3) lib/action_controller/metal.rb:138:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal/rack_delegation.rb:14:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal.rb:178:in `block
+      in action'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:27:in `call'\nactionpack (3.0.3)
+      lib/action_dispatch/routing/mapper.rb:35:in `call'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in
+      `block in call'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in
+      `block in recognize'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:89:in
+      `optimized_each'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in
+      `recognize'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:492:in `call'\nhaml (3.0.25)
+      lib/sass/plugin/rack.rb:41:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/head.rb:14:in `call'\nrack
+      (1.2.1) lib/rack/methodoverride.rb:24:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/params_parser.rb:21:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/flash.rb:182:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/cookies.rb:295:in `call'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:32:in `block in call'\nactiverecord
+      (3.0.3) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in
+      `cache'\nactiverecord (3.0.3) lib/active_record/query_cache.rb:12:in `cache'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:31:in `call'\nactiverecord (3.0.3)
+      lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:44:in `call'\nrack (1.2.1)
+      lib/rack/sendfile.rb:107:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/remote_ip.rb:48:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/show_exceptions.rb:46:in
+      `call'\nrailties (3.0.3) lib/rails/rack/logger.rb:13:in `call'\nrack (1.2.1)
+      lib/rack/runtime.rb:17:in `call'\nrack (1.2.1) lib/rack/lock.rb:11:in `block
+      in call'\n&lt;internal:prelude&gt;:10:in `synchronize'\nrack (1.2.1) lib/rack/lock.rb:11:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/static.rb:30:in `call'\nrailties
+      (3.0.3) lib/rails/application.rb:168:in `call'\nrailties (3.0.3) lib/rails/application.rb:77:in
+      `method_missing'\nrack (1.2.1) lib/rack/lint.rb:48:in `_call'\nrack (1.2.1)
+      lib/rack/lint.rb:36:in `call'\nrack (1.2.1) lib/rack/showexceptions.rb:24:in
+      `call'\nrack (1.2.1) lib/rack/commonlogger.rb:18:in `call'\nunicorn (3.4.0)
+      lib/unicorn/http_server.rb:531:in `process_client'\nunicorn (3.4.0) lib/unicorn/http_server.rb:606:in
+      `block in worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:604:in `each'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:604:in `worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:495:in
+      `block (2 levels) in spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in
+      `fork'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in `block in spawn_missing_workers'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:488:in `each'\nunicorn (3.4.0) lib/unicorn/http_server.rb:488:in
+      `spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:502:in `maintain_worker_count'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:161:in `start'\nunicorn (3.4.0) lib/unicorn.rb:13:in
+      `run'\nunicorn (3.4.0) bin/unicorn:120:in `&lt;top (required)&gt;'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `load'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `&lt;main&gt;'</code></pre>\n    </div>\n    <div id=\"Full-Trace\" style=\"display:
+      none;\">\n      <pre><code>activesupport (3.0.3) lib/active_support/whiny_nil.rb:48:in
+      `method_missing'\napp/controllers/scripts_controller.rb:7:in `block in &lt;class:ScriptsController&gt;'\ndecent_exposure
+      (1.0.0) lib/decent_exposure.rb:24:in `instance_eval'\ndecent_exposure (1.0.0)
+      lib/decent_exposure.rb:24:in `block in expose'\napp/controllers/scripts_controller.rb:23:in
+      `show'\nactionpack (3.0.3) lib/action_controller/metal/implicit_render.rb:4:in
+      `send_action'\nactionpack (3.0.3) lib/abstract_controller/base.rb:151:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rendering.rb:11:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:435:in `_run__829948311__process_action__300353505__callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:93:in `run_callbacks'\nactionpack (3.0.3)
+      lib/abstract_controller/callbacks.rb:17:in `process_action'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `block in instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `instrument'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:29:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rescue.rb:17:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/base.rb:120:in `process'\nactionpack (3.0.3)
+      lib/abstract_controller/rendering.rb:40:in `process'\nactionpack (3.0.3) lib/action_controller/metal.rb:138:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal/rack_delegation.rb:14:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal.rb:178:in `block
+      in action'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:27:in `call'\nactionpack (3.0.3)
+      lib/action_dispatch/routing/mapper.rb:35:in `call'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in
+      `block in call'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in
+      `block in recognize'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:89:in
+      `optimized_each'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in
+      `recognize'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:492:in `call'\nhaml (3.0.25)
+      lib/sass/plugin/rack.rb:41:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/head.rb:14:in `call'\nrack
+      (1.2.1) lib/rack/methodoverride.rb:24:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/params_parser.rb:21:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/flash.rb:182:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/cookies.rb:295:in `call'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:32:in `block in call'\nactiverecord
+      (3.0.3) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in
+      `cache'\nactiverecord (3.0.3) lib/active_record/query_cache.rb:12:in `cache'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:31:in `call'\nactiverecord (3.0.3)
+      lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:44:in `call'\nrack (1.2.1)
+      lib/rack/sendfile.rb:107:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/remote_ip.rb:48:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/show_exceptions.rb:46:in
+      `call'\nrailties (3.0.3) lib/rails/rack/logger.rb:13:in `call'\nrack (1.2.1)
+      lib/rack/runtime.rb:17:in `call'\nrack (1.2.1) lib/rack/lock.rb:11:in `block
+      in call'\n&lt;internal:prelude&gt;:10:in `synchronize'\nrack (1.2.1) lib/rack/lock.rb:11:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/static.rb:30:in `call'\nrailties
+      (3.0.3) lib/rails/application.rb:168:in `call'\nrailties (3.0.3) lib/rails/application.rb:77:in
+      `method_missing'\nrack (1.2.1) lib/rack/lint.rb:48:in `_call'\nrack (1.2.1)
+      lib/rack/lint.rb:36:in `call'\nrack (1.2.1) lib/rack/showexceptions.rb:24:in
+      `call'\nrack (1.2.1) lib/rack/commonlogger.rb:18:in `call'\nunicorn (3.4.0)
+      lib/unicorn/http_server.rb:531:in `process_client'\nunicorn (3.4.0) lib/unicorn/http_server.rb:606:in
+      `block in worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:604:in `each'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:604:in `worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:495:in
+      `block (2 levels) in spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in
+      `fork'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in `block in spawn_missing_workers'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:488:in `each'\nunicorn (3.4.0) lib/unicorn/http_server.rb:488:in
+      `spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:502:in `maintain_worker_count'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:161:in `start'\nunicorn (3.4.0) lib/unicorn.rb:13:in
+      `run'\nunicorn (3.4.0) bin/unicorn:120:in `&lt;top (required)&gt;'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `load'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `&lt;main&gt;'</code></pre>\n    </div>\n</div>\n\n\n\n<h2 style=\"margin-top:
+      30px\">Request</h2>\n<p><b>Parameters</b>: <pre>{&quot;jsonable&quot;=&gt;&quot;info&quot;,\n
+      &quot;format&quot;=&gt;:json,\n &quot;name&quot;=&gt;&quot;this_does_not_exists_i_swear&quot;}</pre></p>\n\n<p><a
+      href=\"#\" onclick=\"document.getElementById('session_dump').style.display='block';
+      return false;\">Show session dump</a></p>\n<div id=\"session_dump\" style=\"display:none\"><pre></pre></div>\n\n<p><a
+      href=\"#\" onclick=\"document.getElementById('env_dump').style.display='block';
+      return false;\">Show env dump</a></p>\n<div id=\"env_dump\" style=\"display:none\"><pre>CONTENT_TYPE:
+      &quot;application/json&quot;\nHTTP_ACCEPT: &quot;application/json&quot;\nHTTP_ACCEPT_ENCODING:
+      &quot;gzip, deflate&quot;\nHTTP_CONNECTION: &quot;close&quot;\nHTTP_HOST: &quot;api.vimpack.org&quot;\nHTTP_USER_AGENT:
+      &quot;Ruby&quot;\nHTTP_VERSION: &quot;HTTP/1.0&quot;\nHTTP_X_FORWARDED_FOR:
+      &quot;68.117.153.248&quot;\nPATH_INFO: &quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;\nQUERY_STRING:
+      &quot;&quot;\nREMOTE_ADDR: &quot;127.0.0.1&quot;\nREQUEST_METHOD: &quot;GET&quot;\nREQUEST_PATH:
+      &quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;\nREQUEST_URI:
+      &quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;\nSCRIPT_NAME:
+      &quot;&quot;\nSERVER_NAME: &quot;api.vimpack.org&quot;\nSERVER_PORT: &quot;80&quot;\nSERVER_PROTOCOL:
+      &quot;HTTP/1.0&quot;\nSERVER_SOFTWARE: &quot;Unicorn 3.4.0&quot;\naction_controller.instance:
+      #&lt;ScriptsController:0xc8f4ee8 @action_has_layout=true, @view_context_class=nil,
+      @_headers={&quot;Content-Type&quot;=&gt;&quot;text/html&quot;}, @_status=200,
+      @_response=#&lt;ActionDispatch::Response:0xc8f4de4 @writer=#&lt;Proc:0xc8f4d44@/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/gems/actionpack-3.0.3/lib/action_dispatch/http/response.rb:43
+      (lambda)&gt;, @block=nil, @length=0, @header={}, @status=200, @body=[], @cookie=[],
+      @sending_file=false, @blank=false, @cache_control={}, @etag=nil, @request=#&lt;ActionDispatch::Request:0xc8f4df8
+      @env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;,
+      &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;,
+      &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;,
+      &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;, &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;, &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip, deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;, &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;,
+      &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;,
+      &quot;QUERY_STRING&quot;=&gt;&quot;&quot;, &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xca38020
+      @input=#&lt;StringIO:0x96cad78&gt;&gt;, &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xca37fe4
+      @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:jsonable=&gt;&quot;info&quot;,
+      :format=&gt;:json, :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;,
+      :name=&gt;&quot;this_does_not_exists_i_swear&quot;}, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;jsonable&quot;=&gt;&quot;info&quot;,
+      &quot;format&quot;=&gt;:json, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;this_does_not_exists_i_swear&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xc8f4ee8
+      ...&gt;, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @fullpath=&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;, @request_method=&quot;GET&quot;,
+      @filtered_parameters={&quot;jsonable&quot;=&gt;&quot;info&quot;, &quot;format&quot;=&gt;:json,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;this_does_not_exists_i_swear&quot;}, @method=&quot;GET&quot;&gt;&gt;,
+      @_request=#&lt;ActionDispatch::Request:0xc8f4df8 @env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;,
+      &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;, &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;,
+      &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;,
+      &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;, &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;, &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip, deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;, &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;,
+      &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;,
+      &quot;QUERY_STRING&quot;=&gt;&quot;&quot;, &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xca38020
+      @input=#&lt;StringIO:0x96cad78&gt;&gt;, &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xca37fe4
+      @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:jsonable=&gt;&quot;info&quot;,
+      :format=&gt;:json, :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;,
+      :name=&gt;&quot;this_does_not_exists_i_swear&quot;}, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;jsonable&quot;=&gt;&quot;info&quot;,
+      &quot;format&quot;=&gt;:json, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;this_does_not_exists_i_swear&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xc8f4ee8
+      ...&gt;, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @fullpath=&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;, @request_method=&quot;GET&quot;,
+      @filtered_parameters={&quot;jsonable&quot;=&gt;&quot;info&quot;, &quot;format&quot;=&gt;:json,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;this_does_not_exists_i_swear&quot;}, @method=&quot;GET&quot;&gt;,
+      @_env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;,
+      &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;,
+      &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/this_does_not_exists_i_swear/info&quot;,
+      &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;, &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;, &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip, deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;, &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;,
+      &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;,
+      &quot;QUERY_STRING&quot;=&gt;&quot;&quot;, &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xca38020
+      @input=#&lt;StringIO:0x96cad78&gt;&gt;, &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xca37fe4
+      @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:jsonable=&gt;&quot;info&quot;,
+      :format=&gt;:json, :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;,
+      :name=&gt;&quot;this_does_not_exists_i_swear&quot;}, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;jsonable&quot;=&gt;&quot;info&quot;,
+      &quot;format&quot;=&gt;:json, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;this_does_not_exists_i_swear&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xc8f4ee8
+      ...&gt;, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @lookup_context=#&lt;ActionView::LookupContext:0xc8f40c4 @details_key=nil, @details={:handlers=&gt;[:erb,
+      :rjs, :builder, :rhtml, :rxml, :haml], :formats=&gt;[:json], :locale=&gt;[:en,
+      :en]}, @skip_default_locale=false, @frozen_formats=false, @view_paths=[/home/vimpackapi/development/releases/691926bd41ab832ee3518fdc5d1ce318468c89f6/app/views]&gt;,
+      @_action_name=&quot;show&quot;, @_response_body=nil, @_config={}, @_resources={:jsonable=&gt;:info},
+      @_params={&quot;jsonable&quot;=&gt;&quot;info&quot;, &quot;format&quot;=&gt;:json,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;this_does_not_exists_i_swear&quot;}&gt;\naction_dispatch.cookies:
+      {}\naction_dispatch.parameter_filter: [:password]\naction_dispatch.remote_ip:
+      68.117.153.248\naction_dispatch.request.content_type: application/json\naction_dispatch.request.formats:
+      [application/json]\naction_dispatch.request.parameters: {&quot;jsonable&quot;=&gt;&quot;info&quot;,
+      &quot;format&quot;=&gt;:json, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;this_does_not_exists_i_swear&quot;}\naction_dispatch.request.path_parameters:
+      {:jsonable=&gt;&quot;info&quot;, :format=&gt;:json, :controller=&gt;&quot;scripts&quot;,
+      :action=&gt;&quot;show&quot;, :name=&gt;&quot;this_does_not_exists_i_swear&quot;}\naction_dispatch.request.query_parameters:
+      {}\naction_dispatch.request.request_parameters: {}\naction_dispatch.request.unsigned_session_cookie:
+      {}\naction_dispatch.secret_token: &quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;\nrack.errors:
+      #&lt;Rack::Lint::ErrorWrapper:0xca37fe4 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;\nrack.input:
+      #&lt;Rack::Lint::InputWrapper:0xca38020 @input=#&lt;StringIO:0x96cad78&gt;&gt;\nrack.logger:
+      #&lt;Logger:0x95e1524 @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;\nrack.multiprocess: true\nrack.multithread:
+      false\nrack.request.query_hash: {}\nrack.request.query_string: &quot;&quot;\nrack.run_once:
+      false\nrack.session: {}\nrack.session.options: {:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil}\nrack.url_scheme:
+      &quot;http&quot;\nrack.version: [1, 1]</pre></div>\n\n\n<h2 style=\"margin-top:
+      30px\">Response</h2>\n<p><b>Headers</b>: <pre>None</pre></p>\n\n\n\n</body>\n</html>\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/railz
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 500
+      message: Internal Server Error
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:59:16 GMT
+      content-type:
+      - text/html
+      connection:
+      - keep-alive
+      status:
+      - 500 Internal Server Error
+      content-length:
+      - '28985'
+      x-runtime:
+      - '0.201669'
+    body: ! "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <title>Action
+      Controller: Exception caught</title>\n  <style>\n    body { background-color:
+      #fff; color: #333; }\n\n    body, p, ol, ul, td {\n      font-family: verdana,
+      arial, helvetica, sans-serif;\n      font-size:   13px;\n      line-height:
+      18px;\n    }\n\n    pre {\n      background-color: #eee;\n      padding: 10px;\n
+      \     font-size: 11px;\n    }\n\n    a { color: #000; }\n    a:visited { color:
+      #666; }\n    a:hover { color: #fff; background-color:#000; }\n  </style>\n</head>\n<body>\n\n<h1>\n
+      \ NoMethodError\n    in ScriptsController#show\n</h1>\n<pre>undefined method
+      `simple' for nil:NilClass</pre>\n\n\n<p><code>Rails.root: /home/vimpackapi/development/releases/691926bd41ab832ee3518fdc5d1ce318468c89f6</code></p>\n\n<div
+      id=\"traces\">\n    <a href=\"#\" onclick=\"document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';;
+      return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';;
+      return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';;
+      return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
+      block;\">\n      <pre><code>app/controllers/scripts_controller.rb:7:in `block
+      in &lt;class:ScriptsController&gt;'\napp/controllers/scripts_controller.rb:23:in
+      `show'</code></pre>\n    </div>\n    <div id=\"Framework-Trace\" style=\"display:
+      none;\">\n      <pre><code>activesupport (3.0.3) lib/active_support/whiny_nil.rb:48:in
+      `method_missing'\ndecent_exposure (1.0.0) lib/decent_exposure.rb:24:in `instance_eval'\ndecent_exposure
+      (1.0.0) lib/decent_exposure.rb:24:in `block in expose'\nactionpack (3.0.3) lib/action_controller/metal/implicit_render.rb:4:in
+      `send_action'\nactionpack (3.0.3) lib/abstract_controller/base.rb:151:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rendering.rb:11:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:435:in `_run__829948311__process_action__300353505__callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:93:in `run_callbacks'\nactionpack (3.0.3)
+      lib/abstract_controller/callbacks.rb:17:in `process_action'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `block in instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `instrument'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:29:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rescue.rb:17:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/base.rb:120:in `process'\nactionpack (3.0.3)
+      lib/abstract_controller/rendering.rb:40:in `process'\nactionpack (3.0.3) lib/action_controller/metal.rb:138:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal/rack_delegation.rb:14:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal.rb:178:in `block
+      in action'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:27:in `call'\nrack-mount (0.6.13)
+      lib/rack/mount/route_set.rb:148:in `block in call'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in
+      `block in recognize'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:82:in
+      `optimized_each'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in
+      `recognize'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:492:in `call'\nhaml (3.0.25)
+      lib/sass/plugin/rack.rb:41:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/head.rb:14:in `call'\nrack
+      (1.2.1) lib/rack/methodoverride.rb:24:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/params_parser.rb:21:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/flash.rb:182:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/cookies.rb:295:in `call'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:32:in `block in call'\nactiverecord
+      (3.0.3) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in
+      `cache'\nactiverecord (3.0.3) lib/active_record/query_cache.rb:12:in `cache'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:31:in `call'\nactiverecord (3.0.3)
+      lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:44:in `call'\nrack (1.2.1)
+      lib/rack/sendfile.rb:107:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/remote_ip.rb:48:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/show_exceptions.rb:46:in
+      `call'\nrailties (3.0.3) lib/rails/rack/logger.rb:13:in `call'\nrack (1.2.1)
+      lib/rack/runtime.rb:17:in `call'\nrack (1.2.1) lib/rack/lock.rb:11:in `block
+      in call'\n&lt;internal:prelude&gt;:10:in `synchronize'\nrack (1.2.1) lib/rack/lock.rb:11:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/static.rb:30:in `call'\nrailties
+      (3.0.3) lib/rails/application.rb:168:in `call'\nrailties (3.0.3) lib/rails/application.rb:77:in
+      `method_missing'\nrack (1.2.1) lib/rack/lint.rb:48:in `_call'\nrack (1.2.1)
+      lib/rack/lint.rb:36:in `call'\nrack (1.2.1) lib/rack/showexceptions.rb:24:in
+      `call'\nrack (1.2.1) lib/rack/commonlogger.rb:18:in `call'\nunicorn (3.4.0)
+      lib/unicorn/http_server.rb:531:in `process_client'\nunicorn (3.4.0) lib/unicorn/http_server.rb:606:in
+      `block in worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:604:in `each'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:604:in `worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:495:in
+      `block (2 levels) in spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in
+      `fork'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in `block in spawn_missing_workers'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:488:in `each'\nunicorn (3.4.0) lib/unicorn/http_server.rb:488:in
+      `spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:502:in `maintain_worker_count'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:161:in `start'\nunicorn (3.4.0) lib/unicorn.rb:13:in
+      `run'\nunicorn (3.4.0) bin/unicorn:120:in `&lt;top (required)&gt;'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `load'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `&lt;main&gt;'</code></pre>\n    </div>\n    <div id=\"Full-Trace\" style=\"display:
+      none;\">\n      <pre><code>activesupport (3.0.3) lib/active_support/whiny_nil.rb:48:in
+      `method_missing'\napp/controllers/scripts_controller.rb:7:in `block in &lt;class:ScriptsController&gt;'\ndecent_exposure
+      (1.0.0) lib/decent_exposure.rb:24:in `instance_eval'\ndecent_exposure (1.0.0)
+      lib/decent_exposure.rb:24:in `block in expose'\napp/controllers/scripts_controller.rb:23:in
+      `show'\nactionpack (3.0.3) lib/action_controller/metal/implicit_render.rb:4:in
+      `send_action'\nactionpack (3.0.3) lib/abstract_controller/base.rb:151:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rendering.rb:11:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:435:in `_run__829948311__process_action__300353505__callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:93:in `run_callbacks'\nactionpack (3.0.3)
+      lib/abstract_controller/callbacks.rb:17:in `process_action'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `block in instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `instrument'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:29:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rescue.rb:17:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/base.rb:120:in `process'\nactionpack (3.0.3)
+      lib/abstract_controller/rendering.rb:40:in `process'\nactionpack (3.0.3) lib/action_controller/metal.rb:138:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal/rack_delegation.rb:14:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal.rb:178:in `block
+      in action'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:27:in `call'\nrack-mount (0.6.13)
+      lib/rack/mount/route_set.rb:148:in `block in call'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in
+      `block in recognize'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:82:in
+      `optimized_each'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in
+      `recognize'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:492:in `call'\nhaml (3.0.25)
+      lib/sass/plugin/rack.rb:41:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/head.rb:14:in `call'\nrack
+      (1.2.1) lib/rack/methodoverride.rb:24:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/params_parser.rb:21:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/flash.rb:182:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/cookies.rb:295:in `call'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:32:in `block in call'\nactiverecord
+      (3.0.3) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in
+      `cache'\nactiverecord (3.0.3) lib/active_record/query_cache.rb:12:in `cache'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:31:in `call'\nactiverecord (3.0.3)
+      lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:44:in `call'\nrack (1.2.1)
+      lib/rack/sendfile.rb:107:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/remote_ip.rb:48:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/show_exceptions.rb:46:in
+      `call'\nrailties (3.0.3) lib/rails/rack/logger.rb:13:in `call'\nrack (1.2.1)
+      lib/rack/runtime.rb:17:in `call'\nrack (1.2.1) lib/rack/lock.rb:11:in `block
+      in call'\n&lt;internal:prelude&gt;:10:in `synchronize'\nrack (1.2.1) lib/rack/lock.rb:11:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/static.rb:30:in `call'\nrailties
+      (3.0.3) lib/rails/application.rb:168:in `call'\nrailties (3.0.3) lib/rails/application.rb:77:in
+      `method_missing'\nrack (1.2.1) lib/rack/lint.rb:48:in `_call'\nrack (1.2.1)
+      lib/rack/lint.rb:36:in `call'\nrack (1.2.1) lib/rack/showexceptions.rb:24:in
+      `call'\nrack (1.2.1) lib/rack/commonlogger.rb:18:in `call'\nunicorn (3.4.0)
+      lib/unicorn/http_server.rb:531:in `process_client'\nunicorn (3.4.0) lib/unicorn/http_server.rb:606:in
+      `block in worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:604:in `each'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:604:in `worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:495:in
+      `block (2 levels) in spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in
+      `fork'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in `block in spawn_missing_workers'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:488:in `each'\nunicorn (3.4.0) lib/unicorn/http_server.rb:488:in
+      `spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:502:in `maintain_worker_count'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:161:in `start'\nunicorn (3.4.0) lib/unicorn.rb:13:in
+      `run'\nunicorn (3.4.0) bin/unicorn:120:in `&lt;top (required)&gt;'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `load'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `&lt;main&gt;'</code></pre>\n    </div>\n</div>\n\n\n\n<h2 style=\"margin-top:
+      30px\">Request</h2>\n<p><b>Parameters</b>: <pre>{&quot;format&quot;=&gt;&quot;json&quot;,\n
+      &quot;name&quot;=&gt;&quot;railz&quot;}</pre></p>\n\n<p><a href=\"#\" onclick=\"document.getElementById('session_dump').style.display='block';
+      return false;\">Show session dump</a></p>\n<div id=\"session_dump\" style=\"display:none\"><pre></pre></div>\n\n<p><a
+      href=\"#\" onclick=\"document.getElementById('env_dump').style.display='block';
+      return false;\">Show env dump</a></p>\n<div id=\"env_dump\" style=\"display:none\"><pre>CONTENT_TYPE:
+      &quot;application/json&quot;\nHTTP_ACCEPT: &quot;application/json&quot;\nHTTP_ACCEPT_ENCODING:
+      &quot;gzip, deflate&quot;\nHTTP_CONNECTION: &quot;close&quot;\nHTTP_HOST: &quot;api.vimpack.org&quot;\nHTTP_USER_AGENT:
+      &quot;Ruby&quot;\nHTTP_VERSION: &quot;HTTP/1.0&quot;\nHTTP_X_FORWARDED_FOR:
+      &quot;68.117.153.248&quot;\nPATH_INFO: &quot;/api/v1/scripts/railz&quot;\nQUERY_STRING:
+      &quot;&quot;\nREMOTE_ADDR: &quot;127.0.0.1&quot;\nREQUEST_METHOD: &quot;GET&quot;\nREQUEST_PATH:
+      &quot;/api/v1/scripts/railz&quot;\nREQUEST_URI: &quot;/api/v1/scripts/railz&quot;\nSCRIPT_NAME:
+      &quot;&quot;\nSERVER_NAME: &quot;api.vimpack.org&quot;\nSERVER_PORT: &quot;80&quot;\nSERVER_PROTOCOL:
+      &quot;HTTP/1.0&quot;\nSERVER_SOFTWARE: &quot;Unicorn 3.4.0&quot;\naction_controller.instance:
+      #&lt;ScriptsController:0xcb39424 @action_has_layout=true, @view_context_class=nil,
+      @_headers={&quot;Content-Type&quot;=&gt;&quot;text/html&quot;}, @_status=200,
+      @_response=#&lt;ActionDispatch::Response:0xcb0e1c0 @writer=#&lt;Proc:0xcb0e15c@/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/gems/actionpack-3.0.3/lib/action_dispatch/http/response.rb:43
+      (lambda)&gt;, @block=nil, @length=0, @header={}, @status=200, @body=[], @cookie=[],
+      @sending_file=false, @blank=false, @cache_control={}, @etag=nil, @request=#&lt;ActionDispatch::Request:0xcb0e1d4
+      @env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;,
+      &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/railz&quot;, &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/railz&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/railz&quot;, &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;,
+      &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;,
+      &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip,
+      deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;,
+      &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;, &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;, &quot;QUERY_STRING&quot;=&gt;&quot;&quot;,
+      &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xcbff91c @input=#&lt;StringIO:0x96cad78&gt;&gt;,
+      &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xcbff8e0 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:format=&gt;&quot;json&quot;,
+      :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;, :name=&gt;&quot;railz&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xcb39424
+      ...&gt;, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;railz&quot;}, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @fullpath=&quot;/api/v1/scripts/railz&quot;, @request_method=&quot;GET&quot;,
+      @filtered_parameters={&quot;format&quot;=&gt;&quot;json&quot;, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;railz&quot;},
+      @method=&quot;GET&quot;&gt;&gt;, @_request=#&lt;ActionDispatch::Request:0xcb0e1d4
+      @env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;,
+      &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/railz&quot;, &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/railz&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/railz&quot;, &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;,
+      &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;,
+      &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip,
+      deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;,
+      &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;, &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;, &quot;QUERY_STRING&quot;=&gt;&quot;&quot;,
+      &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xcbff91c @input=#&lt;StringIO:0x96cad78&gt;&gt;,
+      &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xcbff8e0 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:format=&gt;&quot;json&quot;,
+      :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;, :name=&gt;&quot;railz&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xcb39424
+      ...&gt;, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;railz&quot;}, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @fullpath=&quot;/api/v1/scripts/railz&quot;, @request_method=&quot;GET&quot;,
+      @filtered_parameters={&quot;format&quot;=&gt;&quot;json&quot;, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;railz&quot;},
+      @method=&quot;GET&quot;&gt;, @_env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;,
+      &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;, &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/railz&quot;,
+      &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/railz&quot;, &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/railz&quot;,
+      &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;, &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;, &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip, deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;, &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;,
+      &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;,
+      &quot;QUERY_STRING&quot;=&gt;&quot;&quot;, &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xcbff91c
+      @input=#&lt;StringIO:0x96cad78&gt;&gt;, &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xcbff8e0
+      @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:format=&gt;&quot;json&quot;,
+      :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;, :name=&gt;&quot;railz&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xcb39424
+      ...&gt;, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;railz&quot;}, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @lookup_context=#&lt;ActionView::LookupContext:0xcb0d950 @details_key=nil, @details={:handlers=&gt;[:erb,
+      :rjs, :builder, :rhtml, :rxml, :haml], :formats=&gt;[:json], :locale=&gt;[:en,
+      :en]}, @skip_default_locale=false, @frozen_formats=false, @view_paths=[/home/vimpackapi/development/releases/691926bd41ab832ee3518fdc5d1ce318468c89f6/app/views]&gt;,
+      @_action_name=&quot;show&quot;, @_response_body=nil, @_config={}, @_resources={:jsonable=&gt;:simple},
+      @_params={&quot;format&quot;=&gt;&quot;json&quot;, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;railz&quot;}&gt;\naction_dispatch.cookies:
+      {}\naction_dispatch.parameter_filter: [:password]\naction_dispatch.remote_ip:
+      68.117.153.248\naction_dispatch.request.content_type: application/json\naction_dispatch.request.formats:
+      [application/json]\naction_dispatch.request.parameters: {&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;railz&quot;}\naction_dispatch.request.path_parameters:
+      {:format=&gt;&quot;json&quot;, :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;,
+      :name=&gt;&quot;railz&quot;}\naction_dispatch.request.query_parameters: {}\naction_dispatch.request.request_parameters:
+      {}\naction_dispatch.request.unsigned_session_cookie: {}\naction_dispatch.secret_token:
+      &quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;\nrack.errors:
+      #&lt;Rack::Lint::ErrorWrapper:0xcbff8e0 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;\nrack.input:
+      #&lt;Rack::Lint::InputWrapper:0xcbff91c @input=#&lt;StringIO:0x96cad78&gt;&gt;\nrack.logger:
+      #&lt;Logger:0x95e1524 @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641f0
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;\nrack.multiprocess: true\nrack.multithread:
+      false\nrack.request.query_hash: {}\nrack.request.query_string: &quot;&quot;\nrack.run_once:
+      false\nrack.session: {}\nrack.session.options: {:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil}\nrack.url_scheme:
+      &quot;http&quot;\nrack.version: [1, 1]</pre></div>\n\n\n<h2 style=\"margin-top:
+      30px\">Response</h2>\n<p><b>Headers</b>: <pre>None</pre></p>\n\n\n\n</body>\n</html>\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/railz?limit=1&page=1
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:59:16 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"d751713988987e9331980363e24189ce"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.141608'
+    body: ! '[]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/cucumber
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 500
+      message: Internal Server Error
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:59:21 GMT
+      content-type:
+      - text/html
+      connection:
+      - keep-alive
+      status:
+      - 500 Internal Server Error
+      content-length:
+      - '29063'
+      x-runtime:
+      - '0.210047'
+    body: ! "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <title>Action
+      Controller: Exception caught</title>\n  <style>\n    body { background-color:
+      #fff; color: #333; }\n\n    body, p, ol, ul, td {\n      font-family: verdana,
+      arial, helvetica, sans-serif;\n      font-size:   13px;\n      line-height:
+      18px;\n    }\n\n    pre {\n      background-color: #eee;\n      padding: 10px;\n
+      \     font-size: 11px;\n    }\n\n    a { color: #000; }\n    a:visited { color:
+      #666; }\n    a:hover { color: #fff; background-color:#000; }\n  </style>\n</head>\n<body>\n\n<h1>\n
+      \ NoMethodError\n    in ScriptsController#show\n</h1>\n<pre>undefined method
+      `simple' for nil:NilClass</pre>\n\n\n<p><code>Rails.root: /home/vimpackapi/development/releases/691926bd41ab832ee3518fdc5d1ce318468c89f6</code></p>\n\n<div
+      id=\"traces\">\n    <a href=\"#\" onclick=\"document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';;
+      return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';;
+      return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';;
+      return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
+      block;\">\n      <pre><code>app/controllers/scripts_controller.rb:7:in `block
+      in &lt;class:ScriptsController&gt;'\napp/controllers/scripts_controller.rb:23:in
+      `show'</code></pre>\n    </div>\n    <div id=\"Framework-Trace\" style=\"display:
+      none;\">\n      <pre><code>activesupport (3.0.3) lib/active_support/whiny_nil.rb:48:in
+      `method_missing'\ndecent_exposure (1.0.0) lib/decent_exposure.rb:24:in `instance_eval'\ndecent_exposure
+      (1.0.0) lib/decent_exposure.rb:24:in `block in expose'\nactionpack (3.0.3) lib/action_controller/metal/implicit_render.rb:4:in
+      `send_action'\nactionpack (3.0.3) lib/abstract_controller/base.rb:151:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rendering.rb:11:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:435:in `_run__829948311__process_action__300353505__callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:93:in `run_callbacks'\nactionpack (3.0.3)
+      lib/abstract_controller/callbacks.rb:17:in `process_action'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `block in instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `instrument'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:29:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rescue.rb:17:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/base.rb:120:in `process'\nactionpack (3.0.3)
+      lib/abstract_controller/rendering.rb:40:in `process'\nactionpack (3.0.3) lib/action_controller/metal.rb:138:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal/rack_delegation.rb:14:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal.rb:178:in `block
+      in action'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:27:in `call'\nrack-mount (0.6.13)
+      lib/rack/mount/route_set.rb:148:in `block in call'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in
+      `block in recognize'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:82:in
+      `optimized_each'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in
+      `recognize'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:492:in `call'\nhaml (3.0.25)
+      lib/sass/plugin/rack.rb:41:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/head.rb:14:in `call'\nrack
+      (1.2.1) lib/rack/methodoverride.rb:24:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/params_parser.rb:21:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/flash.rb:182:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/cookies.rb:295:in `call'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:32:in `block in call'\nactiverecord
+      (3.0.3) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in
+      `cache'\nactiverecord (3.0.3) lib/active_record/query_cache.rb:12:in `cache'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:31:in `call'\nactiverecord (3.0.3)
+      lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:44:in `call'\nrack (1.2.1)
+      lib/rack/sendfile.rb:107:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/remote_ip.rb:48:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/show_exceptions.rb:46:in
+      `call'\nrailties (3.0.3) lib/rails/rack/logger.rb:13:in `call'\nrack (1.2.1)
+      lib/rack/runtime.rb:17:in `call'\nrack (1.2.1) lib/rack/lock.rb:11:in `block
+      in call'\n&lt;internal:prelude&gt;:10:in `synchronize'\nrack (1.2.1) lib/rack/lock.rb:11:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/static.rb:30:in `call'\nrailties
+      (3.0.3) lib/rails/application.rb:168:in `call'\nrailties (3.0.3) lib/rails/application.rb:77:in
+      `method_missing'\nrack (1.2.1) lib/rack/lint.rb:48:in `_call'\nrack (1.2.1)
+      lib/rack/lint.rb:36:in `call'\nrack (1.2.1) lib/rack/showexceptions.rb:24:in
+      `call'\nrack (1.2.1) lib/rack/commonlogger.rb:18:in `call'\nunicorn (3.4.0)
+      lib/unicorn/http_server.rb:531:in `process_client'\nunicorn (3.4.0) lib/unicorn/http_server.rb:606:in
+      `block in worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:604:in `each'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:604:in `worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:495:in
+      `block (2 levels) in spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in
+      `fork'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in `block in spawn_missing_workers'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:488:in `each'\nunicorn (3.4.0) lib/unicorn/http_server.rb:488:in
+      `spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:502:in `maintain_worker_count'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:161:in `start'\nunicorn (3.4.0) lib/unicorn.rb:13:in
+      `run'\nunicorn (3.4.0) bin/unicorn:120:in `&lt;top (required)&gt;'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `load'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `&lt;main&gt;'</code></pre>\n    </div>\n    <div id=\"Full-Trace\" style=\"display:
+      none;\">\n      <pre><code>activesupport (3.0.3) lib/active_support/whiny_nil.rb:48:in
+      `method_missing'\napp/controllers/scripts_controller.rb:7:in `block in &lt;class:ScriptsController&gt;'\ndecent_exposure
+      (1.0.0) lib/decent_exposure.rb:24:in `instance_eval'\ndecent_exposure (1.0.0)
+      lib/decent_exposure.rb:24:in `block in expose'\napp/controllers/scripts_controller.rb:23:in
+      `show'\nactionpack (3.0.3) lib/action_controller/metal/implicit_render.rb:4:in
+      `send_action'\nactionpack (3.0.3) lib/abstract_controller/base.rb:151:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rendering.rb:11:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:435:in `_run__829948311__process_action__300353505__callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:93:in `run_callbacks'\nactionpack (3.0.3)
+      lib/abstract_controller/callbacks.rb:17:in `process_action'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `block in instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'\nactivesupport
+      (3.0.3) lib/active_support/notifications.rb:52:in `instrument'\nactionpack (3.0.3)
+      lib/action_controller/metal/instrumentation.rb:29:in `process_action'\nactionpack
+      (3.0.3) lib/action_controller/metal/rescue.rb:17:in `process_action'\nactionpack
+      (3.0.3) lib/abstract_controller/base.rb:120:in `process'\nactionpack (3.0.3)
+      lib/abstract_controller/rendering.rb:40:in `process'\nactionpack (3.0.3) lib/action_controller/metal.rb:138:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal/rack_delegation.rb:14:in
+      `dispatch'\nactionpack (3.0.3) lib/action_controller/metal.rb:178:in `block
+      in action'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:27:in `call'\nrack-mount (0.6.13)
+      lib/rack/mount/route_set.rb:148:in `block in call'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in
+      `block in recognize'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:82:in
+      `optimized_each'\nrack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in
+      `recognize'\nrack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/routing/route_set.rb:492:in `call'\nhaml (3.0.25)
+      lib/sass/plugin/rack.rb:41:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/head.rb:14:in `call'\nrack
+      (1.2.1) lib/rack/methodoverride.rb:24:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/params_parser.rb:21:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/flash.rb:182:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/cookies.rb:295:in `call'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:32:in `block in call'\nactiverecord
+      (3.0.3) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in
+      `cache'\nactiverecord (3.0.3) lib/active_record/query_cache.rb:12:in `cache'\nactiverecord
+      (3.0.3) lib/active_record/query_cache.rb:31:in `call'\nactiverecord (3.0.3)
+      lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'\nactivesupport
+      (3.0.3) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'\nactionpack
+      (3.0.3) lib/action_dispatch/middleware/callbacks.rb:44:in `call'\nrack (1.2.1)
+      lib/rack/sendfile.rb:107:in `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/remote_ip.rb:48:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/show_exceptions.rb:46:in
+      `call'\nrailties (3.0.3) lib/rails/rack/logger.rb:13:in `call'\nrack (1.2.1)
+      lib/rack/runtime.rb:17:in `call'\nrack (1.2.1) lib/rack/lock.rb:11:in `block
+      in call'\n&lt;internal:prelude&gt;:10:in `synchronize'\nrack (1.2.1) lib/rack/lock.rb:11:in
+      `call'\nactionpack (3.0.3) lib/action_dispatch/middleware/static.rb:30:in `call'\nrailties
+      (3.0.3) lib/rails/application.rb:168:in `call'\nrailties (3.0.3) lib/rails/application.rb:77:in
+      `method_missing'\nrack (1.2.1) lib/rack/lint.rb:48:in `_call'\nrack (1.2.1)
+      lib/rack/lint.rb:36:in `call'\nrack (1.2.1) lib/rack/showexceptions.rb:24:in
+      `call'\nrack (1.2.1) lib/rack/commonlogger.rb:18:in `call'\nunicorn (3.4.0)
+      lib/unicorn/http_server.rb:531:in `process_client'\nunicorn (3.4.0) lib/unicorn/http_server.rb:606:in
+      `block in worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:604:in `each'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:604:in `worker_loop'\nunicorn (3.4.0) lib/unicorn/http_server.rb:495:in
+      `block (2 levels) in spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in
+      `fork'\nunicorn (3.4.0) lib/unicorn/http_server.rb:492:in `block in spawn_missing_workers'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:488:in `each'\nunicorn (3.4.0) lib/unicorn/http_server.rb:488:in
+      `spawn_missing_workers'\nunicorn (3.4.0) lib/unicorn/http_server.rb:502:in `maintain_worker_count'\nunicorn
+      (3.4.0) lib/unicorn/http_server.rb:161:in `start'\nunicorn (3.4.0) lib/unicorn.rb:13:in
+      `run'\nunicorn (3.4.0) bin/unicorn:120:in `&lt;top (required)&gt;'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `load'\n/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/bin/unicorn:19:in
+      `&lt;main&gt;'</code></pre>\n    </div>\n</div>\n\n\n\n<h2 style=\"margin-top:
+      30px\">Request</h2>\n<p><b>Parameters</b>: <pre>{&quot;format&quot;=&gt;&quot;json&quot;,\n
+      &quot;name&quot;=&gt;&quot;cucumber&quot;}</pre></p>\n\n<p><a href=\"#\" onclick=\"document.getElementById('session_dump').style.display='block';
+      return false;\">Show session dump</a></p>\n<div id=\"session_dump\" style=\"display:none\"><pre></pre></div>\n\n<p><a
+      href=\"#\" onclick=\"document.getElementById('env_dump').style.display='block';
+      return false;\">Show env dump</a></p>\n<div id=\"env_dump\" style=\"display:none\"><pre>CONTENT_TYPE:
+      &quot;application/json&quot;\nHTTP_ACCEPT: &quot;application/json&quot;\nHTTP_ACCEPT_ENCODING:
+      &quot;gzip, deflate&quot;\nHTTP_CONNECTION: &quot;close&quot;\nHTTP_HOST: &quot;api.vimpack.org&quot;\nHTTP_USER_AGENT:
+      &quot;Ruby&quot;\nHTTP_VERSION: &quot;HTTP/1.0&quot;\nHTTP_X_FORWARDED_FOR:
+      &quot;68.117.153.248&quot;\nPATH_INFO: &quot;/api/v1/scripts/cucumber&quot;\nQUERY_STRING:
+      &quot;&quot;\nREMOTE_ADDR: &quot;127.0.0.1&quot;\nREQUEST_METHOD: &quot;GET&quot;\nREQUEST_PATH:
+      &quot;/api/v1/scripts/cucumber&quot;\nREQUEST_URI: &quot;/api/v1/scripts/cucumber&quot;\nSCRIPT_NAME:
+      &quot;&quot;\nSERVER_NAME: &quot;api.vimpack.org&quot;\nSERVER_PORT: &quot;80&quot;\nSERVER_PROTOCOL:
+      &quot;HTTP/1.0&quot;\nSERVER_SOFTWARE: &quot;Unicorn 3.4.0&quot;\naction_controller.instance:
+      #&lt;ScriptsController:0xc968e38 @action_has_layout=true, @view_context_class=nil,
+      @_headers={&quot;Content-Type&quot;=&gt;&quot;text/html&quot;}, @_status=200,
+      @_response=#&lt;ActionDispatch::Response:0xc968d34 @writer=#&lt;Proc:0xc968c6c@/usr/local/rvm/gems/ruby-1.9.2-p136@vimpackapi_dev/gems/actionpack-3.0.3/lib/action_dispatch/http/response.rb:43
+      (lambda)&gt;, @block=nil, @length=0, @header={}, @status=200, @body=[], @cookie=[],
+      @sending_file=false, @blank=false, @cache_control={}, @etag=nil, @request=#&lt;ActionDispatch::Request:0xc968d48
+      @env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;,
+      &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/cucumber&quot;, &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/cucumber&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/cucumber&quot;, &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;,
+      &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;,
+      &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip,
+      deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;,
+      &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;, &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;, &quot;QUERY_STRING&quot;=&gt;&quot;&quot;,
+      &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xca65de0 @input=#&lt;StringIO:0x96cad78&gt;&gt;,
+      &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xca65da4 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641c8
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:format=&gt;&quot;json&quot;,
+      :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;, :name=&gt;&quot;cucumber&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xc968e38
+      ...&gt;, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;cucumber&quot;}, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @fullpath=&quot;/api/v1/scripts/cucumber&quot;, @request_method=&quot;GET&quot;,
+      @filtered_parameters={&quot;format&quot;=&gt;&quot;json&quot;, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;cucumber&quot;},
+      @method=&quot;GET&quot;&gt;&gt;, @_request=#&lt;ActionDispatch::Request:0xc968d48
+      @env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;, &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;,
+      &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/cucumber&quot;, &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/cucumber&quot;,
+      &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/cucumber&quot;, &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;,
+      &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;,
+      &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip,
+      deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;, &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;,
+      &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;, &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;, &quot;QUERY_STRING&quot;=&gt;&quot;&quot;,
+      &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xca65de0 @input=#&lt;StringIO:0x96cad78&gt;&gt;,
+      &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xca65da4 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641c8
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:format=&gt;&quot;json&quot;,
+      :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;, :name=&gt;&quot;cucumber&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xc968e38
+      ...&gt;, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;cucumber&quot;}, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @fullpath=&quot;/api/v1/scripts/cucumber&quot;, @request_method=&quot;GET&quot;,
+      @filtered_parameters={&quot;format&quot;=&gt;&quot;json&quot;, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;cucumber&quot;},
+      @method=&quot;GET&quot;&gt;, @_env={&quot;REMOTE_ADDR&quot;=&gt;&quot;127.0.0.1&quot;,
+      &quot;REQUEST_METHOD&quot;=&gt;&quot;GET&quot;, &quot;REQUEST_PATH&quot;=&gt;&quot;/api/v1/scripts/cucumber&quot;,
+      &quot;PATH_INFO&quot;=&gt;&quot;/api/v1/scripts/cucumber&quot;, &quot;REQUEST_URI&quot;=&gt;&quot;/api/v1/scripts/cucumber&quot;,
+      &quot;SERVER_PROTOCOL&quot;=&gt;&quot;HTTP/1.0&quot;, &quot;HTTP_VERSION&quot;=&gt;&quot;HTTP/1.0&quot;,
+      &quot;HTTP_X_FORWARDED_FOR&quot;=&gt;&quot;68.117.153.248&quot;, &quot;HTTP_HOST&quot;=&gt;&quot;api.vimpack.org&quot;,
+      &quot;HTTP_CONNECTION&quot;=&gt;&quot;close&quot;, &quot;HTTP_ACCEPT&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_ACCEPT_ENCODING&quot;=&gt;&quot;gzip, deflate&quot;, &quot;CONTENT_TYPE&quot;=&gt;&quot;application/json&quot;,
+      &quot;HTTP_USER_AGENT&quot;=&gt;&quot;Ruby&quot;, &quot;rack.url_scheme&quot;=&gt;&quot;http&quot;,
+      &quot;SERVER_NAME&quot;=&gt;&quot;api.vimpack.org&quot;, &quot;SERVER_PORT&quot;=&gt;&quot;80&quot;,
+      &quot;QUERY_STRING&quot;=&gt;&quot;&quot;, &quot;rack.input&quot;=&gt;#&lt;Rack::Lint::InputWrapper:0xca65de0
+      @input=#&lt;StringIO:0x96cad78&gt;&gt;, &quot;rack.errors&quot;=&gt;#&lt;Rack::Lint::ErrorWrapper:0xca65da4
+      @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;,
+      &quot;rack.multiprocess&quot;=&gt;true, &quot;rack.multithread&quot;=&gt;false,
+      &quot;rack.run_once&quot;=&gt;false, &quot;rack.version&quot;=&gt;[1, 1], &quot;SCRIPT_NAME&quot;=&gt;&quot;&quot;,
+      &quot;SERVER_SOFTWARE&quot;=&gt;&quot;Unicorn 3.4.0&quot;, &quot;rack.logger&quot;=&gt;#&lt;Logger:0x95e1524
+      @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641c8
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;, &quot;action_dispatch.parameter_filter&quot;=&gt;[:password],
+      &quot;action_dispatch.secret_token&quot;=&gt;&quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;,
+      &quot;action_dispatch.remote_ip&quot;=&gt;68.117.153.248, &quot;rack.session&quot;=&gt;{},
+      &quot;rack.session.options&quot;=&gt;{:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil},
+      &quot;action_dispatch.cookies&quot;=&gt;{}, &quot;action_dispatch.request.unsigned_session_cookie&quot;=&gt;{},
+      &quot;action_dispatch.request.path_parameters&quot;=&gt;{:format=&gt;&quot;json&quot;,
+      :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;, :name=&gt;&quot;cucumber&quot;},
+      &quot;action_controller.instance&quot;=&gt;#&lt;ScriptsController:0xc968e38
+      ...&gt;, &quot;action_dispatch.request.content_type&quot;=&gt;application/json,
+      &quot;action_dispatch.request.request_parameters&quot;=&gt;{}, &quot;rack.request.query_string&quot;=&gt;&quot;&quot;,
+      &quot;rack.request.query_hash&quot;=&gt;{}, &quot;action_dispatch.request.query_parameters&quot;=&gt;{},
+      &quot;action_dispatch.request.parameters&quot;=&gt;{&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;cucumber&quot;}, &quot;action_dispatch.request.formats&quot;=&gt;[application/json]},
+      @lookup_context=#&lt;ActionView::LookupContext:0xc968064 @details_key=nil, @details={:handlers=&gt;[:erb,
+      :rjs, :builder, :rhtml, :rxml, :haml], :formats=&gt;[:json], :locale=&gt;[:en,
+      :en]}, @skip_default_locale=false, @frozen_formats=false, @view_paths=[/home/vimpackapi/development/releases/691926bd41ab832ee3518fdc5d1ce318468c89f6/app/views]&gt;,
+      @_action_name=&quot;show&quot;, @_response_body=nil, @_config={}, @_resources={:jsonable=&gt;:simple},
+      @_params={&quot;format&quot;=&gt;&quot;json&quot;, &quot;controller&quot;=&gt;&quot;scripts&quot;,
+      &quot;action&quot;=&gt;&quot;show&quot;, &quot;name&quot;=&gt;&quot;cucumber&quot;}&gt;\naction_dispatch.cookies:
+      {}\naction_dispatch.parameter_filter: [:password]\naction_dispatch.remote_ip:
+      68.117.153.248\naction_dispatch.request.content_type: application/json\naction_dispatch.request.formats:
+      [application/json]\naction_dispatch.request.parameters: {&quot;format&quot;=&gt;&quot;json&quot;,
+      &quot;controller&quot;=&gt;&quot;scripts&quot;, &quot;action&quot;=&gt;&quot;show&quot;,
+      &quot;name&quot;=&gt;&quot;cucumber&quot;}\naction_dispatch.request.path_parameters:
+      {:format=&gt;&quot;json&quot;, :controller=&gt;&quot;scripts&quot;, :action=&gt;&quot;show&quot;,
+      :name=&gt;&quot;cucumber&quot;}\naction_dispatch.request.query_parameters: {}\naction_dispatch.request.request_parameters:
+      {}\naction_dispatch.request.unsigned_session_cookie: {}\naction_dispatch.secret_token:
+      &quot;866be7a9369c0efd0da2f6ec19928f2ccc4133eae0f398fe17b87c269a8177e248f0860432c1d0cd63651af72620fb58e4ad21d77ba338a736442e2554767985&quot;\nrack.errors:
+      #&lt;Rack::Lint::ErrorWrapper:0xca65da4 @error=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;&gt;\nrack.input:
+      #&lt;Rack::Lint::InputWrapper:0xca65de0 @input=#&lt;StringIO:0x96cad78&gt;&gt;\nrack.logger:
+      #&lt;Logger:0x95e1524 @progname=nil, @level=0, @default_formatter=#&lt;Logger::Formatter:0x95e1510
+      @datetime_format=nil&gt;, @formatter=#&lt;Logger::SimpleFormatter:0xb8641c8
+      @datetime_format=nil&gt;, @logdev=#&lt;Logger::LogDevice:0x95e14d4 @shift_size=nil,
+      @shift_age=nil, @filename=nil, @dev=#&lt;File:/home/vimpackapi/development/shared/unicorn/unicorn.stderr.log&gt;,
+      @mutex=#&lt;Logger::LogDevice::LogDeviceMutex:0x95e14ac @mon_owner=nil, @mon_count=0,
+      @mon_mutex=#&lt;Mutex:0x95e1484&gt;&gt;&gt;&gt;\nrack.multiprocess: true\nrack.multithread:
+      false\nrack.request.query_hash: {}\nrack.request.query_string: &quot;&quot;\nrack.run_once:
+      false\nrack.session: {}\nrack.session.options: {:path=&gt;&quot;/&quot;, :domain=&gt;nil,
+      :expire_after=&gt;nil, :secure=&gt;false, :httponly=&gt;true, :id=&gt;nil}\nrack.url_scheme:
+      &quot;http&quot;\nrack.version: [1, 1]</pre></div>\n\n\n<h2 style=\"margin-top:
+      30px\">Response</h2>\n<p><b>Headers</b>: <pre>None</pre></p>\n\n\n\n</body>\n</html>\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/cucumber?limit=1&page=1
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:59:21 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"38cd528ff045aa8f5d603ff70b506ced"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.381782'
+    body: ! '[{"name":"cucumber.zip","script_type":"utility","summary":"Cucumber runtime
+      files","repo_url":"http://github.com/vim-scripts/cucumber.zip.git","script_version":"1.0"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/railscasts
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:59:29 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"ef1ed3184def5efe55cb5866f5f62ea8"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.378614'
+    body: ! '{"name":"railscasts","script_type":"color scheme","summary":"Railscasts
+      TextMate theme for Vim (GUI Only)","repo_url":"http://github.com/vim-scripts/railscasts.git","script_version":"1.3"}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/railscasts/info
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:59:32 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"c29c347e596ac4cf5a289503c0f47265"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.483370'
+    body: ! '{"description":"A GUI only color scheme based on the Railscasts TextMate
+      theme.  To see the TextMate version check out http://railscasts.com\n\nGitHub:
+      http://github.com/jpo/vim-railscasts-theme/tree/master\nScreenshot: http://github.com/jpo/vim-railscasts-theme/blob/43a71c6debe22d74dfabda27b58cca415c8925d5/screenshot.jpg","name":"railscasts","script_type":"color
+      scheme","repo_url":"http://github.com/vim-scripts/railscasts.git","author":"jorourke","script_version":"1.3"}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/rails?limit=100&page=1&script_type=utility,color_scheme
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:59:41 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"a051f701aa380309e6f760fb7ad2c769"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.450185'
+    body: ! '[{"name":"FastGrep","script_type":"utility","summary":"FastGrep for a
+      string using native linux commands in Ruby on Rails projects.","repo_url":"http://github.com/vim-scripts/FastGrep.git","script_version":"0.1"},{"name":"Railscasts-Theme-GUIand256color","script_type":"color
+      scheme","summary":"A railscasts color theme that works in 256color terminals
+      as well as gui","repo_url":"http://github.com/vim-scripts/Railscasts-Theme-GUIand256color.git","script_version":"2.1"},{"name":"apidock.vim","script_type":"utility","summary":"Plugin
+      that searches http://apidock.com Rails/Ruby/RSpec docs","repo_url":"http://github.com/vim-scripts/apidock.vim.git","script_version":"0.1"},{"name":"paper","script_type":"color
+      scheme","summary":"A slightly toned-down mod of the Railscasts color scheme.","repo_url":"http://github.com/vim-scripts/paper.git","script_version":"1.0.1"},{"name":"rails.vim","script_type":"utility","summary":"Ruby
+      on Rails: easy file navigation, enhanced syntax highlighting, and more","repo_url":"http://github.com/vim-scripts/rails.vim.git","script_version":"4.3"},{"name":"railscasts","script_type":"color
+      scheme","summary":"Railscasts TextMate theme for Vim (GUI Only)","repo_url":"http://github.com/vim-scripts/railscasts.git","script_version":"1.3"},{"name":"railstab.vim","script_type":"utility","summary":"Retabbing
+      hacks extracted from rails.vim","repo_url":"http://github.com/vim-scripts/railstab.vim.git","script_version":"1.0"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/rails?limit=100&page=1&script_type=utility
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:59:49 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"cf7c6002b9c3d8ebd56bf574cd1a163b"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.391499'
+    body: ! '[{"name":"FastGrep","script_type":"utility","summary":"FastGrep for a
+      string using native linux commands in Ruby on Rails projects.","repo_url":"http://github.com/vim-scripts/FastGrep.git","script_version":"0.1"},{"name":"apidock.vim","script_type":"utility","summary":"Plugin
+      that searches http://apidock.com Rails/Ruby/RSpec docs","repo_url":"http://github.com/vim-scripts/apidock.vim.git","script_version":"0.1"},{"name":"rails.vim","script_type":"utility","summary":"Ruby
+      on Rails: easy file navigation, enhanced syntax highlighting, and more","repo_url":"http://github.com/vim-scripts/rails.vim.git","script_version":"4.3"},{"name":"railstab.vim","script_type":"utility","summary":"Retabbing
+      hacks extracted from rails.vim","repo_url":"http://github.com/vim-scripts/railstab.vim.git","script_version":"1.0"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search?limit=10&page=1&script_type=utility
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:59:53 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"358b3d40afb2ddaeb40bab4054474602"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.343142'
+    body: ! '[{"name":"0scan","script_type":"utility","summary":"Tags based search
+      for any things you might want to find(ctags, buffers,...).","repo_url":"http://github.com/vim-scripts/0scan.git","script_version":"0.5.2"},{"name":"ACScope","script_type":"utility","summary":"Another
+      CScope frontend","repo_url":"http://github.com/vim-scripts/ACScope.git","script_version":"0.2"},{"name":"AGTD","script_type":"utility","summary":"Almighty
+      GTD File for Vim","repo_url":"http://github.com/vim-scripts/AGTD.git","script_version":"0.3"},{"name":"Abc-Menu","script_type":"utility","summary":"Adds
+      alphabetic menus of commands","repo_url":"http://github.com/vim-scripts/Abc-Menu.git","script_version":"0.9"},{"name":"Acpp","script_type":"utility","summary":"Does
+      a better job than A script","repo_url":"http://github.com/vim-scripts/Acpp.git","script_version":"0.01"},{"name":"AddCppClass","script_type":"utility","summary":"this
+      plugin is to help you add a c++ class conveniently","repo_url":"http://github.com/vim-scripts/AddCppClass.git","script_version":"0.1.2"},{"name":"AddIfndefGuard","script_type":"utility","summary":"Add
+      the #ifndef/#define/#endif guard to a C/C++ header file","repo_url":"http://github.com/vim-scripts/AddIfndefGuard.git","script_version":"0.1"},{"name":"AfterColors.vim","script_type":"utility","summary":"Provides
+      support for after/colors/ scripts","repo_url":"http://github.com/vim-scripts/AfterColors.vim.git","script_version":"1.3"},{"name":"Align","script_type":"utility","summary":"Help
+      folks to align text, eqns, declarations, tables, etc","repo_url":"http://github.com/vim-scripts/Align.git","script_version":"35/41"},{"name":"Align.vim","script_type":"utility","summary":"Map
+      keys '')'' and '']'' to perform automatic formatting of parentheses content","repo_url":"http://github.com/vim-scripts/Align.vim.git","script_version":"0.15"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/rails?limit=100&page=1&script_type=color_scheme
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 22:59:58 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"022b0c3705095c003ad1c22ea3a825fe"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.328726'
+    body: ! '[{"name":"Railscasts-Theme-GUIand256color","script_type":"color scheme","summary":"A
+      railscasts color theme that works in 256color terminals as well as gui","repo_url":"http://github.com/vim-scripts/Railscasts-Theme-GUIand256color.git","script_version":"2.1"},{"name":"paper","script_type":"color
+      scheme","summary":"A slightly toned-down mod of the Railscasts color scheme.","repo_url":"http://github.com/vim-scripts/paper.git","script_version":"1.0.1"},{"name":"railscasts","script_type":"color
+      scheme","summary":"Railscasts TextMate theme for Vim (GUI Only)","repo_url":"http://github.com/vim-scripts/railscasts.git","script_version":"1.3"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/haml?limit=100&page=1&script_type=syntax
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 23:00:03 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"496439069a8b49b9b0236e1b0de568d2"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.382055'
+    body: ! '[{"name":"Haml","script_type":"syntax","summary":"Haml syntax highlight","repo_url":"http://github.com/vim-scripts/Haml.git","script_version":"0.3"},{"name":"haml.zip","script_type":"syntax","summary":"Haml
+      and Sass syntax, indenting, and ftplugin","repo_url":"http://github.com/vim-scripts/haml.zip.git","script_version":"1.0"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/ruby?limit=100&page=1&script_type=indent
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 23:00:08 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"6c9d271c8dbe75a8b4c361be0572d332"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.340023'
+    body: ! '[{"name":"indentruby.vim","script_type":"indent","summary":"The official
+      indent/ruby.vim","repo_url":"http://github.com/vim-scripts/indentruby.vim.git","script_version":"1.1"},{"name":"ruby.vim--IGREQUE","script_type":"indent","summary":"Ruby
+      Indentation with IndentAnything","repo_url":"http://github.com/vim-scripts/ruby.vim--IGREQUE.git","script_version":"0.1.6"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/sudoku?limit=100&page=1&script_type=game
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 23:00:13 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"f0d4b2f4afd287d187b4a22d14d1d82a"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.432673'
+    body: ! '[{"name":"Sudoku-Solver","script_type":"game","summary":"Plugin for solving
+      Sudoku puzzles","repo_url":"http://github.com/vim-scripts/Sudoku-Solver.git","script_version":"1.1"},{"name":"sudoku","script_type":"game","summary":"Sudoku
+      solving helper","repo_url":"http://github.com/vim-scripts/sudoku.git","script_version":"0.1"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/apt?limit=100&page=1&script_type=plugin
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 23:00:18 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"5076fd56e6cf5b11cf200f7a2201cdae"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.299460'
+    body: ! '[{"name":"apt-complete.vim","script_type":"plugin","summary":" provide
+      debian package name completion","repo_url":"http://github.com/vim-scripts/apt-complete.vim.git","script_version":"0.1"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/start?limit=100&page=1&script_type=patch
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 23:00:22 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"7a9e94cb649df784524be41228ec08e8"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.359856'
+    body: ! '[{"name":"startup_profile","script_type":"patch","summary":"Profile vim
+      startup","repo_url":"http://github.com/vim-scripts/startup_profile.git","script_version":"0.2"}]'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.vimpack.org:80/api/v1/scripts/search/this_does_not_exist_anywhere_right?limit=100&page=1
+    body: !!null 
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/json
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Sat, 09 Apr 2011 23:00:27 GMT
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      status:
+      - 200 OK
+      etag:
+      - ! '"d751713988987e9331980363e24189ce"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      x-runtime:
+      - '0.147176'
+    body: ! '[]'
+    http_version: '1.1'

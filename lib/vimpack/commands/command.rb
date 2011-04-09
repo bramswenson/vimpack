@@ -19,7 +19,9 @@ module Vimpack
 
       def initialize_environment
         Vimpack.environment = @global_options[:environment].to_sym
-        say(" * using environment #{Vimpack.environment.inspect}") unless Vimpack.environment == :production
+        unless Vimpack.env?('production')
+          say(" * using environment #{Vimpack.environment.inspect}")
+        end
       end
 
       def initialize_global_options

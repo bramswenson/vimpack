@@ -6,7 +6,7 @@ Feature: Install a vim script
 
   Scenario: Install a script
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack install rails.vim"
+    When I run "vimpack -e development install rails.vim"
     Then the output should contain:
       """
        * installing rails.vim
@@ -18,7 +18,7 @@ Feature: Install a vim script
 
   Scenario: Install multiple scripts
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack install rails.vim cucumber.zip"
+    When I run "vimpack -e development install rails.vim cucumber.zip"
     Then the output should contain:
       """
        * installing rails.vim
@@ -32,7 +32,7 @@ Feature: Install a vim script
 
   Scenario: Attempt to install a script that is not found
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack install railz"
+    When I run "vimpack -e development install railz"
     Then the output should contain:
       """
       Script not found!
@@ -41,7 +41,7 @@ Feature: Install a vim script
 
   Scenario: Attempt to install a script that is not found but a fuzzy match is found
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack install cucumber"
+    When I run "vimpack -e development install cucumber"
     Then the output should contain:
       """
       Script not found! Did you mean cucumber.zip?
