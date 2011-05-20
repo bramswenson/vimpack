@@ -57,7 +57,7 @@ module Vimpack
 
         private
         def script_directories
-          Script::SCRIPT_TYPES.map do |script_type| 
+          Script::SCRIPT_TYPES.map do |script_type|
             script_path.join(script_type.gsub(' ', '_'), '*')
           end
         end

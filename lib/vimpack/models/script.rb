@@ -1,57 +1,60 @@
 module Vimpack
   module Models
 
-    class Script < ApiBase
+    class Script
+      include Vimpack::Utils::Vimscripts
+      include Vimpack::Utils::Github
+
       class ScriptNotFound < StandardError; end
       class AlreadyInstalled < StandardError; end
       class NotInstalled < StandardError; end
 
-      base_url 'http://api.vimpack.org/api/v1/scripts'
-      attr_accessor :name, :script_type, :summary, :repo_url, :script_version,
-                    :description, :author
+      # From Vimscripts.org
+      attr_accessor :name, :script_type, :summary, :version,
+        :author, :author_email, :script_version
+      # From Github
+      attr_accessor :url, :description, :github
 
       SCRIPT_TYPES = [ 'utility', 'color scheme', 'syntax', 'ftplugin',
                        'indent', 'game', 'plugin', 'patch' ]
 
-      def self.search(pattern=nil, conditions=Array.new, limit=100, page=1)
-        params = { :limit => limit, :page => page }
-        params[:script_type] = conditions.join(',') unless conditions.empty?
-        path   = pattern.nil? ? 'search' : "search/#{pattern}"
-        begin
-          scripts = self.rest_client(:get, path, :params => params)
-        rescue RestClient::InternalServerError
-          return []
-        end
-        scripts = Script.json_parser.parse(scripts)
-        scripts = scripts.map do |script|
-          Script.new(script)
+      def initialize(attrs={})
+        setup_accessors(attrs)
+        set_attributes_from_github
+      end
+
+      def setup_accessors(attrs)
+        attrs.each_pair do |attr, value|
+          self.send("#{attr}=", value)
         end
       end
 
-      def self.get(script_name)
-        begin
-          script = self.rest_client(:get, script_name)
-        rescue RestClient::InternalServerError
-          raise ScriptNotFound.new(script_name)
-        end
-        script = Script.from_json(script)
-        script
+      def set_attributes_from_github
+        url = "vim-scripts/#{name}"
+        self.github = self.class.repo("vim-scripts/#{self.name}")
+        [ :url, :description ].each { |attr| send("#{attr}=", self.github[attr]) }
       end
 
-      def self.info(script_name)
-        begin
-          script = self.rest_client(:get, "#{script_name}/info")
-        rescue RestClient::InternalServerError
-          raise ScriptNotFound.new(script_name)
+      def self.search(q)
+        search_vimscripts(q).map do |vimscript|
+          Script.new(vimscript)
         end
-        script = Script.from_json(script)
-        script
+      end
+
+      def self.get(name)
+        vimscript = get_vimscript(name)
+        raise ScriptNotFound.new(name) if vimscript.nil?
+        Script.new(vimscript)
+      end
+
+      def self.info(name)
+        self.get(name)
       end
 
       def install!(link_to_bundle=true)
         Repo.raise_unless_initialized!
         raise AlreadyInstalled.new(name) if installed?
-        Repo.add_submodule(repo_url, script_type.gsub(' ', '_'), name)
+        Repo.add_submodule(url, script_type.gsub(' ', '_'), name)
         if link_to_bundle
           Repo.create_link(install_path, bundle_path)
         end

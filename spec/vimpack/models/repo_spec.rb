@@ -17,7 +17,7 @@ describe Vimpack::Models::Repo do
   end
 
   context "installed_script_names" do
-    
+
     it "should return a collection of script names" do
       vimpack.initialize!
       Vimpack::Models::Script.get('rails.vim').install!
@@ -27,7 +27,7 @@ describe Vimpack::Models::Repo do
   end
 
   context "installed_scripts" do
-    
+
     it "should return a collection of scripts" do
       vimpack.initialize!
       rails_vim_script = Vimpack::Models::Script.info('rails.vim')
@@ -127,13 +127,13 @@ describe Vimpack::Models::Repo do
           it "should have created a link .vim to .vimpack/vim" do
             File.should be_a_directory(vimpack.vim_path.to_s)
             File.should exist(vimpack.home_path.join('.vim'))
-            Pathname.new(vimpack.home_path.join('.vim')).realpath.to_s.should == vimpack.vim_path.to_s
+            Pathname.new(vimpack.home_path.join('.vim')).realpath.to_s.gsub('/private', '').should == vimpack.vim_path.to_s
           end
 
           it "should have created a link .vimrc to .vimpack/vimrc" do
             File.should exist(vimpack.pack_path.join('vimrc'))
             File.should exist(vimpack.home_path.join('.vimrc'))
-            Pathname.new(vimpack.home_path.join('.vimrc')).realpath.to_s.should == vimpack.pack_path.join('vimrc')
+            Pathname.new(vimpack.home_path.join('.vimrc')).realpath.to_s.gsub('/private', '').should == vimpack.pack_path.join('vimrc')
           end
 
           unless repo_url_arg.nil?
@@ -141,6 +141,7 @@ describe Vimpack::Models::Repo do
             it "should have a remote origin of git@github.com:bramswenson/vimpack-repo-test.git" do
               check_vimpack_remote('origin', 'git@github.com:bramswenson/vimpack-repo-test.git')
             end
+
           end
         end
       end

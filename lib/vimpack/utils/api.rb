@@ -5,44 +5,31 @@ module Vimpack
       def self.included(base)
         base.send(:extend,  ClassMethods)
         unless Vimpack.env?('production')
-         require 'vcr'
-         VCR.config do |c|
-           c.cassette_library_dir     = Vimpack.root.join('cassette_library')
-           c.stub_with                :webmock
-           c.ignore_localhost         = true
-           c.default_cassette_options = { :record => :new_episodes }
-         end
+          require 'vcr'
+          VCR.config do |c|
+            c.cassette_library_dir     = Vimpack.root.join('cassette_library')
+            c.stub_with                :webmock
+            c.ignore_localhost         = true
+            c.default_cassette_options = { :record => :new_episodes }
+          end
         end
-     end
+      end
 
       module ClassMethods
-        attr_accessor :base_url
 
-        def base_url(url=nil)
-          @base_url ||= 'http://api.vimpack.org/api/v1'
-          @base_url = url.nil? ? @base_url : url
-        end
-
-        def setup_request_url(path)
-          [ base_url, path ].join('/')
-        end
-
-        def rest_client(method, path, options=Hash.new)
-          options.merge!(:content_type => :json, :accept => :json)
-          begin
-            send(:_rest_client, method.to_sym, setup_request_url(path), options)
-          rescue => e
-            raise e
+       def wrap_open(*args)
+          wrap_http_call do
+            open(*args)
           end
         end
 
-        private
-        def _rest_client(method, url, options)
+        def wrap_http_call(cassette_name='vimpack')
+          raise StandardError.new('you must give a block to wrap_http_call') unless block_given?
           if Vimpack.env?(:production)
-            RestClient.send(method, url, options)
+            yield
           else
-            VCR.use_cassette('vimpack') do
-              RestClient.send(method, url, options)
+            VCR.use_cassette(cassette_name) do
+              yield
             end
           end
         end

@@ -19,14 +19,16 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency('bundler', '>= 1.0.12')
+  s.add_dependency('bundler', '>= 1.0.13')
   s.add_dependency('trollop', '~> 1.16.2')
   s.add_dependency('rainbow', '~> 1.1.1')
   s.add_dependency('childprocess', '~> 0.1.8')
-  s.add_dependency('rest-client', '~> 1.6.1')
   s.add_dependency('activemodel', '~> 3.0.4')
   s.add_dependency('yajl-ruby', '~> 0.8.1')
   s.add_dependency('enviro', '>=0.0.4')
+  s.add_dependency('nokogiri', '~> 1.4.4')
+  s.add_dependency('octokit', '~> 0.6.3')
+
   s.add_development_dependency('vcr')
   s.add_development_dependency('webmock')
   s.add_development_dependency('cucumber')

@@ -2,31 +2,27 @@ module Vimpack
   module Models
 
     class Base
-      include ActiveModel::Serializers::JSON
       class << self
 
         include ::Vimpack::Utils::File
         include ::Vimpack::Utils::Git
 
-        def json_parser
-          @json_parser = Yajl::Parser.new
-        end
-
-        def from_json(json_data)
-          new(json_parser.parse(json_data))
+        attr_reader :attributes
+        def attributes(*attribute_names)
+          return @attributes if attribute_names.empty?
+          attribute_names = attribute_names.map(&:to_sym)
+          @attributes = attribute_names
+          attr_accessor *attribute_names
         end
 
       end
       setup_paths(ENV['HOME'])
 
-      attr_accessor :attributes
       def initialize(attributes = Hash.new)
-        self.attributes = attributes
-        self.attributes.each do |name, value|
+        attributes.each do |name, value|
           send("#{name}=".to_sym, value)
         end
       end
-
 
     end
   end

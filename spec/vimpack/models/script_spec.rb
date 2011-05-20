@@ -11,15 +11,15 @@ describe Vimpack::Models::Script do
     end
 
     context "search" do
-      
+
       context "by exact name" do
 
         it "should return a 1 item collection" do
-          script_model.search('cucumber.zip').count.should == 1
+          script_model.search('cucumber').count.should == 1
         end
 
         it "should return a Script as the first result in the collection" do
-          script_model.search('cucumber.zip').first.should be_a(script_model)
+          script_model.search('cucumber').first.should be_a(script_model)
         end
 
       end
@@ -57,6 +57,7 @@ describe Vimpack::Models::Script do
       end
 
     end
+
     context "get" do
 
       it "should raise an error when the script does not exist" do
@@ -71,41 +72,46 @@ describe Vimpack::Models::Script do
   end
 
   context "an instance" do
-    
+
     context "should respond to" do
-      let(:script) { script_model.new }
-      %w( name script_type summary repo_url script_version description
-          author install! uninstall! installed? installable? install_path
-        ).each do |meth|
+      let(:script) { script_model.get('rails.vim') }
+      %w(
+        name script_type version author author_email
+        script_version url description
+        install! uninstall! installed? installable? install_path
+      ).each do |meth|
         it meth do
           script.should respond_to(meth.to_sym)
         end
       end
     end
 
-    context "that exists in vimpack.org" do
+    context "that exists in vim-scripts.org" do
 
       let(:script) { script_model.get('rails.vim') }
       let(:repo)   { Vimpack::Models::Repo }
-      script_data = {
-        :name => "rails.vim",
-        :script_type => "utility",
-        :summary => "Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more",
-        :repo_url => "http://github.com/vim-scripts/rails.vim.git",
-        :script_version => "4.3",
-      }
-      script_data.each_pair do |attribute, value|
 
-        it "should have a #{attribute} of #{value}" do
-          script.send(attribute).should == value 
+      it "script should not be nil" do
+        script.should_not be_nil
+      end
+
+      { :name => "rails.vim",
+        :script_type => "utility",
+        :script_version => "18",
+        :url => "https://github.com/vim-scripts/rails.vim",
+        :description => "Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more",
+      }.each_pair do |attribute, value|
+
+        it "should have a #{attribute} of '#{value}'" do
+          script.send(attribute).should == value
         end
-        
+
       end
 
       context "installable?" do
 
         it "should be false if vimpack is not initialized" do
-          script.should_not be_installable 
+          script.should_not be_installable
         end
 
         it "should be true if vimpack is initialized" do
@@ -131,7 +137,7 @@ describe Vimpack::Models::Script do
         it "should be a path in the bundle dir" do
           script.bundle_path.should include(Vimpack::Models::Repo.bundle_path.to_s)
         end
-  
+
       end
 
       context "install_path" do
@@ -150,7 +156,7 @@ describe Vimpack::Models::Script do
         it "should be a path in the scripts dir" do
           script.install_path.should include(Vimpack::Models::Repo.script_path.to_s)
         end
-  
+
         it "should be a path named after the script_type" do
           script.install_path.should match(/#{script.script_type}/)
         end
