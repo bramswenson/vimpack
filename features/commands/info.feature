@@ -6,11 +6,11 @@ Feature: Get information about a script
 
   Scenario: Get script detailed information
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack -e development info rails.vim"
+    When I run `vimpack -e development info rails.vim`
     Then the output should contain:
       """
       Name: rails.vim
-      Author: tpope
+      Author: Tim Pope
       Version: 4.3
       Type: utility
       Description:
@@ -19,7 +19,7 @@ Feature: Get information about a script
 
   Scenario: Try to get info for a script that does not exist
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack -e development info this_does_not_exists_i_swear"
+    When I run `vimpack -e development info this_does_not_exists_i_swear`
     Then the output should contain:
       """
       Script not found!

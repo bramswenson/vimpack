@@ -8,7 +8,7 @@ Feature: Initialize vimpack
     Given a directory named "test_vimpack/.vim"
       And an empty file named "test_vimpack/.vimrc"
       And "test_vimpack" is my home directory
-    When I run "vimpack -e development init"
+    When I run `vimpack -e development init`
     Then a directory named "test_vimpack/.vim.before_vimpack" should exist
       And a file named "test_vimpack/.vimrc.before_vimpack" should exist
       And the output should contain " * initializing vimpack repo"
@@ -28,7 +28,7 @@ Feature: Initialize vimpack
     Given a directory named "test_vimpack/.vim"
       And an empty file named "test_vimpack/.vimrc"
       And "test_vimpack" is my home directory
-    When I run "vimpack -e development init git@github.com:bramswenson/vimpack-repo-test.git"
+    When I run `vimpack -e development init git@github.com:bramswenson/vimpack-repo-test.git`
     Then a directory named "test_vimpack/.vim.before_vimpack" should exist
       And a file named "test_vimpack/.vimrc.before_vimpack" should exist
       And the output should contain " * initializing vimpack repo from git@github.com:bramswenson/vimpack-repo-test.git"

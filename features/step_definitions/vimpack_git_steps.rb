@@ -51,8 +51,8 @@ end
 Given /^an existing git repo in "([^"]*)"$/ do |path|
   steps %Q{
     Given an initialized git repo in "#{path}"
-      And I run "vimpack -e development git remote add origin /tmp/aruba/#{path}"
-    When I run "vimpack -e development git publish -m '[TEST] testing vimpack'"
+      And I run `vimpack -e development git remote add origin /tmp/aruba/#{path}`
+    When I run `vimpack -e development git publish -m '[TEST] testing vimpack'`
     Then the exit status should be 0
       And the output should contain:
         """
@@ -68,7 +68,7 @@ Given /^an initialized vimpack in "([^"]*)" from remote "([^"]*)"$/ do |homedir,
     Given a directory named "#{homedir}/.vim"
       And an empty file named "#{homedir}/.vimrc"
       And "#{homedir}" is my home directory
-    When I run "vimpack -e development init /tmp/aruba/#{remote_path}"
+    When I run `vimpack -e development init /tmp/aruba/#{remote_path}`
     Then the exit status should be 0
       And the output should contain "vimpack initialized!"
       And the vimpack git remote "origin" should be "/tmp/aruba/#{remote_path}"
@@ -83,7 +83,7 @@ Given /^an initialized vimpack in "([^"]*)" that is out of sync with its remote$
       And an initialized vimpack in "test_vimpack_remoted" from remote "vimpack-repo"
       And "#{path}" is my home directory
       And "cucumber.zip" is already installed
-      And I run "vimpack -e development git publish -m '[CUKE] added cucumber.zip'"
+      And I run `vimpack -e development git publish -m '[CUKE] added cucumber.zip'`
       And "test_vimpack_remoted" is my home directory
       And "haml.zip" is already installed
   }

@@ -3,13 +3,10 @@ module Vimpack
     class Search < Command
 
       def initialize_options
-        @conditions = Vimpack::Models::Script::SCRIPT_TYPES.map.inject(Array.new) do |conditions, script_type|
-          script_type = script_type.sub(' ', '_')
-          conditions << script_type if @options[script_type.to_sym]
+        @conditions = Vimpack::Models::Script::SCRIPT_TYPES.map.inject([]) do |conditions, script_type|
+          conditions << script_type if @options[script_type.gsub(' ', '_').to_sym]
           conditions
         end
-        @limit = @options[:limit]
-        @page  = @options[:page]
       end
 
       def initialize_commands
@@ -18,7 +15,7 @@ module Vimpack
       end
 
       def run
-        scripts = Vimpack::Models::Script.search(@pattern, @conditions, @limit, @page)
+        scripts = Vimpack::Models::Script.search(@pattern, @conditions)
         return exit_with_error!('No scripts found!', 0) if scripts.empty?
         say_justified_script_names(scripts)
       end
@@ -30,7 +27,7 @@ module Vimpack
             a.name.size <=> b.name.size
           end.reverse.first.name.size + 1
           scripts.each do |script|
-            say("#{script.name.ljust(linesize)} #{script.script_type}")
+            say("#{script.name.ljust(linesize)} #{script.type}")
           end
         end
 

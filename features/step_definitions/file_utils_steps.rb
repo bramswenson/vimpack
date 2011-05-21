@@ -21,7 +21,7 @@ end
 Then /^a symlink named "([^"]*)" should exist and link to "([^"]*)"$/ do |link, target|
   File.should exist(File.join(@dirs, link))
   require 'pathname'
-  Pathname.new(File.join(@dirs, link)).realpath.to_s.should == File.join(@dirs, target)
+  Pathname.new(File.join(@dirs, link)).realpath.to_s.gsub('/private', '').should == File.join(@dirs, target)
 end
 
 Then /^a symlink named "([^"]*)" should not exist$/ do |link|

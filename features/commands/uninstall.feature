@@ -7,7 +7,7 @@ Feature: Uninstall a vim script
   Scenario: Uninstall a script
     Given an initialized vimpack in "test_vimpack"
      And "rails.vim" is already installed
-    When I run "vimpack -e development uninstall rails.vim"
+    When I run `vimpack -e development uninstall rails.vim`
     Then the output should contain:
       """
        * uninstalling rails.vim
@@ -21,7 +21,7 @@ Feature: Uninstall a vim script
     Given an initialized vimpack in "test_vimpack"
      And "rails.vim" is already installed
      And "cucumber.zip" is already installed
-    When I run "vimpack -e development uninstall rails.vim cucumber.zip"
+    When I run `vimpack -e development uninstall rails.vim cucumber.zip`
     Then the output should contain:
       """
        * uninstalling rails.vim
@@ -37,7 +37,7 @@ Feature: Uninstall a vim script
 
   Scenario: Try Uninstall a script that is not installed
     Given an initialized vimpack in "test_vimpack"
-    When I run "vimpack -e development uninstall rails.vim"
+    When I run `vimpack -e development uninstall rails.vim`
     Then the output should contain:
       """
       Script not found!

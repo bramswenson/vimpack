@@ -16,16 +16,16 @@ module Vimpack
           end
           say(" * installing #{script.name}")
           script.install!
-          say("#{script.name} (#{script.script_version}) installed!")
+          say("#{script.name} (#{script.version}) installed!")
         end
       end
 
       private
-      
+
         def exit_with_did_you_mean!(script_name)
-          possible = Vimpack::Models::Script.search(script_name, Array.new, 1).first rescue nil
-          return possible.nil? ? 
-            exit_with_error!('Script not found!') : 
+          possible = Vimpack::Models::Script.search(script_name).first rescue nil
+          return possible.nil? ?
+            exit_with_error!('Script not found!') :
             exit_with_error!("Script not found! Did you mean #{possible.name}?")
         end
 

@@ -6,6 +6,6 @@ require 'aruba/cucumber'
 Before do
   FileUtils.rmtree('/tmp/aruba')
   @dirs = ["/tmp/aruba"]
-  @aruba_timeout_seconds = 30
+  @aruba_timeout_seconds = 60
 end
 

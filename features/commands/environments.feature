@@ -10,12 +10,12 @@ Feature: Use different environments for vimpack
       And "test_vimpack" is my home directory
 
   Scenario: Default environment should be production and should not alert
-    When I run "vimpack init"
+    When I run `vimpack init`
     Then the output should not contain " * using production environment!"
       And the exit status should be 0
 
   Scenario: When not in production environment we should be alerted
-    When I run "vimpack --environment development init"
+    When I run `vimpack --environment development init`
     Then the output should contain:
     """
      * using environment :development

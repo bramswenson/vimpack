@@ -55,10 +55,6 @@ when 'search'
     opt :game, 'Search for game scripts', :short => '-g'
     opt :plugin, 'Search for plugin scripts', :short => '-p'
     opt :patch, 'Search for patch scripts', :short => '-a'
-    opt :limit, 'Limit the number of scripts returned', :short => '-l',
-      :default => 100
-    opt :page, 'Page number to get (used with --limit for large result sets)',
-      :short => '-n', :default => 1
   end
   Vimpack::Commands::Search.run(options, global_options)
 when 'install'

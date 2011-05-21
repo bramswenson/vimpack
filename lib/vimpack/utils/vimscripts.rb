@@ -19,13 +19,28 @@ module Vimpack
           @vimscripts.clone
         end
 
-        def search_vimscripts(q)
-          q = q.downcase
-          results = vimscripts.delete_if do |vimscript|
-            !(vimscript['n'].downcase.include?(q) or vimscript['s'].downcase.include?(q))
-          end
-          results.each.map do |script|
+        def search_vimscripts(q, types = [], limit = 10, offset = 0)
+          results = q.nil? ? vimscripts : search_for_string(q, vimscripts)
+          results = types.empty? ? results : search_for_type(types, results)
+          normalize_results(limit, offset, results)
+        end
+
+        def normalize_results(limit, offset, results)
+          results[offset..limit-1].map do |script|
             normalize_vimscript(script)
+          end
+        end
+
+        def search_for_type(types, results)
+          results.delete_if do |vimscript|
+            !types.include?(vimscript['t'])
+          end
+        end
+
+        def search_for_string(q, results)
+          q = q.downcase
+          results.delete_if do |vimscript|
+            !(vimscript['n'].downcase.include?(q) or vimscript['s'].downcase.include?(q))
           end
         end
 
@@ -37,7 +52,7 @@ module Vimpack
         end
 
         def normalize_vimscript(script)
-          { :name => script['n'], :script_type => script['t'],
+          { :name => script['n'], :type => script['t'],
             :description => script['s'], :script_version => script['rv'],
             :author => script['ra'], :author_email => script['re']
           }

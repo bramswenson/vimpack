@@ -10,33 +10,43 @@ module Vimpack
       class NotInstalled < StandardError; end
 
       # From Vimscripts.org
-      attr_accessor :name, :script_type, :summary, :version,
-        :author, :author_email, :script_version
+      attr_reader :name, :type, :version, :author, :author_email
       # From Github
-      attr_accessor :url, :description, :github
+      attr_reader :url, :description
 
       SCRIPT_TYPES = [ 'utility', 'color scheme', 'syntax', 'ftplugin',
                        'indent', 'game', 'plugin', 'patch' ]
 
       def initialize(attrs={})
-        setup_accessors(attrs)
+        set_attributes_from_input(attrs)
         set_attributes_from_github
       end
 
-      def setup_accessors(attrs)
+      def set_attributes_from_input(attrs)
         attrs.each_pair do |attr, value|
-          self.send("#{attr}=", value)
+          instance_variable_set("@#{attr}".to_sym, value)
         end
       end
 
       def set_attributes_from_github
         url = "vim-scripts/#{name}"
-        self.github = self.class.repo("vim-scripts/#{self.name}")
-        [ :url, :description ].each { |attr| send("#{attr}=", self.github[attr]) }
+        @repo = self.class.repo("vim-scripts/#{name}")
+        [ :url, :description ].each { |attr| instance_variable_set("@#{attr}".to_sym, @repo[attr]) }
+        set_version_from_github
       end
 
-      def self.search(q)
-        search_vimscripts(q).map do |vimscript|
+      def commits
+        @commits ||= self.class.commits(@repo).sort do |a, b|
+          a.authored_date <=> b.authored_date
+        end
+      end
+
+      def set_version_from_github
+        @version = commits.last.message[0..10].gsub(/Version /, '')
+      end
+
+      def self.search(q, types = [], limit = 10, offset = 0)
+        search_vimscripts(q, types).map do |vimscript|
           Script.new(vimscript)
         end
       end
@@ -48,13 +58,13 @@ module Vimpack
       end
 
       def self.info(name)
-        self.get(name)
+        get(name)
       end
 
       def install!(link_to_bundle=true)
         Repo.raise_unless_initialized!
         raise AlreadyInstalled.new(name) if installed?
-        Repo.add_submodule(url, script_type.gsub(' ', '_'), name)
+        Repo.add_submodule(url, type.gsub(' ', '_'), name)
         if link_to_bundle
           Repo.create_link(install_path, bundle_path)
         end
@@ -64,7 +74,7 @@ module Vimpack
       def uninstall!
         Repo.raise_unless_initialized!
         raise NotInstalled.new(name) unless installed?
-        Repo.remove_submodule(script_type.gsub(' ', '_'), name)
+        Repo.remove_submodule(type.gsub(' ', '_'), name)
         Repo.remove_link(bundle_path) if Repo.symlink_exists?(bundle_path)
         true
       end
@@ -78,7 +88,7 @@ module Vimpack
       end
 
       def install_path
-        Repo.script_path.join(script_type.gsub(' ', '_'), name)
+        Repo.script_path.join(type.gsub(' ', '_'), name)
       end
 
       def bundle_path

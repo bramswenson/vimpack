@@ -76,8 +76,7 @@ describe Vimpack::Models::Script do
     context "should respond to" do
       let(:script) { script_model.get('rails.vim') }
       %w(
-        name script_type version author author_email
-        script_version url description
+        name type version author author_email version url description
         install! uninstall! installed? installable? install_path
       ).each do |meth|
         it meth do
@@ -96,8 +95,10 @@ describe Vimpack::Models::Script do
       end
 
       { :name => "rails.vim",
-        :script_type => "utility",
-        :script_version => "18",
+        :type => "utility",
+        :version => "4.3",
+        :author => "Tim Pope",
+        :author_email => "vimNOSPAM@tpope.org",
         :url => "https://github.com/vim-scripts/rails.vim",
         :description => "Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more",
       }.each_pair do |attribute, value|
@@ -157,8 +158,8 @@ describe Vimpack::Models::Script do
           script.install_path.should include(Vimpack::Models::Repo.script_path.to_s)
         end
 
-        it "should be a path named after the script_type" do
-          script.install_path.should match(/#{script.script_type}/)
+        it "should be a path named after the type" do
+          script.install_path.should match(/#{script.type}/)
         end
 
       end
