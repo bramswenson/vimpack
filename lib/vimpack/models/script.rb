@@ -10,7 +10,7 @@ module Vimpack
       class NotInstalled < StandardError; end
 
       # From Vimscripts.org
-      attr_reader :name, :type, :version, :author, :author_email
+      attr_reader :name, :type, :version, :version_date, :author, :author_email
       # From Github
       attr_reader :url, :description
 
@@ -42,7 +42,9 @@ module Vimpack
       end
 
       def set_version_from_github
-        @version = commits.last.message[0..10].gsub(/Version /, '')
+        last_commit = commits.last
+        @version = last_commit.message[0..10].gsub(/Version /, '')
+        @version_date = last_commit.authored_date
       end
 
       def self.search(q, types = [], limit = 10, offset = 0)

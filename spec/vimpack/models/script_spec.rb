@@ -76,7 +76,7 @@ describe Vimpack::Models::Script do
     context "should respond to" do
       let(:script) { script_model.get('rails.vim') }
       %w(
-        name type version author author_email version url description
+        name type version author author_email version version_date url description
         install! uninstall! installed? installable? install_path
       ).each do |meth|
         it meth do
@@ -97,6 +97,7 @@ describe Vimpack::Models::Script do
       { :name => "rails.vim",
         :type => "utility",
         :version => "4.3",
+        :version_date => '2010-09-09T17:00:00-07:00',
         :author => "Tim Pope",
         :author_email => "vimNOSPAM@tpope.org",
         :url => "https://github.com/vim-scripts/rails.vim",
