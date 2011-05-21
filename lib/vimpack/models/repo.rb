@@ -106,7 +106,7 @@ module Vimpack
         end
 
         def initialize_vimrc
-          template('vimrc', self.pack_path.join('vimrc'))
+          template('vimrc', self.pack_path.join('vimrc')) unless ::File.exists?(self.pack_path.join('vimrc'))
           create_link(self.pack_path.join('vimrc'), self.home_path.join('.vimrc'))
         end
 
