@@ -15,10 +15,9 @@ module Vimpack
         end
         say("Name: #{script.name}")
         say("Author: #{script.author}")
-        say("Version: #{script.version}")
+        say("Version: #{script.version} (#{script.version_date})")
         say("Type: #{script.type}")
-        say("Description:")
-        say(script.description)
+        say("Description: #{script.description}")
       end
 
     end
