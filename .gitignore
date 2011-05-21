@@ -4,3 +4,4 @@ tmp/*
 coverage/*
 Gemfile.lock
 cassette_library/*.yml
+pkg/*
