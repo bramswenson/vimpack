@@ -48,3 +48,14 @@ Feature: Install a vim script
       """
       And the exit status should be 1
 
+  Scenario: Install a script from a github repo directly
+    Given an initialized vimpack in "test_vimpack"
+    When I run `vimpack -e development install https://github.com/tpope/vim-rails.git`
+    Then the output should contain:
+      """
+       * installing vim-rails
+      vim-rails (38b54e3a192197b0d4383e3783ff93e0de2b3d41) installed!
+      """
+      And a directory named "test_vimpack/.vimpack/scripts/github/tpope/vim-rails" should exist and be a git submodule of "test_vimpack/.vimpack"
+      And a symlink named "test_vimpack/.vimpack/vim/bundle/vim-rails" should exist and link to "test_vimpack/.vimpack/scripts/github/tpope/vim-rails"
+      And the exit status should be 0

@@ -54,7 +54,8 @@ module Vimpack
         def normalize_vimscript(script)
           { :name => script['n'], :type => script['t'],
             :description => script['s'], :script_version => script['rv'],
-            :author => script['ra'], :author_email => script['re']
+            :author => script['ra'], :author_email => script['re'],
+            :repo_owner => 'vim-scripts'
           }
         end
 

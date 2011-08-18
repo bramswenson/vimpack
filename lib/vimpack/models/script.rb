@@ -13,9 +13,11 @@ module Vimpack
       attr_reader :name, :type, :version, :version_date, :author, :author_email
       # From Github
       attr_reader :url, :description
+      # From awesomeness
+      attr_reader :repo_owner
 
       SCRIPT_TYPES = [ 'utility', 'color scheme', 'syntax', 'ftplugin',
-                       'indent', 'game', 'plugin', 'patch' ]
+                       'indent', 'game', 'plugin', 'patch', 'github' ]
 
       def initialize(attrs={})
         set_attributes_from_input(attrs)
@@ -29,8 +31,8 @@ module Vimpack
       end
 
       def set_attributes_from_github
-        url = "vim-scripts/#{name}"
-        @repo = self.class.repo("vim-scripts/#{name}")
+        url = "#{repo_owner}/#{name}"
+        @repo = self.class.repo(url)
         [ :url, :description ].each { |attr| instance_variable_set("@#{attr}".to_sym, @repo[attr]) }
         set_version_from_github
       end
@@ -43,7 +45,11 @@ module Vimpack
 
       def set_version_from_github
         last_commit = commits.last
-        @version = last_commit.message[0..10].gsub(/Version /, '')
+        if type == 'github'
+          @version = last_commit.id
+        else
+          @version = last_commit.message[0..10].gsub(/Version /, '')
+        end
         @version_date = last_commit.authored_date
       end
 
@@ -54,9 +60,23 @@ module Vimpack
       end
 
       def self.get(name)
-        vimscript = get_vimscript(name)
-        raise ScriptNotFound.new(name) if vimscript.nil?
-        Script.new(vimscript)
+        # If the name has a slash in it, then it's URLy and it's a straight github repo
+        _type = (name =~ /\//) ? :github : :vimscript
+        case _type
+        when :github
+          repo_key = name.split("/")[-2..-1].join("/").split(".").first # wut demeter?
+          repo = repository(repo_key)
+          script_hash = 
+            { :name => repo.name, :type => 'github',
+              :description => repo.description, :script_version => '',
+              :author => repo.owner, :author_email => '',
+              :repo_owner => repo.owner
+            }
+        when :vimscript
+          script_hash = get_vimscript(name)
+          raise ScriptNotFound.new(name) if script_hash.nil?
+        end
+        Script.new(script_hash)
       end
 
       def self.info(name)
@@ -66,7 +86,12 @@ module Vimpack
       def install!(link_to_bundle=true)
         Repo.raise_unless_initialized!
         raise AlreadyInstalled.new(name) if installed?
-        Repo.add_submodule(url, type.gsub(' ', '_'), name)
+        case type
+        when 'github'
+          Repo.add_submodule(url, type.gsub(' ', '_'), repo_owner, name)
+        else
+          Repo.add_submodule(url, type.gsub(' ', '_'), name)
+        end
         if link_to_bundle
           Repo.create_link(install_path, bundle_path)
         end
@@ -90,7 +115,12 @@ module Vimpack
       end
 
       def install_path
-        Repo.script_path.join(type.gsub(' ', '_'), name)
+        case type
+        when 'github'
+          Repo.script_path.join(type.gsub(' ', '_'), repo_owner, name)
+        else
+          Repo.script_path.join(type.gsub(' ', '_'), name)
+        end
       end
 
       def bundle_path
