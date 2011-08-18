@@ -64,12 +64,13 @@ module Vimpack
         _type = (name =~ /\//) ? :github : :vimscript
         case _type
         when :github
-          n = name.split("/").last.split(".").first # LOL make it not suck with octocat
+          repo_key = name.split("/")[-2..-1].join("/").split(".").first # wut demeter?
+          repo = repository(repo_key)
           script_hash = 
-            { :name => n, :type => 'github',
-              :description => 'lol it does stuff', :script_version => 'this_is_hash',
-              :author => 'josh_damn', :author_email => 'josh@wroteitall.org',
-              :repo_owner => 'tpope'
+            { :name => repo.name, :type => 'github',
+              :description => repo.description, :script_version => '',
+              :author => repo.owner, :author_email => '',
+              :repo_owner => repo.owner
             }
         when :vimscript
           script_hash = get_vimscript(name)
