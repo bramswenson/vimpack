@@ -13,9 +13,11 @@ module Vimpack
       attr_reader :name, :type, :version, :version_date, :author, :author_email
       # From Github
       attr_reader :url, :description
+      # From awesomeness
+      attr_reader :repo_owner
 
       SCRIPT_TYPES = [ 'utility', 'color scheme', 'syntax', 'ftplugin',
-                       'indent', 'game', 'plugin', 'patch' ]
+                       'indent', 'game', 'plugin', 'patch', 'github' ]
 
       def initialize(attrs={})
         set_attributes_from_input(attrs)
@@ -29,8 +31,8 @@ module Vimpack
       end
 
       def set_attributes_from_github
-        url = "vim-scripts/#{name}"
-        @repo = self.class.repo("vim-scripts/#{name}")
+        url = "#{repo_owner}/#{name}"
+        @repo = self.class.repo(url)
         [ :url, :description ].each { |attr| instance_variable_set("@#{attr}".to_sym, @repo[attr]) }
         set_version_from_github
       end
@@ -54,9 +56,20 @@ module Vimpack
       end
 
       def self.get(name)
-        vimscript = get_vimscript(name)
-        raise ScriptNotFound.new(name) if vimscript.nil?
-        Script.new(vimscript)
+        _type = (name =~ /\//) ? :github : :vimscript
+        case _type
+        when :github
+          n = name.split("/").last.split(".").first # LOL make it not suck with octocat
+          script_hash = 
+            { :name => n, :type => 'github',
+              :description => 'lol it does stuff', :script_version => 'this_is_hash',
+              :author => 'josh_damn', :author_email => 'josh@wroteitall.org'
+            }
+        when :vimscript
+          script_hash = get_vimscript(name)
+          raise ScriptNotFound.new(name) if vimscript.nil?
+        end
+        Script.new(script_hash)
       end
 
       def self.info(name)
