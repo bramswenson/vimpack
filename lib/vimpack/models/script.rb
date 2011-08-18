@@ -45,7 +45,11 @@ module Vimpack
 
       def set_version_from_github
         last_commit = commits.last
-        @version = last_commit.message[0..10].gsub(/Version /, '')
+        if type == 'github'
+          @version = last_commit.id
+        else
+          @version = last_commit.message[0..10].gsub(/Version /, '')
+        end
         @version_date = last_commit.authored_date
       end
 
@@ -63,11 +67,12 @@ module Vimpack
           script_hash = 
             { :name => n, :type => 'github',
               :description => 'lol it does stuff', :script_version => 'this_is_hash',
-              :author => 'josh_damn', :author_email => 'josh@wroteitall.org'
+              :author => 'josh_damn', :author_email => 'josh@wroteitall.org',
+              :repo_owner => 'tpope'
             }
         when :vimscript
           script_hash = get_vimscript(name)
-          raise ScriptNotFound.new(name) if vimscript.nil?
+          raise ScriptNotFound.new(name) if script_hash.nil?
         end
         Script.new(script_hash)
       end
@@ -79,7 +84,12 @@ module Vimpack
       def install!(link_to_bundle=true)
         Repo.raise_unless_initialized!
         raise AlreadyInstalled.new(name) if installed?
-        Repo.add_submodule(url, type.gsub(' ', '_'), name)
+        case type
+        when 'github'
+          Repo.add_submodule(url, type.gsub(' ', '_'), repo_owner, name)
+        else
+          Repo.add_submodule(url, type.gsub(' ', '_'), name)
+        end
         if link_to_bundle
           Repo.create_link(install_path, bundle_path)
         end
@@ -103,7 +113,12 @@ module Vimpack
       end
 
       def install_path
-        Repo.script_path.join(type.gsub(' ', '_'), name)
+        case type
+        when 'github'
+          Repo.script_path.join(type.gsub(' ', '_'), repo_owner, name)
+        else
+          Repo.script_path.join(type.gsub(' ', '_'), name)
+        end
       end
 
       def bundle_path

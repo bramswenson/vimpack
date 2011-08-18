@@ -55,7 +55,7 @@ Feature: Install a vim script
     Then the output should contain:
       """
        * installing vim-rails
-      vim-rails (4.3) installed!
+      vim-rails (38b54e3a192197b0d4383e3783ff93e0de2b3d41) installed!
       """
       And a directory named "test_vimpack/.vimpack/scripts/github/tpope/vim-rails" should exist and be a git submodule of "test_vimpack/.vimpack"
       And a symlink named "test_vimpack/.vimpack/vim/bundle/vim-rails" should exist and link to "test_vimpack/.vimpack/scripts/github/tpope/vim-rails"
