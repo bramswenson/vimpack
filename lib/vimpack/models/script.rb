@@ -60,6 +60,7 @@ module Vimpack
       end
 
       def self.get(name)
+        # If the name has a slash in it, then it's URLy and it's a straight github repo
         _type = (name =~ /\//) ? :github : :vimscript
         case _type
         when :github
