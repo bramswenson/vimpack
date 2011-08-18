@@ -48,7 +48,6 @@ Feature: Install a vim script
       """
       And the exit status should be 1
 
-  @github-install
   Scenario: Install a script from a github repo directly
     Given an initialized vimpack in "test_vimpack"
     When I run `vimpack -e development install https://github.com/tpope/vim-rails.git`
