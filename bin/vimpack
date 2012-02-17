@@ -1,12 +1,7 @@
 #!/usr/bin/env ruby
-
-require 'bundler/setup'
-begin
-  require 'vimpack'
-rescue LoadError => e
-  $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-  require 'vimpack'
-end
+require 'bundler'
+Bundler.require(:default)
+require 'vimpack'
 
 USAGE = <<-EOU
 Manage bundles of vim scripts and vimrc
