@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-require 'bundler'
-Bundler.require(:default)
+$:.unshift File.expand_path('..', __FILE__)
+require 'bundler/setup'
 require 'vimpack'
 
 USAGE = <<-EOU
