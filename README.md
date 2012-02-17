@@ -1,47 +1,14 @@
-# vimpack
+# Vimpack
 
-vim package manager
+A configuration manager and script installer for vim based on pathogen.vim by Tim Pope. Here are some of its most interesting features:
 
-### setup vimpack
+  * Manage ones entire ~/.vim and ~/.vimrc in a git repository, called a vimpack (`vimpack init`)
+  * Publish ones vimpack to github for use by others, or oneself on other machines (`vimpack git publish -m 'vimpack updated'`)
+  * Clone ones entire vimpack to any other machine via github (`vimpack init <vimpack_repo_url>`)
+  * Search for vim scripts from vim-scripts.org (`vimpack search <keyword>`)
+  * Install vim scripts from vim-scripts.org (`vimpack install <script_name>`)
+  * Uninstall vim scripts from vim-scripts.org (`vimpack uninstall <script_name>`)
 
-    # for now we install from the repo
-    $ git clone git@github.com:bramswenson/vimpack.git
-    $ cd vimpack
-    $ bundle install
-    $ rake build
-    $ gem install pkg/vimpack-0.0.1.gem
-    $ rake cucumber (if you want to run the tests)
+There is more that vimpack can do, just checkout the documentation:
 
-    $ vimpack init
-     * backing up existing vim environment
-     * initializing vimpack repo
-     * installing pathogen.vim
-     * initializing .vimrc
-    vimpack initialized!
-
-    $ vimpack search rails
-    rails.vim                       utility    
-    railscast                       colorscheme
-    Railscast There (GUI&256color)  colorscheme
-    railstab.vim                    utility    
-    FastGrep                        utility
-    apidock.vim                     utility
-    grails-vim                      utility
-    
-    $ vimpack info rails.vim
-    Name: rails.vim
-    Author: Tim Pope
-    Version: 4.3
-    Description: Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more
-
-    $ vimpack install rails.vim
-     * installing rails.vim
-    rails.vim (4.3) installed!
-
-    $ vimpack list
-    rails.vim
-
-    $ vimpack uninstall rails.vim
-     * uninstalling rails.vim
-    rails.vim uninstalled!
-
+[Vimpack Documentation](http://relishapp.com/bramswenson/vimpack)
