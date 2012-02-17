@@ -10,7 +10,7 @@ Feature: Install a vim script
     Then the output should contain:
       """
        * installing rails.vim
-      rails.vim (4.3) installed!
+      rails.vim (4.4) installed!
       """
       And a directory named "test_vimpack/.vimpack/scripts/utility/rails.vim" should exist and be a git submodule of "test_vimpack/.vimpack"
       And a symlink named "test_vimpack/.vimpack/vim/bundle/rails.vim" should exist and link to "test_vimpack/.vimpack/scripts/utility/rails.vim"
@@ -22,7 +22,7 @@ Feature: Install a vim script
     Then the output should contain:
       """
        * installing rails.vim
-      rails.vim (4.3) installed!
+      rails.vim (4.4) installed!
        * installing cucumber.zip
       cucumber.zip (1.0) installed!
       """
@@ -50,11 +50,11 @@ Feature: Install a vim script
 
   Scenario: Install a script from a github repo directly
     Given an initialized vimpack in "test_vimpack"
-    When I run `vimpack -e development install https://github.com/tpope/vim-rails.git`
+    When I run `vimpack -e development install https://github.com/tpope/vim-rails`
     Then the output should contain:
       """
        * installing vim-rails
-      vim-rails (38b54e3a192197b0d4383e3783ff93e0de2b3d41) installed!
+      vim-rails (1599eecc7105971409d041e5acfe0fa85b23a097) installed!
       """
       And a directory named "test_vimpack/.vimpack/scripts/github/tpope/vim-rails" should exist and be a git submodule of "test_vimpack/.vimpack"
       And a symlink named "test_vimpack/.vimpack/vim/bundle/vim-rails" should exist and link to "test_vimpack/.vimpack/scripts/github/tpope/vim-rails"

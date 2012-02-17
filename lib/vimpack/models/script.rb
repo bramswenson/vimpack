@@ -30,27 +30,31 @@ module Vimpack
         end
       end
 
+      def github_short_url
+        @github_short_url ||= "#{repo_owner}/#{name}"
+      end
+
       def set_attributes_from_github
-        url = "#{repo_owner}/#{name}"
-        @repo = self.class.repo(url)
-        [ :url, :description ].each { |attr| instance_variable_set("@#{attr}".to_sym, @repo[attr]) }
+        @repo = self.class.repo(github_short_url)
+        instance_variable_set("@description".to_sym, @repo[:description])
+        instance_variable_set("@url".to_sym, @repo[:clone_url])
         set_version_from_github
       end
 
       def commits
-        @commits ||= self.class.commits(@repo).sort do |a, b|
+        @commits ||= self.class.commits(github_short_url).sort do |a, b|
           a.authored_date <=> b.authored_date
         end
       end
 
       def set_version_from_github
-        last_commit = commits.last
+        last_commit = commits.first
         if type == 'github'
-          @version = last_commit.id
+          @version = last_commit.sha
         else
-          @version = last_commit.message[0..10].gsub(/Version /, '')
+          @version = last_commit.commit.message.split(':')[0][0..10].gsub(/Version /, '')
         end
-        @version_date = last_commit.authored_date
+        @version_date = last_commit.commit.author.date
       end
 
       def self.search(q, types = [], limit = 10, offset = 0)
@@ -61,16 +65,16 @@ module Vimpack
 
       def self.get(name)
         # If the name has a slash in it, then it's URLy and it's a straight github repo
-        _type = (name =~ /\//) ? :github : :vimscript
+        _type = name.include?('/') ? :github : :vimscript
         case _type
         when :github
           repo_key = name.split("/")[-2..-1].join("/").split(".").first # wut demeter?
           repo = repository(repo_key)
-          script_hash = 
+          script_hash =
             { :name => repo.name, :type => 'github',
               :description => repo.description, :script_version => '',
-              :author => repo.owner, :author_email => '',
-              :repo_owner => repo.owner
+              :author => repo.owner.login, :author_email => '',
+              :repo_owner => repo.owner.login
             }
         when :vimscript
           script_hash = get_vimscript(name)

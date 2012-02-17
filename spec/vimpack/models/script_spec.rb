@@ -96,11 +96,11 @@ describe Vimpack::Models::Script do
 
       { :name => "rails.vim",
         :type => "utility",
-        :version => "4.3",
-        :version_date => '2010-09-09T17:00:00-07:00',
+        :version => "4.4",
+        :version_date => '2011-08-26T17:00:00-07:00',
         :author => "Tim Pope",
-        :author_email => "vimNOSPAM@tpope.org",
-        :url => "https://github.com/vim-scripts/rails.vim",
+        :author_email => "vim.org@tpope.org",
+        :url => "https://github.com/vim-scripts/rails.vim.git",
         :description => "Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more",
       }.each_pair do |attribute, value|
 

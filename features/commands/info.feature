@@ -11,7 +11,7 @@ Feature: Get information about a script
       """
       Name: rails.vim
       Author: Tim Pope
-      Version: 4.3 (2010-09-09T17:00:00-07:00)
+      Version: 4.4 (2011-08-26T17:00:00-07:00)
       Type: utility
       Description: Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more
       """
