@@ -29,6 +29,7 @@ Uninstall vim scripts from vim-scripts.org
 There is more that vimpack can do, just checkout the documentation or source:
 
 [Vimpack Documentation](http://relishapp.com/bramswenson/vimpack)
+
 [Vimpack Source](https://github.com/bramswenson/vimpack)
 
 Special Thanks To:
