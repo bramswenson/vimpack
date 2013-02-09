@@ -19,23 +19,20 @@ Gem::Specification.new do |s|
   s.executables   = ["vimpack"]
   s.require_paths = ["lib"]
 
-  s.add_dependency('bundler', '~> 1')
-  s.add_dependency('trollop', '~> 1.16.2')
-  s.add_dependency('rainbow', '~> 1.1.3')
-  s.add_dependency('childprocess', '~> 0.3.1')
-  s.add_dependency('activemodel', '~> 3.0.11')
-  s.add_dependency('yajl-ruby', '~> 1.1.0')
-  s.add_dependency('enviro', '>=0.0.4')
-  s.add_dependency('nokogiri', '~> 1.5.0')
-  s.add_dependency('octokit', '~> 1.0.0')
+  s.add_dependency('commander', '~> 4.1.3')
+  s.add_dependency('oj',        '~> 2.0.3')
+  s.add_dependency('octokit',   '~> 1.23.0')
 
-  s.add_development_dependency('vcr')
-  s.add_development_dependency('webmock')
+  #s.add_development_dependency('vcr')
+  #s.add_development_dependency('webmock')
+  #s.add_development_dependency('relish')
   s.add_development_dependency('cucumber')
   s.add_development_dependency('rspec')
   s.add_development_dependency('aruba')
-  s.add_development_dependency('simplecov')
-  s.add_development_dependency('ruby-debug19')
-  s.add_development_dependency('relish')
+  s.add_development_dependency('pry')
+  s.add_development_dependency('debugger')
+  s.add_development_dependency('guard')
+  s.add_development_dependency('guard-rspec')
+  s.add_development_dependency('guard-cucumber')
+  s.add_development_dependency('rb-inotify', '~> 0.8.8')
 end
-
