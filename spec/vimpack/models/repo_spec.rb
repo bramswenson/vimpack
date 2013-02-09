@@ -3,7 +3,7 @@ require 'pathname'
 
 describe Vimpack::Models::Repo do
 
-  let :vimpack, do Vimpack::Models::Repo end
+  let(:vimpack) { Vimpack::Models::Repo }
 
   %w( initialize! initialized? publish! git_exec installed_script_names
       installed_scripts ).each do |meth|
