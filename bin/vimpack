@@ -44,6 +44,14 @@ command :list do |c|
   end
 end
 
+command :uninstall do |c|
+  c.syntax = 'vimpack uninstall <script_name> [script_name]'
+  c.description = 'Uninstall vim scripts'
+  c.action do |args, options|
+    require 'vimpack/commands/uninstall'
+    Vimpack::Commands::Uninstall.run(args, options)
+  end
+end
 
 #when 'install'
 #USAGE = <<-EOU
