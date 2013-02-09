@@ -1,3 +1,6 @@
+require 'vimpack/commands/command'
+require 'vimpack/models/repo'
+
 module Vimpack
   module Commands
     class List < Command

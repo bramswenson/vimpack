@@ -35,6 +35,16 @@ command :install do |c|
   end
 end
 
+command :list do |c|
+  c.syntax = 'vimpack list'
+  c.description = 'List installed vim scripts'
+  c.action do |args, options|
+    require 'vimpack/commands/list'
+    Vimpack::Commands::List.run(args, options)
+  end
+end
+
+
 #when 'install'
 #USAGE = <<-EOU
 #Manage bundles of vim scripts and vimrc
