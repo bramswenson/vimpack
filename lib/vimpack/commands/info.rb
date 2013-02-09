@@ -1,3 +1,6 @@
+require 'vimpack/commands/command'
+require 'vimpack/models/script'
+
 module Vimpack
   module Commands
     class Info < Command

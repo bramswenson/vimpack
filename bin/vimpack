@@ -6,6 +6,15 @@ require 'vimpack'
 program :version, Vimpack::VERSION
 program :description, 'manages bundles of vim scripts and vimrc'
 
+command :info do |c|
+  c.syntax = 'vimpack info <script_name>'
+  c.description = 'Get detailed information about a vim script'
+  c.action do |args, options|
+    require 'vimpack/commands/info'
+    Vimpack::Commands::Info.run(args, options)
+  end
+end
+
 command :init do |c|
   c.syntax = 'vimpack init [repo_url]'
   c.description = 'Initialize vimpack repository'

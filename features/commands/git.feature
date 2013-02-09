@@ -1,14 +1,15 @@
-Feature: Manage vimpack -e development git repo
+Feature: Manage vimpack git repo
 
   As a vimpack user
-  I want manage my vimpack -e development git repo
+  I want manage my vimpack git repo
   So I can easily replicate my vimpack
 
+  @wip
   Scenario: Publish vimpack to empty git repo
-    Given an initialized vimpack in "test_vimpack"
+    Given an initialized vimpack in "./"
       And an initialized git repo in "vimpack-repo"
-      And I run `vimpack -e development git remote add origin /tmp/aruba/vimpack-repo`
-    When I run `vimpack -e development git publish -m '[TEST] testing vimpack'`
+      And I run `vimpack git remote add origin /tmp/aruba/vimpack-repo`
+    When I run `vimpack git publish -m '[TEST] testing vimpack'`
     Then the exit status should be 0
       And the output should contain:
         """
@@ -17,17 +18,18 @@ Feature: Manage vimpack -e development git repo
         """
       And the vimpack git remote "origin" should be "/tmp/aruba/vimpack-repo"
 
+  @wip
   Scenario: Publish vimpack repo when out of sync
-    Given an initialized vimpack in "test_vimpack"
+    Given an initialized vimpack in "./"
       And "rails.vim" is already installed
       And an existing git repo in "vimpack-repo"
-      And an initialized vimpack in "test_vimpack_remoted" from remote "vimpack-repo"
-      And "test_vimpack" is my home directory
+      And an initialized vimpack in "./remoted" from remote "vimpack-repo"
+      And "./" is my home directory
       And "cucumber.zip" is already installed
-      And I run `vimpack -e development git publish -m '[CUKE] added cucumber.zip'`
-      And "test_vimpack_remoted" is my home directory
+      And I run `vimpack git publish -m '[CUKE] added cucumber.zip'`
+      And "./remoted" is my home directory
       And "haml.zip" is already installed
-    When I run `vimpack -e development git publish -m '[TEST] this is a fail!'`
+    When I run `vimpack git publish -m '[TEST] this is a fail!'`
     Then the exit status should be 1
       And the output should contain:
         """
@@ -36,10 +38,11 @@ Feature: Manage vimpack -e development git repo
            vimpack git fetch && vimpack git merge origin/master
         """
 
-  Scenario: Initialize vimpack -e development git remote
-    Given an initialized vimpack in "test_vimpack"
+  @wip
+  Scenario: Initialize vimpack git remote
+    Given an initialized vimpack in "./"
       And an initialized git repo in "vimpack-repo"
-    When I run `vimpack -e development git remote add origin /tmp/aruba/vimpack-repo`
+    When I run `vimpack git remote add origin /tmp/aruba/vimpack-repo`
     Then the exit status should be 0
       And the output should contain:
         """
@@ -48,12 +51,13 @@ Feature: Manage vimpack -e development git repo
         """
       And the vimpack git remote "origin" should be "/tmp/aruba/vimpack-repo"
 
-  Scenario: Commit vimpack -e development git repo with commit message
-    Given an initialized vimpack in "test_vimpack"
+  @wip
+  Scenario: Commit vimpack git repo with commit message
+    Given an initialized vimpack in "./"
       And an initialized git repo in "vimpack-repo"
-      And I run `vimpack -e development git remote add origin /tmp/aruba/vimpack-repo`
-    When I run `vimpack -e development git add . `
-      And I run `vimpack -e development git commit -m '[TEST] test commit'`
+      And I run `vimpack git remote add origin /tmp/aruba/vimpack-repo`
+    When I run `vimpack git add . `
+      And I run `vimpack git commit -m '[TEST] test commit'`
     Then the exit status should be 0
       And the output should contain:
         """
@@ -62,12 +66,13 @@ Feature: Manage vimpack -e development git repo
         """
       And the vimpack git commit logs last message should be "[TEST] test commit"
 
-  Scenario: Publish vimpack -e development git repo
-    Given an initialized vimpack in "test_vimpack"
+  @wip
+  Scenario: Publish vimpack git repo
+    Given an initialized vimpack in "./"
       And an initialized git repo in "vimpack-repo"
-      And I run `vimpack -e development git remote add origin /tmp/aruba/vimpack-repo`
+      And I run `vimpack git remote add origin /tmp/aruba/vimpack-repo`
       And "rails.vim" is already installed
-    When I run `vimpack -e development git publish`
+    When I run `vimpack git publish`
     Then the exit status should be 0
       And the output should contain:
         """
