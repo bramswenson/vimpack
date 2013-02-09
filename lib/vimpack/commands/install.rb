@@ -1,3 +1,7 @@
+require 'vimpack/commands/command'
+require 'vimpack/models/script'
+require 'vimpack/models/repo'
+
 module Vimpack
   module Commands
     class Install < Command

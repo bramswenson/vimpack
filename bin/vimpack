@@ -26,6 +26,16 @@ command :init do |c|
   end
 end
 
+command :install do |c|
+  c.syntax = 'vimpack install <script_name> [script_name]'
+  c.description = 'Install vim scripts into your vimpack'
+  c.action do |args, options|
+    require 'vimpack/commands/install'
+    Vimpack::Commands::Install.run(args, options)
+  end
+end
+
+#when 'install'
 #USAGE = <<-EOU
 #Manage bundles of vim scripts and vimrc
 #

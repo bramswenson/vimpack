@@ -13,7 +13,11 @@ module Vimpack
       module ClassMethods
 
         def octokit
-          @octokit ||= Octokit::Client.new
+          @octokit ||= if ::File.exist?(netrc = ::File.join(ENV['HOME'], '.netrc'))
+            Octokit::Client.new(:netrc => netrc)
+          else
+            Octokit::Client.new
+          end
         end
 
         def search_all_repos(q, options = {})
@@ -32,10 +36,11 @@ module Vimpack
         end
 
         def method_missing(meth, *args)
-          if octokit.respond_to?(meth)
-            return wrap_http_call { octokit.send(meth, *args) }
-          end
-          super
+          wrap_http_call { octokit.send(meth, *args) }
+        rescue => e
+          raise e if e.class == NoMethodError
+          puts "OCTOKIT ERROR CALLING #{meth}: #{e}"
+          raise e
         end
 
       end

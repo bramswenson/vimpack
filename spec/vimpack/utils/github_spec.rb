@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'vimpack/utils/github'
 
 describe Vimpack::Utils::Github do
   class GithubTest
@@ -7,7 +8,7 @@ describe Vimpack::Utils::Github do
 
   let(:github) { GithubTest }
 
-  context ".search_all_repos" do
+  describe "#search_all_repos" do
 
     it "should return a collection" do
       github.search_all_repos('rails').should respond_to(:[])
