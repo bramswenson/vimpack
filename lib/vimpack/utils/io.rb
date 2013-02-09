@@ -1,3 +1,5 @@
+require 'rainbow'
+
 module Vimpack
   module Utils
     module Io
@@ -10,15 +12,11 @@ module Vimpack
         say(message, :red)
       end
 
-      def die!(message=nil)
-        scream(message)
-        return Trollop::die USAGE
-      end
-
       def exit_with_error!(message=nil, exit_code=1)
         scream(message) unless message.nil?
         exit(exit_code)
       end
+      alias :die! :exit_with_error!
 
     end
   end

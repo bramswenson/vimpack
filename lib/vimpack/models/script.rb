@@ -1,3 +1,6 @@
+require 'vimpack/utils/vimscripts'
+require 'vimpack/utils/github'
+
 module Vimpack
   module Models
 

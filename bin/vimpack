@@ -1,98 +1,113 @@
 #!/usr/bin/env ruby
-$:.unshift File.expand_path('..', __FILE__)
-require 'bundler/setup'
+require 'commander/import'
+require 'vimpack/version'
 require 'vimpack'
 
-USAGE = <<-EOU
-Manage bundles of vim scripts and vimrc
+program :version, Vimpack::VERSION
+program :description, 'manages bundles of vim scripts and vimrc'
 
-Usage:
-
-  vimpack <subcommand>
-  vimpack <subcommand> --help      - Get more detailed help on subcommands
-  vimpack init [repo_url]          - Initialize vimpack repository
-  vimpack search <string>          - Search for scripts
-  vimpack install <script_name>    - Install scripts
-  vimpack uninstall <script_name>  - Uninstall scripts
-  vimpack list                     - List installed scripts
-  vimpack info <script_name>       - Get detailed info on a script
-  vimpack git publish -m <message> - Publish vimpack repo (shorthand for commit and push)
-  vimpack git <git command>        - Run any git command within the vimpack repo
-EOU
-
-SUB_COMMANDS = %w{ init search install uninstall list info git }
-global_options = Trollop::options do
-  version 'vimpack 0.0.1 (c) 2011 Bram Swenson'
-  banner USAGE
-  opt :environment, 'The environment to run vimpack within', :short => '-e', :default => 'production'
-  stop_on SUB_COMMANDS
+command :init do |c|
+  c.syntax = 'vimpack init [repo_url]'
+  c.description = 'Initialize vimpack repository'
+  c.option '--home_directory HOMEDIR',  String, 'The home directory of the user'
+  c.action do |args, options|
+    options.default home_directory: ENV['HOME']
+    require 'vimpack/commands/init'
+    Vimpack::Commands::Init.run(args, options)
+  end
 end
 
-cmd = ARGV.shift
-unless SUB_COMMANDS.include?(cmd)
-  Trollop::die USAGE
-end
-
-case cmd
-when 'init'
-  options = Trollop::options do
-    banner 'vimpack init [repo_url] - Initialize vimpack repository'
-    opt :home_directory, 'The home directory of the user', :short => '-d', :default => ENV['HOME']
-  end
-  Vimpack::Commands::Init.run(options, global_options)
-when 'search'
-  options = Trollop::options do
-    banner 'vimpack search <string> - Search for vim scripts'
-    opt :utility, 'Search for utility scripts', :short => '-u'
-    opt :color_scheme, 'Search for color scheme scripts', :short => '-c'
-    opt :syntax, 'Search for syntax scripts', :short => '-s'
-    opt :indent, 'Search for indent scripts', :short => '-i'
-    opt :game, 'Search for game scripts', :short => '-g'
-    opt :plugin, 'Search for plugin scripts', :short => '-p'
-    opt :patch, 'Search for patch scripts', :short => '-a'
-  end
-  Vimpack::Commands::Search.run(options, global_options)
-when 'install'
-  options = Trollop::options do
-    banner 'vimpack install <script_name> [script_name] - Install vim scripts'
-  end
-  Vimpack::Commands::Install.run(options, global_options)
-when 'uninstall'
-  options = Trollop::options do
-    banner 'vimpack uninstall <script_name> [script_name] - Uninstall vim scripts'
-  end
-  Vimpack::Commands::Uninstall.run(options, global_options)
-when 'list'
-  options = Trollop::options do
-    banner 'vimpack list - List installed vim scripts'
-  end
-  Vimpack::Commands::List.run(options, global_options)
-when 'info'
-  options = Trollop::options do
-    banner 'vimpack info <script_name> - Get detailed information on a vim script'
-  end
-  Vimpack::Commands::Info.run(options, global_options)
-when 'git'
-  the_banner = <<-EOB
-vimpack git publish -m <message> - Publish vimpack repo (shorthand for commit and push)
-vimpack git <git command>        - Run any git command within the vimpack repo
-EOB
-  git_command = ARGV.shift
-  parser = Trollop::Parser.new do
-    opt :message, 'publish message', :short => '-m',
-      :default => '[VIMPACK] vimpack publish' if git_command == 'publish'
-    banner the_banner
-  end
-  begin
-    options = parser.parse ARGV
-  rescue Trollop::CommandlineError => e
-    raise e if git_command == 'publish'
-    options = {}
-  end
-  ARGV.unshift git_command
-  Vimpack::Commands::Git.run(options, global_options)
-else
-  puts "command not found: #{cmd}"
-  Trollop::die USAGE
-end
-
+#USAGE = <<-EOU
+#Manage bundles of vim scripts and vimrc
+#
+#Usage:
+#
+#  vimpack <subcommand>
+#  vimpack <subcommand> --help      - Get more detailed help on subcommands
+#  vimpack init [repo_url]          - Initialize vimpack repository
+#  vimpack search <string>          - Search for scripts
+#  vimpack install <script_name>    - Install scripts
+#  vimpack uninstall <script_name>  - Uninstall scripts
+#  vimpack list                     - List installed scripts
+#  vimpack info <script_name>       - Get detailed info on a script
+#  vimpack git publish -m <message> - Publish vimpack repo (shorthand for commit and push)
+#  vimpack git <git command>        - Run any git command within the vimpack repo
+#EOU
+#
+#SUB_COMMANDS = %w{ init search install uninstall list info git }
+#
+#global_options = Trollop::options do
+#  version 'vimpack 0.0.1 (c) 2011 Bram Swenson'
+#  banner USAGE
+#  opt :environment, 'The environment to run vimpack within', :short => '-e', :default => 'production'
+#  stop_on SUB_COMMANDS
+#end
+#
+#cmd = ARGV.shift
+#unless SUB_COMMANDS.include?(cmd)
+#  Trollop::die USAGE
+#end
+#
+#case cmd
+#when 'init'
+#  options = Trollop::options do
+#    banner 'vimpack init [repo_url] - Initialize vimpack repository'
+#    opt :home_directory, 'The home directory of the user', :short => '-d', :default => ENV['HOME']
+#  end
+#  Vimpack::Commands::Init.run(options, global_options)
+#when 'search'
+#  options = Trollop::options do
+#    banner 'vimpack search <string> - Search for vim scripts'
+#    opt :utility, 'Search for utility scripts', :short => '-u'
+#    opt :color_scheme, 'Search for color scheme scripts', :short => '-c'
+#    opt :syntax, 'Search for syntax scripts', :short => '-s'
+#    opt :indent, 'Search for indent scripts', :short => '-i'
+#    opt :game, 'Search for game scripts', :short => '-g'
+#    opt :plugin, 'Search for plugin scripts', :short => '-p'
+#    opt :patch, 'Search for patch scripts', :short => '-a'
+#  end
+#  Vimpack::Commands::Search.run(options, global_options)
+#when 'install'
+#  options = Trollop::options do
+#    banner 'vimpack install <script_name> [script_name] - Install vim scripts'
+#  end
+#  Vimpack::Commands::Install.run(options, global_options)
+#when 'uninstall'
+#  options = Trollop::options do
+#    banner 'vimpack uninstall <script_name> [script_name] - Uninstall vim scripts'
+#  end
+#  Vimpack::Commands::Uninstall.run(options, global_options)
+#when 'list'
+#  options = Trollop::options do
+#    banner 'vimpack list - List installed vim scripts'
+#  end
+#  Vimpack::Commands::List.run(options, global_options)
+#when 'info'
+#  options = Trollop::options do
+#    banner 'vimpack info <script_name> - Get detailed information on a vim script'
+#  end
+#  Vimpack::Commands::Info.run(options, global_options)
+#when 'git'
+#  the_banner = <<-EOB
+#vimpack git publish -m <message> - Publish vimpack repo (shorthand for commit and push)
+#vimpack git <git command>        - Run any git command within the vimpack repo
+#EOB
+#  git_command = ARGV.shift
+#  parser = Trollop::Parser.new do
+#    opt :message, 'publish message', :short => '-m',
+#      :default => '[VIMPACK] vimpack publish' if git_command == 'publish'
+#    banner the_banner
+#  end
+#  begin
+#    options = parser.parse ARGV
+#  rescue Trollop::CommandlineError => e
+#    raise e if git_command == 'publish'
+#    options = {}
+#  end
+#  ARGV.unshift git_command
+#  Vimpack::Commands::Git.run(options, global_options)
+#else
+#  puts "command not found: #{cmd}"
+#  Trollop::die USAGE
+#end
+#

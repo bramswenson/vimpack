@@ -1,3 +1,6 @@
+require 'vimpack/utils/api'
+require 'multi_json'
+
 module Vimpack
   module Utils
     module Vimscripts
@@ -15,7 +18,7 @@ module Vimpack
 
         def vimscripts
           # {"n"=>"test.vim", "t"=>"utility", "s"=>"example utility script file -- used for testing vimonline", "rv"=>"1.0", "rd"=>"2001-05-28", "ra"=>"Scott Johnston", "re"=>"scrott@users.sourceforge.net"}
-          @vimscripts ||= Yajl.load(wrap_open(vimscripts_url))
+          @vimscripts ||= MultiJson.load(wrap_open(vimscripts_url))
           @vimscripts.clone
         end
 

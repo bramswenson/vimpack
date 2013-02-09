@@ -1,3 +1,5 @@
+require 'childprocess'
+
 module Vimpack
   module Utils
     module Process
@@ -12,7 +14,7 @@ module Vimpack
       end
 
       def run_process!(cmd)
-        child = ::ChildProcess.build(cmd)
+        child = ::ChildProcess.build(*clean_command(cmd))
         child.io.stdout = ::Tempfile.new('child-out')
         child.io.stderr = ::Tempfile.new('child-err')
         child.start
@@ -54,6 +56,10 @@ module Vimpack
         ::Dir.chdir(dir)
         block.call
         ::Dir.chdir(orig_path)
+      end
+
+      def clean_command(cmd)
+        cmd.respond_to?(:split) ? cmd.split(' ') : cmd
       end
 
     end

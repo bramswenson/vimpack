@@ -19,9 +19,11 @@ Gem::Specification.new do |s|
   s.executables   = ["vimpack"]
   s.require_paths = ["lib"]
 
-  s.add_dependency('commander', '~> 4.1.3')
-  s.add_dependency('oj',        '~> 2.0.3')
-  s.add_dependency('octokit',   '~> 1.23.0')
+  s.add_dependency('commander',    '~> 4.1.3')
+  s.add_dependency('oj',           '~> 2.0.3')
+  s.add_dependency('octokit',      '~> 1.23.0')
+  s.add_dependency('rainbow',      '~> 1.1.4')
+  s.add_dependency('childprocess', '~> 0.3.7')
 
   #s.add_development_dependency('vcr')
   #s.add_development_dependency('webmock')

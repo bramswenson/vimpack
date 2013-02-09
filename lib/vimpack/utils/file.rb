@@ -1,3 +1,5 @@
+require 'vimpack/utils/file_path'
+
 module Vimpack
   module Utils
 

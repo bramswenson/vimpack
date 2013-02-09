@@ -1,3 +1,6 @@
+require 'vimpack/models/base'
+require 'vimpack/models/script'
+
 module Vimpack
   module Models
 

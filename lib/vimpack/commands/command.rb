@@ -1,3 +1,8 @@
+require 'vimpack/utils/file'
+require 'vimpack/utils/io'
+require 'vimpack/utils/git'
+require 'vimpack/utils/process'
+
 module Vimpack
   module Commands
     class Command
@@ -6,25 +11,12 @@ module Vimpack
       include ::Vimpack::Utils::Git
       include ::Vimpack::Utils::Process
 
-      def initialize(options, global_options)
+      def initialize(args, options)
+        @commands = args
         @options = options
-        @global_options = global_options
-        @commands = ARGV
         setup_paths(@options[:home_directory] || ENV['HOME'])
-        initialize_environment
-        initialize_global_options
         initialize_options
         initialize_commands
-      end
-
-      def initialize_environment
-        Vimpack.environment = @global_options[:environment].to_sym
-        unless Vimpack.env?('production')
-          say(" * using environment #{Vimpack.environment.inspect}")
-        end
-      end
-
-      def initialize_global_options
       end
 
       def initialize_options
@@ -37,8 +29,8 @@ module Vimpack
         raise NotImplemented
       end
 
-      def self.run(options = Hash.new, commands = Hash.new)
-        new(options, commands).run
+      def self.run(args, options)
+        new(args, options).run
       end
 
     end

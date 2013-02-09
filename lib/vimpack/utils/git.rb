@@ -1,8 +1,10 @@
+require 'vimpack/utils/process'
+
 module Vimpack
   module Utils
     module Git
 
-      include Process
+      include Vimpack::Utils::Process
 
       def init_repo(path, bare=false)
         run_process_or_die!("git init --quiet#{bare == true ? ' --bare' : ''}", path)

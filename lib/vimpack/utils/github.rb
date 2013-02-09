@@ -1,3 +1,6 @@
+require 'vimpack/utils/api'
+require 'octokit'
+
 module Vimpack
   module Utils
     module Github
